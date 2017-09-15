@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ideofuzion.btm.main.settings.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/background_scanqractivity_title"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="6dp" />
+
+                <TextView
+                    android:id="@+id/text_settings_header"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textColor="@color/text_hint_color" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_tagline_dollarRate"
+                style="@android:style/TextAppearance.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/textView_scanQRActivity_title_right_margin"
+                android:layout_marginRight="@dimen/textView_scanQRActivity_title_right_margin"
+                android:layout_weight="0"
+                android:gravity="center_vertical"
+                android:text="1BTC = 2202 USD"
+                android:textColor="@color/text_hint_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_tagline_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="13dp"
+                android:text="Enter Tagline"
+                android:textColor="@color/text_hint_color"
+                android:textSize="36sp" />
+            <EditText
+                android:id="@+id/edit_tagline_tagline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:minHeight="165dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:maxLength="180"
+                style="@android:style/TextAppearance.Large"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_color"
+                android:gravity="top"
+                android:background="@drawable/background_taggline_edittext"
+                android:layout_marginRight="40dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="69dp">
+
+                <Button
+                    android:id="@+id/button_tagline_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="39dp"
+                    android:layout_marginRight="39dp"
+                    android:background="@drawable/background_cancel_button_all_rounded"
+                    android:minHeight="60dp"
+                    android:minWidth="180dp"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button_tagline_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:minHeight="60dp"
+                    android:minWidth="180dp"
+                    android:text="Set"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

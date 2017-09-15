@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="editText_bottomMargin">10dp</dimen>
+    <dimen name="editText_topMargin">8dp</dimen>
+    <dimen name="editText_registerActivity_marginBetween">6dp</dimen>
+    <dimen name="editText_registerActivity_height">55dp</dimen>
+    <dimen name="editText_registerActivity_marginTop">10dp</dimen>
+    <dimen name="registerActivity_side_margins">362dp</dimen>
+    <dimen name="imageView_registerActivity_margin_top_bottom">42dp</dimen>
+    <dimen name="imageView_buyActivity_margin_top_bottom">143dp</dimen>
+    <dimen name="editText_scanQRActivity_title_top_margin">11dp</dimen>
+    <dimen name="textView_scanQRActivity_title_right_margin">54dp</dimen>
+    <dimen name="linearLayout_scanQRActivity_description_container_margin_top">92dp</dimen>
+    <dimen name="linearLayout_scanQRActivity_description_margin_top">16dp</dimen>
+    <dimen name="linearLayout_scanQRActivity_description_container_margin_left_right">110dp</dimen>
+    <dimen name="textView_scanQRActivity_description_top_margin">74dp</dimen>
+    <dimen name="textView_scanQRActivity_scanning_top_margin">30dp</dimen>
+    <dimen name="cancel_button_roundness_radius">10dp</dimen>
+    <dimen name="button_scanQRActivity_minWidth">228dp</dimen>
+    <dimen name="button_scanQRActivity_minHeight">82dp</dimen>
+    <dimen name="textView_scanQRActivity_yourId_left_margin">54dp</dimen>
+
+
+    <dimen name="editText_TransferAmountActivity_title_top_margin">11dp</dimen>
+    <dimen name="textView_TransferAmountActivity_title_right_margin">54dp</dimen>
+    <dimen name="linearLayout_TransferAmountActivity_description_container_margin_top">92dp</dimen>
+    <dimen name="linearLayout_TransferAmountActivity_description_margin_top">16dp</dimen>
+    <dimen name="linearLayout_TransferAmountActivity_description_container_margin_left_right">
+        110dp
+    </dimen>
+    <dimen name="textView_TransferAmountActivity_BTC_amount_top_margin">50dp</dimen>
+    <dimen name="textView_TransferAmountActivity_scanning_top_margin">30dp</dimen>
+    <dimen name="button_TransferAmountActivity_minWidth">248dp</dimen>
+    <dimen name="button_TransferAmountActivity_minHeight">82dp</dimen>
+    <dimen name="textView_TransferAmountActivity_yourId_left_margin">54dp</dimen>
+    <dimen name="editText_enterAmountActivity_calculator_width">446dp</dimen>
+    <dimen name="linearLayout_TransferAmountActivity_calculator_keys_top_margin">64dp</dimen>
+    <dimen name="button_enterAmountActivity_calculator_height">88dp</dimen>
+    <dimen name="linearLayout_authorizeActivity_profile_container_margin_top">48dp</dimen>
+    <dimen name="linearLayout_authorizeActivity_profile_container_margin_left_right">254dp</dimen>
+    <dimen name="linearLayout_authorizeActivity_profile_details_left_margin">60dp</dimen>
+    <dimen name="linearLayout_authorizeActivity_profile_details_margin_top">25dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

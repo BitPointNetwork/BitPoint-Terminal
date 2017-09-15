@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#0D192C</color>
+    <color name="colorPrimaryDark">#010E20</color>
+    <color name="colorAccent">#FDC006</color>
+
+    <color name="app_background">#0D192C</color>
+    <color name="app_theme_color">#FDC006</color>
+    <color name="text_hint_color">#828EA7</color>
+    <color name="text_color">#FCFDFD</color>
+    <color name="button_text_color">#695523</color>
+    <color name="gray">#35000000</color>
+    <color name="qractivity_title_color">#3C475D</color>
+    <color name="qractivity_title_stroke_color">#FDC006</color>
+    <color name="your_id_color">#DFAB0B</color>
+    <color name="error_color">#DFAB0B</color>
+    <color name="cancel_button_color">#FF2222</color>
+    <color name="calculator_background_color">#8490A9</color>
+    <color name="calculator_key_color">#374256</color>
+    <color name="textView_forgotPassword_color">#737f96</color>
+</resources>

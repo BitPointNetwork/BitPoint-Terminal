@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ideofuzion.btm">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+    <application
+        android:name=".BTMApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".main.register.RegisterActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".main.buy.BuyActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.scanqr.ScanQRActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.authorization.AuthorizationActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.enteramount.EnterAmountActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".main.transfercomplete.TransferCompleteActivity"
+            android:screenOrientation="landscape" />
+
+        <service
+            android:name=".location.LocationUpdateService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".main.settings.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".main.buy.BuyActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ideofuzion.btm.main.buy.BuyActivity" />
+        </activity>
+        <activity
+            android:name=".main.settings.TagLineActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.login.LoginActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".main.settings.PinCodeActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".main.authorization.PinCodeAuthActivity"
+            android:screenOrientation="landscape"/>
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:name=".bootlistener.BootListener"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </receiver>
+    </application>
+
+</manifest>

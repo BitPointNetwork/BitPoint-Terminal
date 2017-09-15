@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ideofuzion.btm.main.settings.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/background_scanqractivity_title"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/text_pinCodeAuth_yourKey"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="@dimen/textView_TransferAmountActivity_yourId_left_margin"
+                    android:layout_marginStart="@dimen/textView_TransferAmountActivity_yourId_left_margin"
+                    android:layout_toRightOf="@+id/text_enterAmountFragment_dollarRate"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|start"
+                    android:singleLine="true"
+                    android:text="Your ID asdfasfasdajdlkjalksdjlkassjkldjlkajsldkjalksjdlkjalksjdlkjalksjdlkajslkdjlkajslkdjalkjsdlkjakljlkjdlkajslkdjlkasjkldjaklsjdlkjalksjdlkjaslfasdfasdf "
+                    android:textColor="@color/your_id_color"
+                    android:textStyle="italic" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/text_pinCodeAuth_dollarRate"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/textView_TransferAmountActivity_title_right_margin"
+                    android:layout_marginRight="@dimen/textView_TransferAmountActivity_title_right_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|end"
+                    android:minWidth="300dp"
+                    android:singleLine="true"
+                    android:text="1BTC = 2202 USD"
+                    android:textColor="@color/text_hint_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_pinCodeAuth_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="13dp"
+                android:text="Enter PIN Code"
+                android:textColor="@color/text_hint_color"
+                android:textSize="36sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edit_pinCodeAuth_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background_transparent"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:padding="10dp"
+                        android:textColor="@color/text_color"
+                        android:textSize="56sp" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0"
+                        android:background="@color/text_hint_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edit_pinCodeAuth_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background_transparent"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:padding="10dp"
+                        android:textColor="@color/text_color"
+                        android:textSize="56sp" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0"
+                        android:background="@color/text_hint_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edit_pinCodeAuth_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background_transparent"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:padding="10dp"
+                        android:textColor="@color/text_color"
+                        android:textSize="56sp" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0"
+                        android:background="@color/text_hint_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/edit_pinCodeAuth_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background_transparent"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textCursorDrawable="@drawable/cursor_drawable"
+                        android:padding="10dp"
+                        android:textColor="@color/text_color"
+                        android:textSize="56sp" />
+
+                    <View
+                        android:layout_width="50dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="0"
+                        android:background="@color/text_hint_color" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp">
+
+                <Button
+                    android:id="@+id/button_pinCodeAuth_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="39dp"
+                    android:layout_marginRight="39dp"
+                    android:background="@drawable/background_cancel_button_all_rounded"
+                    android:minHeight="60dp"
+                    android:minWidth="180dp"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button_pinCodeAuth_authorize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:minHeight="60dp"
+                    android:minWidth="180dp"
+                    android:text="Authorize"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

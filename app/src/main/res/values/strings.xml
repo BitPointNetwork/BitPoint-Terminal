@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BTM</string>
+    <string name="home">Home Screen</string>
+    <string name="sd_card">SD Card</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_scan_qr">ScanQRActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+</resources>

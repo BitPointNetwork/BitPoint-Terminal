@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:color="@color/gray" tools:targetApi="lollipop">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="@dimen/cancel_button_roundness_radius"
+                android:bottomRightRadius="@dimen/cancel_button_roundness_radius"/>
+            <solid android:color="@color/cancel_button_color"/>
+        </shape>
+    </item>
+</selector>
