@@ -1,5 +1,6 @@
 package com.ideofuzion.btm.main.scanqr;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.util.AttributeSet;
@@ -18,31 +20,20 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.google.android.gms.vision.CameraSource;
 import com.google.gson.Gson;
 import com.google.zxing.Result;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.enteramount.EnterAmountActivity;
-import com.ideofuzion.btm.model.BitPointUser;
 import com.ideofuzion.btm.model.QRModel;
-import com.ideofuzion.btm.model.ServerMessage;
-import com.ideofuzion.btm.network.VolleyRequestHelper;
+import com.ideofuzion.btm.permission.PermissionActivity;
 import com.ideofuzion.btm.utils.AlertMessage;
-import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
+import com.ideofuzion.btm.utils.PermissionHandler;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import me.dm7.barcodescanner.core.IViewFinder;
 import me.dm7.barcodescanner.core.ViewFinderView;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -52,6 +43,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
  */
 
 public class ScanQRActivity extends Activity implements ZXingScannerView.ResultHandler {
+    private static final int CAMERA_PERMISSION_ID = 1;
     //my resources
     private Typeface fontRegular;
     private Typeface fontSemiBold;
@@ -63,23 +55,24 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
     LinearLayout linearLayout_scanQRFragment_scannerContainer;
     private ZXingScannerView mScannerView;
     DialogHelper dialogHelper;
+    PermissionHandler permissionHandler;
 
     QRModel qrModel = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-try {
-    setContentView(R.layout.activity_scan_qr);
-    initResources();
+        try {
+            setContentView(R.layout.activity_scan_qr);
+            initResources();
 
-    iniTypeface();
+            iniTypeface();
 
-    addListener();
-    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            addListener();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-}catch (Exception e)
-{}
+        } catch (Exception e) {
+        }
     }
 
     private void addListener() {
@@ -103,10 +96,10 @@ try {
 
     private void initResources() {
 
-        if(getIntent().hasExtra("dollarRate"))
-        {
+        if (getIntent().hasExtra("dollarRate")) {
             BTMApplication.getInstance().getBTMUserObj().setBitcoinDollarRate(getIntent().getStringExtra("dollarRate"));
         }
+        permissionHandler = new PermissionHandler(this);
         dialogHelper = new DialogHelper(this);
 
         //initializing TypeFaces objects
@@ -124,26 +117,44 @@ try {
         button_scanQRFragment_cancel = (Button) findViewById(R.id.button_scanQRFragment_cancel);
         linearLayout_scanQRFragment_scannerContainer = (LinearLayout) findViewById(R.id.linearLayout_scanQRFragment_scannerContainer);
 
-        mScannerView = new ZXingScannerView(this) {
-            @Override
-            protected IViewFinder createViewFinderView(Context context) {
-                return new CustomViewFinderView(context);
-            }
-        };
+        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
+
         linearLayout_scanQRFragment_scannerContainer.addView(mScannerView);
 
 
         //init data
-        text_scanQRFragment_dollarRate.setText("1 BTC = "+BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate()+" USD");
+        text_scanQRFragment_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate() + " USD");
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if (permissionHandler.isPermissionAvailable(Manifest.permission.CAMERA))
+            startCamera();
+        else
+        {
+            permissionHandler.requestPermission(Manifest.permission.CAMERA);
+        }
+    }
+
+    private void startCamera() {
         mScannerView.setResultHandler(this);
         mScannerView.startCamera(CameraSource.CAMERA_FACING_FRONT);
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_ID && grantResults.length > 0 && grantResults[0] > -1) {
+            startCamera();
+        } else {
+            Intent intent = new Intent(this, PermissionActivity.class);
+            intent.putExtra(PermissionActivity.PARAM_PERMISSION_CAMERA, true);
+            startActivity(intent);
+        }
+    }
+
 
     @Override
     public void onPause() {
@@ -154,9 +165,9 @@ try {
     @Override
     public void handleResult(Result rawResult) {
         /*Toast.makeText(this, "Contents = " + rawResult.getText() +
-                ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).show();*/
+                ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).initResources();*/
 
-        String data = "{"+rawResult.getText()+"}";
+        String data = "{" + rawResult.getText() + "}";
 
         if (data != null) {
             Gson gson = new Gson();
@@ -168,7 +179,7 @@ try {
 
             } catch (Exception e) {
                 qrModel = null;
-                AlertMessage.showError(text_scanQRFragment_description,"No appropriate data found");
+                AlertMessage.showError(text_scanQRFragment_description, "No appropriate data found");
                 mScannerView.resumeCameraPreview(this);
             }
         }

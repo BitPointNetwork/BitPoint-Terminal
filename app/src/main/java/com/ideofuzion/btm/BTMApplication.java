@@ -14,7 +14,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ideofuzion.btm.model.BTMUser;
-import com.ideofuzion.btm.model.BitPointUser;
 import com.ideofuzion.btm.model.QRModel;
 import com.splunk.mint.Mint;
 
@@ -34,7 +33,6 @@ public class BTMApplication extends MultiDexApplication {
     private RequestQueue mRequestQueue;
     private static BTMApplication ourInstance;
     BTMUser btmUser;
-    BitPointUser bitPointUser;
     public FirebaseAnalytics firebaseAnalytics;
     public Hashtable<String, String> contactNamesHashMap = new Hashtable<>();
 
@@ -111,13 +109,6 @@ public class BTMApplication extends MultiDexApplication {
 
     public BTMUser getBTMUserObj() {
         return btmUser;
-    }
-    public void setBitPointUserObj(BitPointUser bitPointUser) {
-        this.bitPointUser = bitPointUser;
-    }
-
-    public BitPointUser getBitpointUser() {
-        return bitPointUser;
     }
 
 }

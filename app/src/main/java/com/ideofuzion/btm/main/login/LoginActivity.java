@@ -53,6 +53,8 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
     private Typeface fontBold;
     TextView text_loginActivity_signUp;
     DialogHelper dialogHelper;
+    boolean s = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +69,13 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
 
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        }catch (Exception e)
-        {
+            if (new SessionManager().getInstance(this).hasSession()) {
+                s = true;
+                dialogHelper.showProgressDialog();
+                sendSignInRequestToServer(new SessionManager().getInstance(this).getEmail(), new SessionManager().getInstance(this).getPass());
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -78,15 +85,14 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         button_login_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               signIn();
+                signIn();
             }
         });
 
         edit_login_password.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER)
-                {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                     signIn();
                 }
                 return false;
@@ -95,12 +101,10 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
     }
 
     private void signIn() {
-        if(validateFields())
-        {
-            if(Internet.isConnected(LoginActivity.this))
-            {
+        if (validateFields()) {
+            if (Internet.isConnected(LoginActivity.this)) {
                 dialogHelper.showProgressDialog();
-                sendSignInRequestToServer(edit_login_email.getText().toString(),edit_login_password.getText().toString());
+                sendSignInRequestToServer(edit_login_email.getText().toString(), edit_login_password.getText().toString());
             }
         }
     }
@@ -113,7 +117,7 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
 
     private void initResources() {
 
-        dialogHelper =  new DialogHelper(this);
+        dialogHelper = new DialogHelper(this);
 
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
@@ -170,6 +174,9 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         signInParams.put("userMobileOSVersion", deviceOSVersion);
         signInParams.put("userMobileOSName", deviceOSName);
         signInParams.put("userPassword", password);
+/*
+        signInParams.put("userRole",2+"");
+*/
         VolleyRequestHelper.sendPostRequestWithParam(url, signInParams, this);
     }
 
@@ -194,6 +201,7 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
             dialogHelper.hideProgressDialog();
         }
         AlertMessage.showError(edit_login_email, Constants.ERROR_CHECK_INTERNET);
+        s = false;
 
     }
 
@@ -209,15 +217,18 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
+                    SessionManager.getInstance(getApplicationContext()).createSession(edit_login_email.getText().toString(), edit_login_password.getText().toString());
                     redirectUserAfterSuccessSignIn(serverMessageResponse.getData());
                 } else {
-                    AlertMessage.showError(edit_login_email, serverMessageResponse.getMessage());
+                    if (!s)
+                        AlertMessage.showError(edit_login_email, serverMessageResponse.getMessage());
                 }//end oe else
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         }//end of if for response not null
+        s = false;
     }
 
     private void redirectUserAfterSuccessSignIn(String data) {
@@ -225,7 +236,6 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
             Gson gsonForUser = new Gson();
             BTMUser btmUser = gsonForUser.fromJson(data, BTMUser.class);
             BTMApplication.getInstance().setBTMUserObj(btmUser);
-            SessionManager.getInstance(getApplicationContext()).createSession(edit_login_email.getText().toString(), edit_login_password.getText().toString());
             startActivity(new Intent(LoginActivity.this, BuyActivity.class));
             finish();
         }

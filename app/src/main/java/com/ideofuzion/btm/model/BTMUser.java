@@ -11,84 +11,37 @@ import java.util.ArrayList;
  * Created by Zohaib Khaliq on 4/11/2017.
  */
 
-public class BTMUser implements Parcelable {
+public class BTMUser {
 
 
     @SerializedName("_id")
     private String userId;
-    @SerializedName("userName")
-    private String ethUserName;
-    @SerializedName("userAddress")
-    private String addresss;
-    @SerializedName("userOccupation")
-    private String occupation;
-    @SerializedName("userContactNumber")
-    private String mobileNum;
-    @SerializedName("userProfilePictureURL")
-    private String profilePicUrl;
-    @SerializedName("userFullName")
-    private String fullName;
-    @SerializedName("channel")
-    private String channel;
-    @SerializedName("userEmail")
-    private String emailAddress;
-    @SerializedName("userProfileStatus")
-    private int profileStatus;
-    @SerializedName("ethereumUserApplicationToken")
-    private String authToken;
-    @SerializedName("ethereumUserLoginDetail")
-    private ArrayList<String> bitPointUserLastLoginDetail;
-    @SerializedName("ethereumUserPasscodeStatus")
-    private int passcodeStatus;
-    @SerializedName("ethereumUserNotificationStatus")
-    private int bitPointNotificationStatus;
-    @SerializedName("isUserMerchantMode")
-    private int bitPointMerchantStatus;
-    @SerializedName("ethereumUserDoubleAuthenticationMode")
-    private int bitPointDoubleAuthenticationStatus;
-    @SerializedName("ethPublicKey")
-    private String bitcoinPublicKey;
-    @SerializedName("bitcoinCurrencyRate")
-    private String bitcoinDollarRate;
-    @SerializedName("lat")
-    private String userLat;
-    @SerializedName("lng")
-    private String userLng;
-
-    public String getUserPass() {
-        return userPass;
-    }
-
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
-    }
-
-    @SerializedName("userPassword")
-    private  String userPass;
-
-
-    @SerializedName("tagLine")
-    private String tagLine;
-
+    @SerializedName("userEthereumId")
+    private String userBitcoinId;
+    @SerializedName("maximumHotWalletBalance")
+    private String maximumHotWalletBalance;
+    @SerializedName("minimumHotWalletBalance")
+    private String minimumHotWalletBalance;
+    @SerializedName("updatedOnUTC")
+    private String updatedOnUTC;
+    @SerializedName("createdOnUTC")
+    private String createdOnUTC;
     @SerializedName("userRole")
     private String userRole;
-
-
-
-    public String getTagLine() {
-        return tagLine;
-    }
-
-    public void setTagLine(String tagLine) {
-        this.tagLine = tagLine;
-    }
-    public String getBitcoinPublicKey() {
-        return bitcoinPublicKey;
-    }
-
-    public void setBitcoinPublicKey(String bitcoinPublicKey) {
-        this.bitcoinPublicKey = bitcoinPublicKey;
-    }
+    @SerializedName("userPassword")
+    private String userPassword;
+    @SerializedName("userEmail")
+    private String userEmail;
+    @SerializedName("userName")
+    private String userName;
+    @SerializedName("ethereumUserPasscode")
+    private String ethereumUserPasscode;
+    @SerializedName("krakenAPIKey")
+    private String krakenAPIKey;
+    @SerializedName("krakenAPISecret")
+    private String krakenAPISecret;
+    @SerializedName("profitWalletAddress")
+    private String profitWalletAddress;
 
     public String getBitcoinDollarRate() {
         return bitcoinDollarRate;
@@ -98,65 +51,8 @@ public class BTMUser implements Parcelable {
         this.bitcoinDollarRate = bitcoinDollarRate;
     }
 
-    /*public LatLng getUserLatLng()
-    {
-        return new LatLng(Double.parseDouble(userLat), Double.parseDouble(userLng));
-    }*/
-    //@SerializedName("transactionsByDays")
-    // private ArrayList<Entry> transactionGraphData;
-    protected BTMUser(Parcel in) {
-        userId = in.readString();
-        ethUserName = in.readString();
-        addresss = in.readString();
-        occupation = in.readString();
-        mobileNum = in.readString();
-        profilePicUrl = in.readString();
-        fullName = in.readString();
-        channel = in.readString();
-        emailAddress = in.readString();
-        profileStatus = in.readInt();
-        authToken = in.readString();
-        bitPointUserLastLoginDetail = in.createStringArrayList();
-        passcodeStatus = in.readInt();
-        bitPointNotificationStatus = in.readInt();
-        bitPointMerchantStatus = in.readInt();
-        bitPointDoubleAuthenticationStatus = in.readInt();
-        bitcoinPublicKey = in.readString();
-        bitcoinDollarRate = in.readString();
-        userLat = in.readString();
-        userLng = in.readString();
-        userRole = in.readString();
-        tagLine = in.readString();
-    }
+    private String bitcoinDollarRate;
 
-    public String getUserRole() {
-        return userRole;
-    }
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
-    }
-    public int getBitPointMerchantStatus() {
-        return bitPointMerchantStatus;
-    }
-
-    public void setBitPointMerchantStatus(int bitPointMerchantStatus) {
-        this.bitPointMerchantStatus = bitPointMerchantStatus;
-    }
-
-    public static final Creator<BTMUser> CREATOR = new Creator<BTMUser>() {
-        @Override
-        public BTMUser createFromParcel(Parcel in) {
-            return new BTMUser(in);
-        }
-
-        @Override
-        public BTMUser[] newArray(int size) {
-            return new BTMUser[size];
-        }
-    };
-    public String getChannel() {
-        return channel;
-    }
     public String getUserId() {
         return userId;
     }
@@ -164,157 +60,120 @@ public class BTMUser implements Parcelable {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    public void setChannel(String channel) {
-        this.channel = channel;
-    }
-    public String getAuthToken() {
-        return authToken;
+
+    public String getUserBitcoinId() {
+        return userBitcoinId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setUserBitcoinId(String userBitcoinId) {
+        this.userBitcoinId = userBitcoinId;
     }
 
-    public BTMUser() {
-        ethUserName =
-                addresss = this.occupation = this.mobileNum = this.profilePicUrl = this.fullName = this.emailAddress = authToken = "";
-    }//end of constructor
-
-
-    public int getBitPointNotificationStatus() {
-        return bitPointNotificationStatus;
+    public String getMaximumHotWalletBalance() {
+        return maximumHotWalletBalance;
     }
 
-    public void setBitPointNotificationStatus(int bitPointNotificationStatus) {
-        this.bitPointNotificationStatus = bitPointNotificationStatus;
+    public void setMaximumHotWalletBalance(String maximumHotWalletBalance) {
+        this.maximumHotWalletBalance = maximumHotWalletBalance;
     }
 
-    public int getBitPointDoubleAuthenticationStatus() {
-        return bitPointDoubleAuthenticationStatus;
+    public String getMinimumHotWalletBalance() {
+        return minimumHotWalletBalance;
     }
 
-    public void setBitPointDoubleAuthenticationStatus(int bitPointDoubleAuthenticationStatus) {
-        this.bitPointDoubleAuthenticationStatus = bitPointDoubleAuthenticationStatus;
+    public void setMinimumHotWalletBalance(String minimumHotWalletBalance) {
+        this.minimumHotWalletBalance = minimumHotWalletBalance;
     }
 
-    public int getProfileStatus() {
-        return profileStatus;
+    public String getUpdatedOnUTC() {
+        return updatedOnUTC;
     }
 
-    public void setProfileStatus(int profileStatus) {
-        this.profileStatus = profileStatus;
+    public void setUpdatedOnUTC(String updatedOnUTC) {
+        this.updatedOnUTC = updatedOnUTC;
     }
 
-    public String getBTMUserName() {
-        return ethUserName;
+    public String getCreatedOnUTC() {
+        return createdOnUTC;
     }
 
-    public void setEthUserName(String ethUserName) {
-        this.ethUserName = ethUserName;
+    public void setCreatedOnUTC(String createdOnUTC) {
+        this.createdOnUTC = createdOnUTC;
     }
 
-    public String getAddresss() {
-        return addresss;
+    public String getUserRole() {
+        return userRole;
     }
 
-    public void setAddresss(String addresss) {
-        this.addresss = addresss;
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 
-    public String getOccupation() {
-        return occupation;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public String getMobileNum() {
-        return mobileNum;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setMobileNum(String mobileNum) {
-        this.mobileNum = mobileNum;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getProfilePicUrl() {
-        return profilePicUrl;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setProfilePicUrl(String profilePicUrl) {
-        this.profilePicUrl = profilePicUrl;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getEthereumUserPasscode() {
+        return ethereumUserPasscode;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setEthereumUserPasscode(String ethereumUserPasscode) {
+        this.ethereumUserPasscode = ethereumUserPasscode;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getKrakenAPIKey() {
+        return krakenAPIKey;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setKrakenAPIKey(String krakenAPIKey) {
+        this.krakenAPIKey = krakenAPIKey;
     }
 
-    public ArrayList<String> getBitPointUserLastLoginDetail() {
-        return bitPointUserLastLoginDetail;
+    public String getKrakenAPISecret() {
+        return krakenAPISecret;
     }
 
-
-    public void setBitPointUserLastLoginDetail(ArrayList<String> bitPointUserLastLoginDetail) {
-        this.bitPointUserLastLoginDetail = bitPointUserLastLoginDetail;
+    public void setKrakenAPISecret(String krakenAPISecret) {
+        this.krakenAPISecret = krakenAPISecret;
     }
 
-    public int getPasscodeStatus() {
-        return passcodeStatus;
+    public String getProfitWalletAddress() {
+        return profitWalletAddress;
     }
 
-    public void setPasscodeStatus(int passcodeStatus) {
-        this.passcodeStatus = passcodeStatus;
+    public void setProfitWalletAddress(String profitWalletAddress) {
+        this.profitWalletAddress = profitWalletAddress;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getIsEmailVerified() {
+        return isEmailVerified;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(userId);
-        dest.writeString(ethUserName);
-        dest.writeString(addresss);
-        dest.writeString(occupation);
-        dest.writeString(mobileNum);
-        dest.writeString(profilePicUrl);
-        dest.writeString(fullName);
-        dest.writeString(channel);
-        dest.writeString(emailAddress);
-        dest.writeInt(profileStatus);
-        dest.writeString(authToken);
-        dest.writeStringList(bitPointUserLastLoginDetail);
-        dest.writeInt(passcodeStatus);
-        dest.writeInt(bitPointNotificationStatus);
-        dest.writeInt(bitPointMerchantStatus);
-        dest.writeInt(bitPointDoubleAuthenticationStatus);
-        dest.writeString(bitcoinPublicKey);
-        dest.writeString(bitcoinDollarRate);
-        dest.writeString(userLat);
-        dest.writeString(userLng);
-        dest.writeString(userRole);
-        dest.writeString(tagLine);
+    public void setIsEmailVerified(String isEmailVerified) {
+        this.isEmailVerified = isEmailVerified;
     }
 
-    /*public ArrayList<Entry> getTransactionGraphData() {
-        return transactionGraphData;
-    }
-
-    public void setTransactionGraphData(ArrayList<Entry> transactionGraphData) {
-        this.transactionGraphData = transactionGraphData;
-    }*/
+    @SerializedName("isEmailVerified")
+    private String isEmailVerified;
 
 }

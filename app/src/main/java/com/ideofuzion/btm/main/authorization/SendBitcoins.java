@@ -35,19 +35,21 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
         this.view = view;
     }
 
-    public void sendBitcoinTransferRequestToServer(String amount, String receiverPublicKey) {
+    public void sendBitcoinTransferRequestToServer(String amount) {
         try {
             dialogHelper = new DialogHelper(context);
             dialogHelper.showProgressDialog();
 
-            String url = Constants.BASE_SERVER_URL + Constants.ROUTE_SEND_BITCOINS;
+            String url = Constants.BASE_SERVER_URL + Constants.SEND_BALANCE;
 
-            Map<String, String> sendBitcoinParams = new HashMap<>();
-            sendBitcoinParams.put("amount", amount);
-            sendBitcoinParams.put("senderUserId", BTMApplication.getInstance().getBTMUserObj().getUserId());
-            sendBitcoinParams.put("receiverAddress", receiverPublicKey);
-            sendBitcoinParams.put("transactionType",Constants.TRANSACTION_TYPE_MERCHANTS);
-            VolleyRequestHelper.sendPostRequestWithParam(url, sendBitcoinParams, this);
+            Map<String, String> map = new HashMap<>();
+            map.put("customerAddress", BTMApplication.getInstance().getQrModel().getPublicBitcoinId());
+            map.put("amount",amount);
+            map.put("merchantUserName", BTMApplication.getInstance().getBTMUserObj().getUserName());
+            map.put("merchantPassword", BTMApplication.getInstance().getBTMUserObj().getUserPassword());
+            //map.put("merchantPassword", SessionManager.getInstance(this).getPass());
+
+            VolleyRequestHelper.sendPostRequestWithParam(url, map, this);
 
         } catch (Exception e) {
         }

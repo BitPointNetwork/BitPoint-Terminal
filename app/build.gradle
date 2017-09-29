@@ -33,19 +33,16 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile files('libs/mint-5.1.0.jar')
-    compile('com.google.code.gson:gson:2.8.0') {
-        exclude group: 'com.squareup.okhttp', module: 'okhttp'
-    }
+    compile 'com.google.code.gson:gson:2.8.0'
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.firebase:firebase-auth:10.2.1'
-    compile 'me.dm7.barcodescanner:zxing:1.9.3'
+    compile 'me.dm7.barcodescanner:zxing:1.9.8'
     compile 'com.google.firebase:firebase-core:10.2.1'
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.google.android.gms:play-services:10.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'me.grantland:autofittextview:0.2.+'
     compile 'de.hdodenhof:circleimageview:2.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

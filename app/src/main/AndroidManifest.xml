@@ -23,38 +23,40 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".main.register.RegisterActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity
-            android:name=".main.buy.BuyActivity"
             android:screenOrientation="landscape">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.buy.BuyActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </activity>
         <activity
             android:name=".main.scanqr.ScanQRActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".main.authorization.AuthorizationActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape" />
         <activity
             android:name=".main.enteramount.EnterAmountActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".main.transfercomplete.TransferCompleteActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape" />
 
-        <service
-            android:name=".location.LocationUpdateService"
-            android:enabled="true"
-            android:exported="true" />
 
         <activity
             android:name=".main.settings.SettingsActivity"
             android:label="@string/title_activity_settings"
+            android:launchMode="singleTask"
             android:parentActivityName=".main.buy.BuyActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme">
@@ -63,28 +65,63 @@
                 android:value="com.ideofuzion.btm.main.buy.BuyActivity" />
         </activity>
         <activity
-            android:name=".main.settings.TagLineActivity"
+            android:name=".main.login.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.settings.PinCodeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".main.login.LoginActivity"
+            android:name=".main.authorization.PinCodeAuthActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".main.settings.PinCodeActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".main.authorization.PinCodeAuthActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".permission.PermissionActivity"
+            android:screenOrientation="landscape" />
+
         <receiver
+            android:name=".bootlistener.BootListener"
             android:enabled="true"
             android:exported="true"
-            android:name=".bootlistener.BootListener"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
 
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
         </receiver>
+
+        <activity
+            android:name=".main.settings.MinMaxBalanceActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.KrakenSetupActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.BitpointProfitWalletActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.SetupProfitActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.SetupProfitThresholdActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

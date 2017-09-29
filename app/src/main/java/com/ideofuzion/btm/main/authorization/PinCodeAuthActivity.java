@@ -234,7 +234,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         button_pinCodeAuth_cancel = (Button) findViewById(R.id.button_pinCodeAuth_cancel);
         button_pinCodeAuth_authorize = (Button) findViewById(R.id.button_pinCodeAuth_authorize);
 
-        text_pinCodeAuth_youKey.setText(Html.fromHtml("<i>Your ID</i> " + BTMApplication.getInstance().getBitpointUser().getBitcoinPublicKey()));
+        text_pinCodeAuth_youKey.setText(Html.fromHtml("<i>Your ID</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
         text_pinCodeAuth_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate() + " USD");
 
         text_pinCodeAuth_title.setText(Html.fromHtml("<i>Enter PIN Code</i>"));
@@ -302,8 +302,8 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_VERIFY_PASSCODE;
 
         Map<String, String> updateTaglineParams = new HashMap<>();
-        updateTaglineParams.put("userName", BTMApplication.getInstance().getBTMUserObj().getBTMUserName());
-        updateTaglineParams.put("passcode", preCode);
+        updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
+        updateTaglineParams.put("UserPasscode", preCode);
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
 
     }
@@ -334,8 +334,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
                     serverMessageResponse.setMessage(response.getString("message"));
                     if (serverMessageResponse.getCode() == CODE_SUCCESS) {
                         SendBitcoins sendBitcoins = new SendBitcoins(PinCodeAuthActivity.this, text_pinCodeAuth_dollarRate);
-                        sendBitcoins.sendBitcoinTransferRequestToServer(bitcoinAmount,
-                                BTMApplication.getInstance().getBitpointUser().getBitcoinPublicKey());
+                        sendBitcoins.sendBitcoinTransferRequestToServer(bitcoinAmount);
                     } else {
                         AlertMessage.showError(edit_pinCodeAuth_1, serverMessageResponse.getMessage());
                     }//end oe else

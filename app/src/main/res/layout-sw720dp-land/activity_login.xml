@@ -43,7 +43,7 @@
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
                 style="@android:style/TextAppearance.Large"
-                android:hint="Email"
+                android:hint="Username"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/text_hint_color"

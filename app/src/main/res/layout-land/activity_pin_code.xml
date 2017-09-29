@@ -19,39 +19,20 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="25dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
+                android:gravity="center">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/img_setting"
-                    android:layout_marginRight="6dp" />
 
                 <TextView
                     android:id="@+id/text_settings_header"
                     style="@android:style/TextAppearance.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Settings"
+                    android:text="PIN Code Setup"
                     android:textColor="@color/text_hint_color" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/text_pincode_dollarRate"
-                style="@android:style/TextAppearance.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/textView_scanQRActivity_title_right_margin"
-                android:layout_marginRight="@dimen/textView_scanQRActivity_title_right_margin"
-                android:layout_weight="0"
-                android:gravity="center_vertical"
-                android:text="1BTC = 2202 USD"
-                android:textColor="@color/text_hint_color" />
         </LinearLayout>
 
         <LinearLayout

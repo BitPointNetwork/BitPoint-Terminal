@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text_minMaxBalance_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_scanqractivity_title"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Setup Kraken"
+        android:textColor="@color/text_hint_color"
+        style="@android:style/TextAppearance.Large"
+        />
+
+
+        <LinearLayout
+
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edit_minMaxBalance_minBalance"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/editText_bottomMargin"
+                    android:layout_marginTop="@dimen/editText_topMargin"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_transparent"
+                    android:drawablePadding="10dp"
+                    android:gravity="bottom"
+                    android:hint="Enter kraken API Key"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_hint_color"
+                    android:textColorHint="@color/text_hint_color"
+                    android:textCursorDrawable="@drawable/cursor_drawable" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0"
+                    android:background="@color/text_hint_color" />
+
+                <EditText
+                    android:id="@+id/edit_minMaxBalance_maxBalance"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/editText_bottomMargin"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_transparent"
+                    android:drawablePadding="10dp"
+                    android:gravity="bottom"
+                    android:hint="Enter kraken API secret key"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_hint_color"
+                    android:textColorHint="@color/text_hint_color"
+                    android:textCursorDrawable="@drawable/cursor_drawable" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0"
+                    android:background="@color/text_hint_color" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_minMaxBalance_submit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:minHeight="80dp"
+                android:layout_margin="40dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textSize="26sp" />
+        </LinearLayout>
+</RelativeLayout>

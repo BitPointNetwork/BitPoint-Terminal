@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.settings.PinCodeActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -72,8 +73,8 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
 
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        }catch (Exception e)
-        {}
+        } catch (Exception e) {
+        }
     }
 
     private void addListener() {
@@ -101,14 +102,13 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         button_registerActivity_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               signUp();
+                signUp();
             }
         });
         edit_registerActivity_password.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER)
-                {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                     edit_registerActivity_confirmPassword.requestFocus();
                 }
                 return false;
@@ -117,8 +117,7 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         edit_registerActivity_confirmPassword.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER)
-                {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                     signUp();
                 }
                 return false;
@@ -127,14 +126,16 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
     }
 
     private void signUp() {
-        if (Internet.isConnected(RegisterActivity.this)) {
+        startActivity(new Intent(RegisterActivity.this, PinCodeActivity.class)
+        .putExtra(PinCodeActivity.EXTRA_FROM_REGISTRATION,true));
+        /*if (Internet.isConnected(RegisterActivity.this)) {
             if (validateFields()) {
                 dialogHelper.showProgressDialog();
                 sendSignUpRequestToServer();
             }
         } else {
             AlertMessage.showError(edit_registerActivity_email, Constants.ERROR_NO_INTERNET);
-        }
+        }*/
     }
 
     private void initTypefaces() {
@@ -175,7 +176,8 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
             @Override
             public void onClick(View textView) {
                 //MyUtils.sendEventToFirebase("SignUpActivity_SignInClicked");
-finish();            }
+                finish();
+            }
 
             @Override
             public void updateDrawState(TextPaint ds) {

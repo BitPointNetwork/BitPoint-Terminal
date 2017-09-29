@@ -1,6 +1,7 @@
 package com.ideofuzion.btm.main.settings;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,20 +40,18 @@ import java.util.Map;
 
 public class PinCodeActivity extends Activity implements View.OnKeyListener, Constants.ResultCode, Response.Listener<JSONObject>,
         Response.ErrorListener {
-    TextView text_settings_header, text_pinCode_dollarRate, text_pinCode_title;
+    public static final String EXTRA_FROM_REGISTRATION = "registration";
+    TextView text_settings_header,text_pincode_title;
     EditText edit_pinCode_1, edit_pinCode_2, edit_pinCode_3, edit_pinCode_4;
     Button button_pinCode_cancel, button_pinCode_set;
     private boolean isBackedClicked = false;
     private Typeface fontRegular;
     private Typeface fontSemiBold;
     private Typeface fontBold;
-    String newPINCode = "";
-    String oldPINCode = "";
-    String confirmPinCoded = "";
-    public static final String OLD_PIN_CODE = "Old PIN Code";
+    String PINCode = "";
     public static final String NEW_PIN_CODE = "New PIN Code";
-    public static final String CONFIRM_PIN_CODE = "Confirm PIN Code";
     DialogHelper dialogHelper;
+    boolean isFromRegistration = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,14 +64,14 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
             initTypeface();
 
             addListener();
-        }catch (Exception e)
-        {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initTypeface() {
         text_settings_header.setTypeface(fontSemiBold);
-        text_pinCode_dollarRate.setTypeface(fontSemiBold);
-        text_pinCode_title.setTypeface(fontBold);
+        text_pincode_title.setTypeface(fontSemiBold);
         edit_pinCode_1.setTypeface(fontSemiBold);
         edit_pinCode_2.setTypeface(fontSemiBold);
         edit_pinCode_3.setTypeface(fontSemiBold);
@@ -182,7 +181,9 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         button_pinCode_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updatePinCode();
+
+                startActivity(new Intent(PinCodeActivity.this,MinMaxBalanceActivity.class));
+                /*updatePinCode();*/
             }
         });
 
@@ -193,49 +194,14 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
                 !edit_pinCode_2.getText().toString().isEmpty() &&
                 !edit_pinCode_3.getText().toString().isEmpty() &&
                 !edit_pinCode_4.getText().toString().isEmpty()) {
-            if (text_pinCode_title.getText().toString().equals(OLD_PIN_CODE)) {
-                oldPINCode = "";
+/*
                 text_pinCode_title.setText(NEW_PIN_CODE);
-                oldPINCode = edit_pinCode_1.getText().toString() +
-                        edit_pinCode_2.getText().toString() +
-                        edit_pinCode_3.getText().toString() +
-                        edit_pinCode_4.getText().toString();
-                resetAllFields();
-            } else if (text_pinCode_title.getText().toString().equals(NEW_PIN_CODE)) {
-                newPINCode = "";
-                text_pinCode_title.setText(CONFIRM_PIN_CODE);
-                newPINCode = edit_pinCode_1.getText().toString() +
-                        edit_pinCode_2.getText().toString() +
-                        edit_pinCode_3.getText().toString() +
-                        edit_pinCode_4.getText().toString();
-                resetAllFields();
-            } else {
-                confirmPinCoded = edit_pinCode_1.getText().toString() +
-                        edit_pinCode_2.getText().toString() +
-                        edit_pinCode_3.getText().toString() +
-                        edit_pinCode_4.getText().toString();
-                if (confirmPinCoded.equals(newPINCode)) {
-                    if (Internet.isConnected(PinCodeActivity.this)) {
-                        resetAllFields();
-
-                        if (!oldPINCode.isEmpty() && !newPINCode.isEmpty()) {
-                            //send update req
-                            dialogHelper.showProgressDialog();
-                            sendPINCodeUpdateRequestToServer();
-                        } else {
-                            //send add req
-                            dialogHelper.showProgressDialog();
-                            sendPINCodeAddRequestToServer();
-                        }
-                    } else {
-                        AlertMessage.showError(edit_pinCode_1, Constants.ERROR_NO_INTERNET);
-                    }
-                } else {
-                    AlertMessage.showError(edit_pinCode_1, "New PIN and Confirm PIN does'nt match");
-                    text_pinCode_title.setText(NEW_PIN_CODE);
-                    resetAllFields();
-                }
-            }
+*/
+            PINCode = edit_pinCode_1.getText().toString() +
+                    edit_pinCode_2.getText().toString() +
+                    edit_pinCode_3.getText().toString() +
+                    edit_pinCode_4.getText().toString();
+            sendPINCodeAddRequestToServer();
         } else {
             AlertMessage.showError(edit_pinCode_1, "Please enter PIN Code");
         }
@@ -245,6 +211,8 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
         dialogHelper = new DialogHelper(this);
 
+        isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION,false);
+
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
         fontSemiBold = Fonts.getInstance(getApplicationContext()).getTypefaceSemiBold();
@@ -252,23 +220,19 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
 
         text_settings_header = (TextView) findViewById(R.id.text_settings_header);
-        text_pinCode_dollarRate = (TextView) findViewById(R.id.text_pincode_dollarRate);
-        text_pinCode_title = (TextView) findViewById(R.id.text_pincode_title);
         edit_pinCode_1 = (EditText) findViewById(R.id.edit_pinCode_1);
         edit_pinCode_2 = (EditText) findViewById(R.id.edit_pinCode_2);
         edit_pinCode_3 = (EditText) findViewById(R.id.edit_pinCode_3);
         edit_pinCode_4 = (EditText) findViewById(R.id.edit_pinCode_4);
         button_pinCode_cancel = (Button) findViewById(R.id.button_pinCode_cancel);
         button_pinCode_set = (Button) findViewById(R.id.button_pinCode_set);
+        text_pincode_title= (TextView) findViewById(R.id.text_pincode_title);
 
-        text_pinCode_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate() + " USD");
 
-        if (BTMApplication.getInstance().getBTMUserObj().getPasscodeStatus() == 100) {
-            text_pinCode_title.setText(NEW_PIN_CODE);
-        } else {
-            text_pinCode_title.setText(OLD_PIN_CODE);
+        if(isFromRegistration)
+        {
+            button_pinCode_cancel.setVisibility(View.GONE);
         }
-
     }
 
     private void resetAllFields() {
@@ -313,8 +277,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
             } else if (view.getId() == edit_pinCode_4.getId()) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     updatePinCode();
-                }else
-                if (keyCode == KeyEvent.KEYCODE_DEL) {
+                } else if (keyCode == KeyEvent.KEYCODE_DEL) {
                     if (edit_pinCode_4.getText().length() == 0) {
                         edit_pinCode_3.requestFocus();
                         edit_pinCode_3.setText("");
@@ -328,7 +291,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         }
         return false;
     }
-
+/*
     private void sendPINCodeUpdateRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_PASSCODE;
 
@@ -338,14 +301,14 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         updateTaglineParams.put("newPasscode", newPINCode);
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
 
-    }
+    }*/
 
     private void sendPINCodeAddRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_ADD_PASSCODE;
 
         Map<String, String> updateTaglineParams = new HashMap<>();
-        updateTaglineParams.put("userName", BTMApplication.getInstance().getBTMUserObj().getBTMUserName());
-        updateTaglineParams.put("passcode", newPINCode);
+        updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
+        updateTaglineParams.put("UserPasscode", PINCode);
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
 
     }
@@ -377,9 +340,6 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
                     if (serverMessageResponse.getCode() == CODE_SUCCESS) {
                         redirectUserAfterSuccessPINCodeUpdate(serverMessageResponse.getData());
                     } else {
-                        if (serverMessageResponse.getCode() == CODE_PASSWORD_MISMATCH) {
-                            text_pinCode_title.setText(OLD_PIN_CODE);
-                        }
                         AlertMessage.showError(edit_pinCode_1, serverMessageResponse.getMessage());
                     }//end oe else
                 } catch (Exception e) {
@@ -393,11 +353,6 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
     private void redirectUserAfterSuccessPINCodeUpdate(String data) {
         if (!data.isEmpty()) {
             AlertMessage.show(edit_pinCode_1, "Successfully Updated");
-
-            Gson gsonForUser = new Gson();
-            BTMUser btmUser = gsonForUser.fromJson(data, BTMUser.class);
-            btmUser.setBitcoinDollarRate(BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate());
-            BTMApplication.getInstance().setBTMUserObj(btmUser);
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

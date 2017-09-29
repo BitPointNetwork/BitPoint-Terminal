@@ -25,17 +25,24 @@ public class Constants {
     public static final String ROUTE_MERCHANT_TOGGLE = "postEthereumUsersChangeMerchantMode";
     public static final String ROUTE_USER_BY_PUBLIC_KEY = "getUserByPublicKey?publicKey=";
     public static final String ROUTE_UPDATE_TAGLINE = "updateTagline";
-    public static final String ROUTE_ADD_PASSCODE = "ethereumUserAddPasscode";
+    public static final String ROUTE_ADD_PASSCODE = "merchant/updateUserPin";
     public static final String ROUTE_UPDATE_PASSCODE = "ethereumUserChangePasscode";
-    public static final String ROUTE_VERIFY_PASSCODE = "verifyPasscode";
+    public static final String ROUTE_VERIFY_PASSCODE = "merchant/verifyMerchantPin";
     public static final String ROUTE_SEND_BITCOINS = "sendBitcoin";
     public static final String TRANSACTION_TYPE_MERCHANTS = "2";
+    public static final String ROUTE_UPDATE_MIN_MAX_BALANCE = "merchant/updateMinMaxBalance";
+    public static final String ROUTE_UPDATE_KRAKEN_KEYS = "merchant/updateUserKrakenSetup";
+    public static final String ROUTE_CREATE_PROFIT_WALLET = "merchant/createMerchantProfitWallet";
+    public static final String ROUTE_UPDATE_MERCHANT_PROFIT = "merchant/updateMerchantProfit";
+    public static final String ROUTE_CREATE_BITPOINT_PROFIT_WALLET = "merchant/createBitPointProfitWallet";
+    public static final String ROUTE_UPDATE_MERCHANT_PROFIT_THRESHOLD = "merchant/updateUserProfitThresholdSetup";
+    public static final String ROUTE_UPDATE_HOT_WALLET_BENEFICIARY = "merchant/updateHotWalletBenificiaryKey";
 
     public static String EXTRA_MOBILE_NUMBER = "EXTRA_MOBILE_NUMBER";
     public static int COUNTRY_SELECT_REQUEST = 1;
 
 
-    public static final String BASE_SERVER_URL = "http://40.68.174.13:3000/";
+    public static final String BASE_SERVER_URL = "http://185.181.9.60:3000/";
     public static final String ROUTE_USER_SIGNUP = "merchant/createMerchant";
     public static final String ROUTE_COMPLETE_USERR_PROFILE = "ethereumUserCompleteProfile";
     public static final String ROUTE_SOCIAL_MEDIA_SIGNUP = "postSocialMediaUser";
