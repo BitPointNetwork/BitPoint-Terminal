@@ -43,6 +43,61 @@ public class BTMUser {
     @SerializedName("profitWalletAddress")
     private String profitWalletAddress;
 
+    public String getBitpointProfitWalletAddress() {
+        return bitpointProfitWalletAddress;
+    }
+
+    public void setBitpointProfitWalletAddress(String bitpointProfitWalletAddress) {
+        this.bitpointProfitWalletAddress = bitpointProfitWalletAddress;
+    }
+
+    @SerializedName("bitpointProfitWalletAddress")
+    private String bitpointProfitWalletAddress;
+
+    public String getBitpointProfitWalletKrakenBenificiaryKey() {
+        return bitpointProfitWalletKrakenBenificiaryKey;
+    }
+
+    public String getMerchantProfitThreshold() {
+        return merchantProfitThreshold;
+    }
+
+    public void setMerchantProfitThreshold(String merchantProfitThreshold) {
+        this.merchantProfitThreshold = merchantProfitThreshold;
+    }
+
+    @SerializedName("merchantProfitThreshold")
+    private String merchantProfitThreshold;
+
+    public void setBitpointProfitWalletKrakenBenificiaryKey(String bitpointProfitWalletKrakenBenificiaryKey) {
+        this.bitpointProfitWalletKrakenBenificiaryKey = bitpointProfitWalletKrakenBenificiaryKey;
+    }
+
+    @SerializedName("bitpointProfitWalletKrakenBenificiaryKey")
+    private String bitpointProfitWalletKrakenBenificiaryKey;
+
+    public String getMerchantProfitMargin() {
+        return merchantProfitMargin;
+    }
+
+    public void setMerchantProfitMargin(String merchantProfitMargin) {
+        this.merchantProfitMargin = merchantProfitMargin;
+    }
+
+    public String getProfitWalletKrakenBenificiaryKey() {
+        return profitWalletKrakenBenificiaryKey;
+    }
+
+    public void setProfitWalletKrakenBenificiaryKey(String profitWalletKrakenBenificiaryKey) {
+        this.profitWalletKrakenBenificiaryKey = profitWalletKrakenBenificiaryKey;
+    }
+
+    @SerializedName("profitWalletKrakenBenificiaryKey")
+    private String profitWalletKrakenBenificiaryKey;
+
+    @SerializedName("merchantProfitMargin")
+    private String merchantProfitMargin;
+
     public String getBitcoinDollarRate() {
         return bitcoinDollarRate;
     }
@@ -51,6 +106,16 @@ public class BTMUser {
         this.bitcoinDollarRate = bitcoinDollarRate;
     }
 
+    public String getHotWalletBenificiaryKey() {
+        return hotWalletBenificiaryKey;
+    }
+
+    public void setHotWalletBenificiaryKey(String hotWalletBenificiaryKey) {
+        this.hotWalletBenificiaryKey = hotWalletBenificiaryKey;
+    }
+
+    @SerializedName("hotWalletBenificiaryKey")
+    private String hotWalletBenificiaryKey;
     private String bitcoinDollarRate;
 
     public String getUserId() {

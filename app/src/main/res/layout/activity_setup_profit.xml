@@ -9,7 +9,7 @@
         android:background="@drawable/background_scanqractivity_title"
         android:gravity="center_horizontal"
         android:padding="16dp"
-        android:text="Setup Profit"
+        android:text="Setup Profit Margin"
         android:textColor="@color/text_hint_color"
         style="@android:style/TextAppearance.Large"
         />
@@ -54,10 +54,27 @@
                 android:layout_weight="0"
                 android:background="@color/text_hint_color" />
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_cancel_button_all_rounded"
+            android:minHeight="80dp"
+            android:text="Dismiss"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="26sp" />
+        <Button
             android:id="@+id/button_minMaxBalance_submit"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button_background"
@@ -66,5 +83,6 @@
             android:text="Submit"
             android:textAllCaps="false"
             android:textSize="26sp" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

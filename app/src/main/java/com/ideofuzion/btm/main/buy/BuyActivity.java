@@ -2,6 +2,9 @@ package com.ideofuzion.btm.main.buy;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,9 +23,12 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -31,6 +37,7 @@ import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.settings.SettingsActivity;
 import com.ideofuzion.btm.main.scanqr.ScanQRActivity;
+import com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
 import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.DialogHelper;
@@ -86,7 +93,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
             public void onClick(View v) {
                 if (validateFields())
                     startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                        .putExtra("dollarRate", dollarRate));
+                            .putExtra("dollarRate", dollarRate));
             }
         });
     }
@@ -107,14 +114,13 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         imageView_buy_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    startActivity(new Intent(BuyActivity.this, SettingsActivity.class));
+                startActivity(new Intent(BuyActivity.this, SettingsActivity.class));
             }
         });
 
         getUpdatedRates();
 
-        if(BTMApplication.getInstance().getBTMUserObj()!= null)
-        {
+        if (BTMApplication.getInstance().getBTMUserObj() != null) {
             new AlertDialog.Builder(this)
                     .setTitle("Your Bitcoin Address Key")
                     .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
@@ -169,6 +175,10 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     }
 
     public boolean validateFields() {
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please setup PIN code from settings");
+            return false;
+        }
         if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getKrakenAPIKey())) {
             AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Kraken setup from settings");
             return false;
@@ -177,8 +187,24 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
             AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Kraken setup from settings");
             return false;
         }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey())) {
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Profit Wallet setup from settings");
+            return false;
+        }
         if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress())) {
             AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Profit Wallet setup from settings");
+            return false;
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress())) {
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Bitpoint Profit Wallet setup from settings");
+            return false;
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitThreshold())) {
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Merhcnat Profit Threshold setup from settings");
+            return false;
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getHotWalletBenificiaryKey())) {
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please update hot wallet beneficiary from settings");
             return false;
         }
         return true;

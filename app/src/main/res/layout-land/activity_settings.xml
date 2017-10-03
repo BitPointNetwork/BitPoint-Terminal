@@ -55,187 +55,194 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout_settings_pinCodeSetup"
+                android:layout_width="100dp"
+                android:layout_height="102dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/text_settings_pinCodeSetup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="bottom"
+                    android:text="Setup \nPin Code"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_setupBalance"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
                 android:layout_marginLeft="43dp"
-                android:layout_marginTop="32dp"
-                android:orientation="horizontal">
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
 
 
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_pinCodeSetup"
-                    android:layout_width="100dp"
-                    android:layout_height="102dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text_settings_pinCodeSetup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="bottom"
-                        android:text="Setup \nPin Code"
-                        android:textAlignment="center"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_setupBalance"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_setupBalance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Setup\nBalance"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_krackenSetup"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_krackenSetup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Kraken\nSetup"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_SetupProfitWallet"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_beneficiaryKey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Setup\nProfit Wallet"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/text_settings_setupBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Setup\nMin Max\nBalance"
+                    android:textColor="@color/text_color" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_profitSetup"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                android:id="@+id/linearLayout_settings_krackenSetup"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
 
-                    <TextView
-                        android:id="@+id/text_settings_profitSetup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Setup\margin Profit"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_bitpointProfitWallet"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_bitpointProfitWallet"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Setup\nBitpoint Profit\nWallet"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_merchantProfitThreshold"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_merchantProfitThreshold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Setup\nMerchant Profit\nThreshold"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout_settings_hotWalletBeneficiary"
-                    android:layout_width="97dp"
-                    android:layout_height="102dp"
-                    android:layout_marginLeft="43dp"
-                    android:background="#3C475D"
-                    android:elevation="10dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/text_settings_hotWalletBeneficiary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
-                        android:text="Update\nHot Wallet\nBeneficiary"
-                        android:textColor="@color/text_color" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/text_settings_krackenSetup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Kraken\nSetup"
+                    android:textColor="@color/text_color" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_SetupProfitWallet"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_beneficiaryKey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Setup\nProfit Wallet"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_profitSetup"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_profitSetup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Setup\nProfit margin "
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_bitpointProfitWallet"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_bitpointProfitWallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Setup\nBitpoint Profit\nWallet"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_merchantProfitThreshold"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_merchantProfitThreshold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Setup\nMerchant Profit\nThreshold"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_hotWalletBeneficiary"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_hotWalletBeneficiary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Update\nHot Wallet\nBeneficiary"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

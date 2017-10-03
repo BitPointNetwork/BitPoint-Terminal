@@ -14,9 +14,9 @@
             android:id="@+id/imageView_buy_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="25dp"
             android:src="@drawable/img_setting"
-            android:layout_gravity="end"
-            android:layout_margin="16dp"/>
+            android:layout_gravity="end"/>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

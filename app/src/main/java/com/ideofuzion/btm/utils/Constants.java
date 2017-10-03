@@ -42,7 +42,7 @@ public class Constants {
     public static int COUNTRY_SELECT_REQUEST = 1;
 
 
-    public static final String BASE_SERVER_URL = "http://185.181.9.60:3000/";
+    public static final String BASE_SERVER_URL = "http://104.199.49.55:3000/";
     public static final String ROUTE_USER_SIGNUP = "merchant/createMerchant";
     public static final String ROUTE_COMPLETE_USERR_PROFILE = "ethereumUserCompleteProfile";
     public static final String ROUTE_SOCIAL_MEDIA_SIGNUP = "postSocialMediaUser";

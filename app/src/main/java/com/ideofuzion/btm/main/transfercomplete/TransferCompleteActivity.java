@@ -2,23 +2,31 @@ package com.ideofuzion.btm.main.transfercomplete;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.settings.UpdateHotWalletBeneficiaryActivity;
 import com.ideofuzion.btm.utils.Fonts;
 
 import org.w3c.dom.Text;
@@ -82,6 +90,8 @@ public class TransferCompleteActivity extends Activity {
 
     private void initResources() {
 
+        showTarnsacionId(getIntent().getStringExtra("transactionId"));
+
         dollarRate = BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate();
 
         //initializing TypeFaces objects
@@ -99,5 +109,49 @@ public class TransferCompleteActivity extends Activity {
         //init data
         text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
         text_transferCompleteFragment_dollarRate.setText("1 BTC = " + dollarRate + " USD");
+    }
+
+    private void showTarnsacionId(String id) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_transaction_id);
+        TextView title = (TextView) dialog.findViewById(R.id.title);
+        final TextView transactionId = (TextView) dialog.findViewById(R.id.transactionId);
+        TextView ok = (TextView) dialog.findViewById(R.id.ok);
+
+        title.setTypeface(fontBold);
+        transactionId.setTypeface(fontSemiBold);
+        ok.setTypeface(fontSemiBold);
+
+        title.setText("Transaction Id\n(Tap id to copy)");
+
+
+        transactionId.setText(id);
+
+        transactionId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Transaction Id", transactionId.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                dialog.dismiss();
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Transaction Id", transactionId.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(TransferCompleteActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+
     }
 }

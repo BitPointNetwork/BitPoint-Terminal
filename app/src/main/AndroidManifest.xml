@@ -115,11 +115,27 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".main.settings.SetupProfitActivity"
+            android:name=".main.settings.SetupProfitMarginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
         <activity
             android:name=".main.settings.SetupProfitThresholdActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.UpdateHotWalletBeneficiaryActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.profitwalletsetup.ProfitWalletOptionActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.profitwalletsetup.ExistingProfitWalletActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.settings.profitwalletsetup.NewProfitWalletActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
     </application>

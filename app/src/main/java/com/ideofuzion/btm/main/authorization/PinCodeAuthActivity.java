@@ -1,7 +1,6 @@
 package com.ideofuzion.btm.main.authorization;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +10,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,7 +20,6 @@ import com.android.volley.VolleyError;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.enteramount.EnterAmountActivity;
-import com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
 import com.ideofuzion.btm.utils.AlertMessage;
@@ -53,7 +52,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
     String preCode = "";
     DialogHelper dialogHelper;
     String bitcoinAmount = "";
-
+    double bitcoinsX,bitcoinY;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +64,8 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
             initTypeface();
 
             addListener();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         } catch (Exception e) {
         }
     }
@@ -214,8 +215,10 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
     private void initResources() {
 
         dialogHelper = new DialogHelper(this);
-        if (getIntent().hasExtra(EnterAmountActivity.BITCOIN_AMOUNT)) {
-            bitcoinAmount = getIntent().getStringExtra(EnterAmountActivity.BITCOIN_AMOUNT);
+        if (getIntent().hasExtra(EnterAmountActivity.BITCOIN_AMOUNT_X)) {
+            bitcoinsX = getIntent().getDoubleExtra(EnterAmountActivity.BITCOIN_AMOUNT_X,0);
+            bitcoinY = getIntent().getDoubleExtra(EnterAmountActivity.BITCOIN_AMOUNT_Y,0);
+
         }
 
         //initializing TypeFaces objects
@@ -333,7 +336,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
                     serverMessageResponse.setCode(response.getInt("code"));
                     serverMessageResponse.setMessage(response.getString("message"));
                     if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                        SendBitcoins sendBitcoins = new SendBitcoins(PinCodeAuthActivity.this, text_pinCodeAuth_dollarRate);
+                        SendBitcoins sendBitcoins = new SendBitcoins(PinCodeAuthActivity.this, text_pinCodeAuth_dollarRate, bitcoinsX, bitcoinY);
                         sendBitcoins.sendBitcoinTransferRequestToServer(bitcoinAmount);
                     } else {
                         AlertMessage.showError(edit_pinCodeAuth_1, serverMessageResponse.getMessage());

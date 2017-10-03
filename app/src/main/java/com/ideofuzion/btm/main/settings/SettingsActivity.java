@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
-import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionDialog;
+import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionActivity;
+import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.Fonts;
+import com.ideofuzion.btm.utils.MyUtils;
 
 public class SettingsActivity extends AppCompatActivity {
     TextView text_settings_header, text_settings_dollarRate;
@@ -28,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
     TextView text_settings_krackenSetup;
     LinearLayout linearLayout_settings_SetupProfitWallet;
     TextView text_settings_beneficiaryKey;
-    LinearLayout linearLayout_settings_profitSetup;
+    LinearLayout linearLayout_settings_profitMarginSetup;
     TextView text_settings_profitSetup;
 
     LinearLayout linearLayout_settings_bitpointProfitWallet;
@@ -52,13 +54,70 @@ public class SettingsActivity extends AppCompatActivity {
 
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public void validateFields() {
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+            linearLayout_settings_pinCodeSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+        } else {
+            linearLayout_settings_pinCodeSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getKrakenAPIKey())) {
+            linearLayout_settings_krackenSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+        } else {
+            linearLayout_settings_krackenSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getKrakenAPISecret())) {
+            linearLayout_settings_krackenSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_krackenSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress())) {
+            linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey())) {
+            linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress())) {
+            linearLayout_settings_bitpointProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_bitpointProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitThreshold())) {
+            linearLayout_settings_merchantProfitThreshold.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_merchantProfitThreshold.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getHotWalletBenificiaryKey())) {
+            linearLayout_settings_hotWalletBeneficiary.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
+
+        } else {
+            linearLayout_settings_hotWalletBeneficiary.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
+
+        }
+    }
+
     private void adListener() {
-        /*linearLayout_settings_pinCodeSetup.setOnClickListener(new View.OnClickListener() {
+        linearLayout_settings_pinCodeSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SettingsActivity.this, PinCodeActivity.class));
@@ -67,45 +126,48 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_setupBalance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MinMaxBalanceActivity().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, MinMaxBalanceActivity.class));
             }
         });
         linearLayout_settings_krackenSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new KrakenSetupActivity().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, KrakenSetupActivity.class));
             }
         });
         linearLayout_settings_SetupProfitWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ProfitWalletOptionDialog().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, ProfitWalletOptionActivity.class));
+
             }
         });
-        linearLayout_settings_profitSetup.setOnClickListener(new View.OnClickListener() {
+        linearLayout_settings_profitMarginSetup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SetupProfitActivity().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, SetupProfitMarginActivity.class));
+
             }
         });
         linearLayout_settings_bitpointProfitWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new BitpointProfitWalletActivity().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, BitpointProfitWalletActivity.class));
             }
         });
         linearLayout_settings_merchantProfitThreshold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SetupProfitThresholdActivity().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, SetupProfitThresholdActivity.class));
             }
         });
         linearLayout_settings_hotWalletBeneficiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new UpdateHotWalletBeneficiaryDialog().initResources(SettingsActivity.this);
+                startActivity(new Intent(SettingsActivity.this, UpdateHotWalletBeneficiaryActivity.class));
+
             }
-        });*/
+        });
     }
 
     private void initTypefaces() {
@@ -139,7 +201,7 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_krackenSetup = (LinearLayout) findViewById(R.id.linearLayout_settings_krackenSetup);
         linearLayout_settings_SetupProfitWallet = (LinearLayout) findViewById(R.id.linearLayout_settings_SetupProfitWallet);
         text_settings_beneficiaryKey = (TextView) findViewById(R.id.text_settings_beneficiaryKey);
-        linearLayout_settings_profitSetup = (LinearLayout) findViewById(R.id.linearLayout_settings_profitSetup);
+        linearLayout_settings_profitMarginSetup = (LinearLayout) findViewById(R.id.linearLayout_settings_profitSetup);
         text_settings_profitSetup = (TextView) findViewById(R.id.text_settings_profitSetup);
         text_settings_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate() + " USD");
         linearLayout_settings_bitpointProfitWallet = (LinearLayout) findViewById(R.id.linearLayout_settings_bitpointProfitWallet);
@@ -150,4 +212,13 @@ public class SettingsActivity extends AppCompatActivity {
         text_settings_hotWalletBeneficiary = (TextView) findViewById(R.id.text_settings_hotWalletBeneficiary);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try{
+            validateFields();
+
+        }catch (Exception e)
+        {}
+    }
 }

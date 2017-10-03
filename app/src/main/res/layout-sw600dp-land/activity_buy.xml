@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/img_setting"
             android:layout_gravity="end"
-            android:layout_margin="16dp"/>
+            android:padding="25dp"
+            />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +30,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
+
 /**
  * Created by khali on 9/23/2017.
  */
@@ -42,19 +45,29 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
     private Typeface fontRegular;
     private Typeface fontSemiBold;
     private DialogHelper dialogHelper;
+    private boolean isFromRegistration = false;
+    private Button cancel;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_min_max_balance);
+        try {
+            setContentView(R.layout.activity_min_max_balance);
 
-        initResources();
+            initResources();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        }catch (Exception e)
+        {}
     }
 
     public void initResources() {
 
-        dialogHelper  =new DialogHelper(this);
+        isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
+
+
+        dialogHelper = new DialogHelper(this);
 
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(this).getTypefaceRegular();
@@ -70,15 +83,26 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
         edit_minMaxBalance_maxBalance.setTypeface(fontSemiBold);
         edit_minMaxBalance_minBalance.setTypeface(fontSemiBold);
         button_minMaxBalance_submit.setTypeface(fontBold);
-
+        cancel = (Button) findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFromRegistration) {
+                    startActivity(new Intent(MinMaxBalanceActivity.this,
+                            KrakenSetupActivity.class).putExtra(EXTRA_FROM_REGISTRATION, true));
+                } else {
+                    finish();
+                }
+            }
+        });
+        cancel.setTypeface(fontBold);
         button_minMaxBalance_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MinMaxBalanceActivity.this,
-                        KrakenSetupActivity.class));
-                /*if (validateFields()) {
+
+                if (validateFields()) {
                     sendRequestToServer();
-                }*/
+                }
             }
         });
 
@@ -139,6 +163,12 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
                         Gson gsonForUser = new Gson();
                         BTMUser btmUser = gsonForUser.fromJson(serverMessageResponse.getData(), BTMUser.class);
                         BTMApplication.getInstance().setBTMUserObj(btmUser);
+                        if (isFromRegistration) {
+                            startActivity(new Intent(MinMaxBalanceActivity.this,
+                                    KrakenSetupActivity.class).putExtra(EXTRA_FROM_REGISTRATION, true));
+                        } else {
+                            finish();
+                        }
                     }
                 } else {
                     AlertMessage.showError(edit_minMaxBalance_maxBalance, serverMessageResponse.getMessage());

@@ -126,16 +126,14 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
     }
 
     private void signUp() {
-        startActivity(new Intent(RegisterActivity.this, PinCodeActivity.class)
-        .putExtra(PinCodeActivity.EXTRA_FROM_REGISTRATION,true));
-        /*if (Internet.isConnected(RegisterActivity.this)) {
+        if (Internet.isConnected(RegisterActivity.this)) {
             if (validateFields()) {
                 dialogHelper.showProgressDialog();
                 sendSignUpRequestToServer();
             }
         } else {
             AlertMessage.showError(edit_registerActivity_email, Constants.ERROR_NO_INTERNET);
-        }*/
+        }
     }
 
     private void initTypefaces() {
@@ -303,7 +301,8 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
             BTMUser btmUser = gsonForUser.fromJson(data, BTMUser.class);
             BTMApplication.getInstance().setBTMUserObj(btmUser);
             SessionManager.getInstance(getApplicationContext()).createSession(edit_registerActivity_email.getText().toString(), edit_registerActivity_password.getText().toString());
-            startActivity(new Intent(RegisterActivity.this, BuyActivity.class));
+            startActivity(new Intent(RegisterActivity.this, PinCodeActivity.class)
+                    .putExtra(PinCodeActivity.EXTRA_FROM_REGISTRATION, true));
             finish();
         }
     }//end of redirect

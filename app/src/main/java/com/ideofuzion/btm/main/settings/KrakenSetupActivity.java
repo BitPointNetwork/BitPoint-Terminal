@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
+
 /**
  * Created by khali on 9/23/2017.
  */
@@ -41,16 +44,25 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
     private Typeface fontRegular;
     private Typeface fontSemiBold;
     private DialogHelper dialogHelper;
+    private boolean isFromRegistration = false;
+    private Button cancel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kraken_setup);
-        initResources();
+        try {
+            setContentView(R.layout.activity_kraken_setup);
+            initResources();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        } catch (Exception e) {
+        }
     }
 
     public void initResources() {
 
+
+        isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
 
         dialogHelper = new DialogHelper(this);
         //initializing TypeFaces objects
@@ -67,14 +79,26 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         edit_krakenSetup_krakenApiSecret.setTypeface(fontSemiBold);
         edit_krakenSetup_krakenApiKey.setTypeface(fontSemiBold);
         button_krakenSetup_submit.setTypeface(fontBold);
+        cancel = (Button) findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
 
+            }
+        });
+        cancel.setTypeface(fontBold);
+        if (isFromRegistration) {
+            cancel.setVisibility(View.GONE);
+        } else {
+            cancel.setVisibility(View.VISIBLE);
+        }
         button_krakenSetup_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(KrakenSetupActivity.this,BitpointProfitWalletActivity.class));
-                /*if (validateFields()) {
+                if (validateFields()) {
                     sendRequestToServer();
-                }*/
+                }
             }
         });
 
@@ -86,7 +110,7 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         Map<String, String> updateTaglineParams = new HashMap<>();
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
         updateTaglineParams.put("krakenAPIKey", edit_krakenSetup_krakenApiKey.getText().toString());
-        updateTaglineParams.put("krakenAPISecret",edit_krakenSetup_krakenApiSecret.getText().toString());
+        updateTaglineParams.put("krakenAPISecret", edit_krakenSetup_krakenApiSecret.getText().toString());
 
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
@@ -135,6 +159,13 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
                         Gson gsonForUser = new Gson();
                         BTMUser btmUser = gsonForUser.fromJson(serverMessageResponse.getData(), BTMUser.class);
                         BTMApplication.getInstance().setBTMUserObj(btmUser);
+                        if (isFromRegistration) {
+                            startActivity(new Intent(KrakenSetupActivity.this, BitpointProfitWalletActivity.class)
+                                    .putExtra(EXTRA_FROM_REGISTRATION, true));
+                        } else {
+                            finish();
+                        }
+
                     }
                 } else {
                     AlertMessage.showError(edit_krakenSetup_krakenApiSecret, serverMessageResponse.getMessage());

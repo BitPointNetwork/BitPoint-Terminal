@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
+import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.settings.profitwalletsetup.ExistingProfitWalletActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -41,7 +44,7 @@ import java.util.Map;
 public class PinCodeActivity extends Activity implements View.OnKeyListener, Constants.ResultCode, Response.Listener<JSONObject>,
         Response.ErrorListener {
     public static final String EXTRA_FROM_REGISTRATION = "registration";
-    TextView text_settings_header,text_pincode_title;
+    TextView text_settings_header, text_pincode_title;
     EditText edit_pinCode_1, edit_pinCode_2, edit_pinCode_3, edit_pinCode_4;
     Button button_pinCode_cancel, button_pinCode_set;
     private boolean isBackedClicked = false;
@@ -50,6 +53,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
     private Typeface fontBold;
     String PINCode = "";
     public static final String NEW_PIN_CODE = "New PIN Code";
+    public static final String OLD_PIN_CODE = "Enter Old PIN Code";
     DialogHelper dialogHelper;
     boolean isFromRegistration = false;
 
@@ -64,6 +68,8 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
             initTypeface();
 
             addListener();
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -182,8 +188,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(PinCodeActivity.this,MinMaxBalanceActivity.class));
-                /*updatePinCode();*/
+                updatePinCode();
             }
         });
 
@@ -201,7 +206,19 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
                     edit_pinCode_2.getText().toString() +
                     edit_pinCode_3.getText().toString() +
                     edit_pinCode_4.getText().toString();
-            sendPINCodeAddRequestToServer();
+
+            if (text_pincode_title.getText().toString().equals(OLD_PIN_CODE)) {
+                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+                    resetAllFields();
+                    text_pincode_title.setText(NEW_PIN_CODE);
+                    button_pinCode_set.setText("Set");
+
+                } else {
+                    AlertMessage.showError(edit_pinCode_1, "PIN code doesn't matches");
+                }
+            } else {
+                sendPINCodeAddRequestToServer();
+            }
         } else {
             AlertMessage.showError(edit_pinCode_1, "Please enter PIN Code");
         }
@@ -211,7 +228,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
         dialogHelper = new DialogHelper(this);
 
-        isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION,false);
+        isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
 
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
@@ -226,12 +243,25 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         edit_pinCode_4 = (EditText) findViewById(R.id.edit_pinCode_4);
         button_pinCode_cancel = (Button) findViewById(R.id.button_pinCode_cancel);
         button_pinCode_set = (Button) findViewById(R.id.button_pinCode_set);
-        text_pincode_title= (TextView) findViewById(R.id.text_pincode_title);
+        text_pincode_title = (TextView) findViewById(R.id.text_pincode_title);
 
 
-        if(isFromRegistration)
-        {
+        if (isFromRegistration) {
             button_pinCode_cancel.setVisibility(View.GONE);
+            text_pincode_title.setText(NEW_PIN_CODE);
+            button_pinCode_set.setText("Set");
+
+        } else {
+            if (BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode() != null) {
+                text_pincode_title.setText(OLD_PIN_CODE);
+                button_pinCode_set.setText("Proceed");
+
+            } else {
+                text_pincode_title.setText(NEW_PIN_CODE);
+                button_pinCode_set.setText("Set");
+
+            }
+
         }
     }
 
@@ -310,6 +340,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
         updateTaglineParams.put("UserPasscode", PINCode);
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
+        dialogHelper.showProgressDialog();
 
     }
 
@@ -352,15 +383,27 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
     private void redirectUserAfterSuccessPINCodeUpdate(String data) {
         if (!data.isEmpty()) {
-            AlertMessage.show(edit_pinCode_1, "Successfully Updated");
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
+            try {
+                AlertMessage.show(edit_pinCode_1, "Successfully Updated");
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, 1000);
+                Gson gsonForUser = new Gson();
+                BTMUser btmUser = gsonForUser.fromJson(data, BTMUser.class);
+                BTMApplication.getInstance().setBTMUserObj(btmUser);
+                if (isFromRegistration) {
+                    startActivity(new Intent(PinCodeActivity.this,
+                            MinMaxBalanceActivity.class)
+                            .putExtra(PinCodeActivity.EXTRA_FROM_REGISTRATION, true));
+                } else {
                     finish();
                 }
-            }, 1000);
-
+            } catch (Exception e) {
+            }
         }
     }
 }

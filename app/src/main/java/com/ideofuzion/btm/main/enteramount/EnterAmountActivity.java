@@ -46,10 +46,13 @@ import static com.ideofuzion.btm.utils.Constants.ResultCode.CODE_SUCCESS;
  */
 
 public class EnterAmountActivity extends Activity {
+    public static final String BITCOIN_AMOUNT_Y = "BITCOIN_AMOUNT_Y";
     Typeface fontRegular;
     Typeface fontSemiBold;
     Typeface fontBold;
     public static String BITCOIN_AMOUNT = "BITCOIN_AMOUNT";
+    Double bitcoinsX;
+    Double bitcoinY;
 
 
     AutofitTextView text_enterAmountFragment_userKey, text_enterAmountFragment_dollarRate;
@@ -69,6 +72,7 @@ public class EnterAmountActivity extends Activity {
 
     Float dollarRate;
     DialogHelper dialogHelper;
+    public static final String BITCOIN_AMOUNT_X = "BITCOIN_AMOUNT_X";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -166,13 +170,14 @@ public class EnterAmountActivity extends Activity {
                 try {
                     if (!edit_enterAmountFragment_calculator.getText().toString().isEmpty()) {
                         if (Long.parseLong(edit_enterAmountFragment_calculator.getText().toString()) > 0) {
-
+                            edit_enterAmountFragment_calculator.setText("");
                             if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode()))
                                 requestServerToSendBalance();
                             else {
                                 startActivity(new Intent(EnterAmountActivity.this,
                                         PinCodeAuthActivity.class)
-                                .putExtra(BITCOIN_AMOUNT,text_enterAmountFragment_bitcoinAmount.getText().toString()));
+                                        .putExtra(BITCOIN_AMOUNT_X, bitcoinsX)
+                                        .putExtra(BITCOIN_AMOUNT_Y, bitcoinY));
                             }
 /*
                         startActivity(new Intent(EnterAmountActivity.this, AuthorizationActivity.class).putExtra(BITCOIN_AMOUNT, text_enterAmountFragment_bitcoinAmount.getText().toString()));
@@ -217,10 +222,15 @@ public class EnterAmountActivity extends Activity {
                                                                                    if (edit_enterAmountFragment_calculator.getText().toString().equals("")) {
                                                                                        text_enterAmountFragment_bitcoinAmount.setText("0.0");
                                                                                    } else {
-                                                                                       Double bitcoins = Double.parseDouble(edit_enterAmountFragment_calculator.getText().toString().trim()) /
-                                                                                               dollarRate;
+                                                                                       Double amountEntered = Double.valueOf(edit_enterAmountFragment_calculator.getText().toString().trim());
+                                                                                       Double profitMargin = (amountEntered * Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin())) / 100;
+                                                                                       Double amountMinusProfitMargin = amountEntered - profitMargin;
 
-                                                                                       text_enterAmountFragment_bitcoinAmount.setText(BigDecimal.valueOf(bitcoins).toPlainString());
+                                                                                       bitcoinsX = (amountMinusProfitMargin) /
+                                                                                               dollarRate;
+                                                                                       bitcoinY = profitMargin / dollarRate;
+
+                                                                                       text_enterAmountFragment_bitcoinAmount.setText(BigDecimal.valueOf(bitcoinsX).toPlainString());
                                                                                    }
                                                                                }
                                                                            });
@@ -297,7 +307,7 @@ public class EnterAmountActivity extends Activity {
 
 
     private void requestServerToSendBalance() {
-        SendBitcoins sendBitcoins = new SendBitcoins(this, edit_enterAmountFragment_calculator);
+        SendBitcoins sendBitcoins = new SendBitcoins(this, edit_enterAmountFragment_calculator, bitcoinsX, bitcoinY);
         sendBitcoins.sendBitcoinTransferRequestToServer(text_enterAmountFragment_bitcoinAmount.getText().toString());
     }
 }

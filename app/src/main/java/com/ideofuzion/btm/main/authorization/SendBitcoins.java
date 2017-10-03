@@ -29,10 +29,14 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
     Context context;
     DialogHelper dialogHelper;
     View view;
+    Double bitcoinsX;
+    Double bitcoinY;
 
-    public SendBitcoins(Context context, View view) {
+    public SendBitcoins(Context context, View view, Double bitcoinsX, Double bitcoinY) {
         this.context = context;
         this.view = view;
+        this.bitcoinsX = bitcoinsX;
+        this.bitcoinY = bitcoinY;
     }
 
     public void sendBitcoinTransferRequestToServer(String amount) {
@@ -44,7 +48,9 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
 
             Map<String, String> map = new HashMap<>();
             map.put("customerAddress", BTMApplication.getInstance().getQrModel().getPublicBitcoinId());
-            map.put("amount",amount);
+            map.put("amount",bitcoinsX+"");
+            map.put("merchantProfit",bitcoinY+"");
+
             map.put("merchantUserName", BTMApplication.getInstance().getBTMUserObj().getUserName());
             map.put("merchantPassword", BTMApplication.getInstance().getBTMUserObj().getUserPassword());
             //map.put("merchantPassword", SessionManager.getInstance(this).getPass());
@@ -77,7 +83,8 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                    context.startActivity(new Intent(context, TransferCompleteActivity.class));
+                    context.startActivity(new Intent(context, TransferCompleteActivity.class)
+                    .putExtra("transactionId",serverMessageResponse.getData().replace("{","").replace("}","").replaceAll(" ","")));
 
                     //redirectUserAfterSuccessSignIn(serverMessageResponse.getData(), null);
                 } else {
