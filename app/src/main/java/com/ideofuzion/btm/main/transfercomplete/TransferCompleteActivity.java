@@ -39,12 +39,13 @@ import me.grantland.widget.AutofitTextView;
 
 public class TransferCompleteActivity extends Activity {
 
+    public static final String EXTRA_AMOUNT_TO_BE_GIVEN = "amountToBeGiven";
     Typeface fontRegular;
     Typeface fontSemiBold;
     Typeface fontBold;
 
     AutofitTextView text_transferCompleteFragment_userKey, text_transferCompleteFragment_dollarRate;
-    TextView text_transferCompleteFragment_transactionComplete;
+    TextView text_transferCompleteFragment_transactionComplete, text_transferCompleteFragment_amount;
     ImageView imageView_transferCompleteFragment_success;
     Button button_transferCompleteFragment_ok;
     private String dollarRate;
@@ -64,6 +65,7 @@ public class TransferCompleteActivity extends Activity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -86,11 +88,14 @@ public class TransferCompleteActivity extends Activity {
         text_transferCompleteFragment_dollarRate.setTypeface(fontSemiBold);
         text_transferCompleteFragment_transactionComplete.setTypeface(fontBold);
         button_transferCompleteFragment_ok.setTypeface(fontBold);
+        text_transferCompleteFragment_amount.setTypeface(fontSemiBold);
     }
 
     private void initResources() {
 
         showTarnsacionId(getIntent().getStringExtra("transactionId"));
+
+
 
         dollarRate = BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate();
 
@@ -104,9 +109,13 @@ public class TransferCompleteActivity extends Activity {
         text_transferCompleteFragment_transactionComplete = (TextView) findViewById(R.id.text_transferCompleteFragment_transactionComplete);
         imageView_transferCompleteFragment_success = (ImageView) findViewById(R.id.imageView_transferCompleteFragment_success);
         button_transferCompleteFragment_ok = (Button) findViewById(R.id.button_transferCompleteFragment_ok);
-
+        text_transferCompleteFragment_amount = (TextView) findViewById(R.id.text_transferCompleteFragment_amount);
 
         //init data
+        if (getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN) != null) {
+            text_transferCompleteFragment_amount.setText("You have to pay $ " + getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN)
+                    + " to customer");
+        }
         text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
         text_transferCompleteFragment_dollarRate.setText("1 BTC = " + dollarRate + " USD");
     }

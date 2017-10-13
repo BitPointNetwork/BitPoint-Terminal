@@ -7,7 +7,7 @@
     <dimen name="editText_registerActivity_marginTop">10dp</dimen>
     <dimen name="registerActivity_side_margins">362dp</dimen>
     <dimen name="imageView_registerActivity_margin_top_bottom">42dp</dimen>
-    <dimen name="imageView_buyActivity_margin_top_bottom">143dp</dimen>
+    <dimen name="imageView_buyActivity_margin_top_bottom">40dp</dimen>
     <dimen name="editText_scanQRActivity_title_top_margin">11dp</dimen>
     <dimen name="textView_scanQRActivity_title_right_margin">54dp</dimen>
     <dimen name="linearLayout_scanQRActivity_description_container_margin_top">92dp</dimen>

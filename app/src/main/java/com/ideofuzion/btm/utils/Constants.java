@@ -37,6 +37,7 @@ public class Constants {
     public static final String ROUTE_CREATE_BITPOINT_PROFIT_WALLET = "merchant/createBitPointProfitWallet";
     public static final String ROUTE_UPDATE_MERCHANT_PROFIT_THRESHOLD = "merchant/updateUserProfitThresholdSetup";
     public static final String ROUTE_UPDATE_HOT_WALLET_BENEFICIARY = "merchant/updateHotWalletBenificiaryKey";
+    public static final String ROUTE_RECEIVE_BALANCE = "merchant/receiveBalance";
 
     public static String EXTRA_MOBILE_NUMBER = "EXTRA_MOBILE_NUMBER";
     public static int COUNTRY_SELECT_REQUEST = 1;

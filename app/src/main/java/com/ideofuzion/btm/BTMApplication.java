@@ -34,6 +34,16 @@ public class BTMApplication extends MultiDexApplication {
     private static BTMApplication ourInstance;
     BTMUser btmUser;
     public FirebaseAnalytics firebaseAnalytics;
+
+    public String getSellingRate() {
+        return sellingRate;
+    }
+
+    public void setSellingRate(String sellingRate) {
+        this.sellingRate = sellingRate;
+    }
+
+    String sellingRate;
     public Hashtable<String, String> contactNamesHashMap = new Hashtable<>();
 
     public QRModel getQrModel() {

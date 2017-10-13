@@ -60,14 +60,23 @@
     <TextView
         android:id="@+id/text_transferCompleteFragment_transactionComplete"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="45dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:textSize="32sp"
         android:textColor="@color/text_color"
         android:text="Transaction Successful"
         android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_transferCompleteFragment_amount"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/text_color"
+            android:layout_height="wrap_content" />
     <ImageView
+        android:layout_marginTop="45dp"
         android:id="@+id/imageView_transferCompleteFragment_success"
         android:src="@drawable/img_successful"
         android:layout_gravity="center_horizontal"
@@ -75,7 +84,7 @@
         android:layout_height="150dp" />
     <Button
         android:id="@+id/button_transferCompleteFragment_ok"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

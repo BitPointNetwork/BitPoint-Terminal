@@ -27,6 +27,7 @@ import com.google.zxing.Result;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.enteramount.EnterAmountActivity;
+import com.ideofuzion.btm.main.scanqr.dialog.SellDialog;
 import com.ideofuzion.btm.model.QRModel;
 import com.ideofuzion.btm.permission.PermissionActivity;
 import com.ideofuzion.btm.utils.AlertMessage;
@@ -36,6 +37,8 @@ import com.ideofuzion.btm.utils.PermissionHandler;
 
 import me.dm7.barcodescanner.core.ViewFinderView;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+import static com.ideofuzion.btm.main.buy.BuyActivity.EXTRA_IS_BUYING;
 
 
 /**
@@ -56,7 +59,7 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
     private ZXingScannerView mScannerView;
     DialogHelper dialogHelper;
     PermissionHandler permissionHandler;
-
+    boolean isBuying = false;
     QRModel qrModel = null;
 
     @Override
@@ -96,6 +99,7 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
 
     private void initResources() {
 
+        isBuying = getIntent().getBooleanExtra(EXTRA_IS_BUYING, false);
         if (getIntent().hasExtra("dollarRate")) {
             BTMApplication.getInstance().getBTMUserObj().setBitcoinDollarRate(getIntent().getStringExtra("dollarRate"));
         }
@@ -132,8 +136,7 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
         super.onResume();
         if (permissionHandler.isPermissionAvailable(Manifest.permission.CAMERA))
             startCamera();
-        else
-        {
+        else {
             permissionHandler.requestPermission(Manifest.permission.CAMERA);
         }
     }
@@ -175,7 +178,11 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
             try {
                 qrModel = gson.fromJson(data, QRModel.class);
                 BTMApplication.getInstance().setQrModel(qrModel);
-                startActivity(new Intent(ScanQRActivity.this, EnterAmountActivity.class));
+                if (isBuying)
+                    startActivity(new Intent(ScanQRActivity.this, EnterAmountActivity.class));
+                else {
+                    new SellDialog(ScanQRActivity.this,qrModel.getPublicBitcoinId()).show();
+                }
 
             } catch (Exception e) {
                 qrModel = null;

@@ -48,6 +48,7 @@ import com.ideofuzion.btm.utils.SessionManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 /**
@@ -56,6 +57,7 @@ import java.util.HashMap;
 
 public class BuyActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener {
     public static final String ACTION_UPDATE_LOCATION = "com.ideofuzion.btm.locationUpdate";
+    public static final String EXTRA_IS_BUYING = "isBuying";
     private Typeface fontBold;
     Button button_buyActivity_sellBitcoins;
     private final int MY_PERMISSIONS_REQUEST_READ_LOCATION = 1;
@@ -65,9 +67,14 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     Boolean hasSession = false;
     private Typeface fontRegular;
     DialogHelper dialogHelper;
-
+    String sellingRate, buyingRate;
+    TextView text_buy_buyingAt;
+    TextView text_buy_buyingRate;
+    TextView text_buy_sellingAt;
+    TextView text_buy_sellingRate;
     ImageView imageView_buy_settings;
     private String dollarRate;
+    private Button button_buyActivity_buyBitcoins;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,18 +95,33 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     }
 
     private void addListener() {
+        button_buyActivity_buyBitcoins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validateFields())
+                    startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
+                            .putExtra("dollarRate", dollarRate)
+                            .putExtra(EXTRA_IS_BUYING, true));
+            }
+        });
         button_buyActivity_sellBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateFields())
                     startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                            .putExtra("dollarRate", dollarRate));
+                            .putExtra("dollarRate", dollarRate)
+                            .putExtra(EXTRA_IS_BUYING, false));
             }
         });
     }
 
     private void iniTypefaces() {
         button_buyActivity_sellBitcoins.setTypeface(fontBold);
+        button_buyActivity_buyBitcoins.setTypeface(fontBold);
+        text_buy_buyingAt.setTypeface(fontBold);
+        text_buy_buyingRate.setTypeface(fontRegular);
+        text_buy_sellingAt.setTypeface(fontBold);
+        text_buy_sellingRate.setTypeface(fontRegular);
     }
 
     private void initResources() {
@@ -108,7 +130,12 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
 
         button_buyActivity_sellBitcoins = (Button) findViewById(R.id.button_buyActivity_sellBitcoins);
+        button_buyActivity_buyBitcoins = (Button) findViewById(R.id.button_buyActivity_buyBitcoins);
 
+        text_buy_buyingAt = (TextView) findViewById(R.id.text_buy_buyingAt);
+        text_buy_buyingRate = (TextView) findViewById(R.id.text_buy_buyingRate);
+        text_buy_sellingAt = (TextView) findViewById(R.id.text_buy_sellingAt);
+        text_buy_sellingRate = (TextView) findViewById(R.id.text_buy_sellingRate);
 
         imageView_buy_settings = (ImageView) findViewById(R.id.imageView_buy_settings);
         imageView_buy_settings.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +145,6 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
             }
         });
 
-        getUpdatedRates();
 
         if (BTMApplication.getInstance().getBTMUserObj() != null) {
             new AlertDialog.Builder(this)
@@ -138,6 +164,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     @Override
     protected void onResume() {
         super.onResume();
+        getUpdatedRates();
 
     }
 
@@ -164,6 +191,21 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
                 JSONObject jsonObject = new JSONObject(response.getString("USD"));
                 dollarRate = jsonObject.getString("sell");
                 BTMApplication.getInstance().getBTMUserObj().setBitcoinDollarRate(dollarRate);
+
+
+                Double margin = (Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin()) / 100);
+
+                Double sellRate = Double.parseDouble(jsonObject.getString("sell")) * margin;
+                Double buyRate = Double.parseDouble(jsonObject.getString("buy")) * margin;
+
+                sellRate = Double.parseDouble(jsonObject.getString("sell")) + sellRate;
+                buyRate = Double.parseDouble(jsonObject.getString("buy")) - buyRate;
+                sellingRate = String.valueOf(sellRate);
+                buyingRate = String.valueOf(buyRate);
+
+                text_buy_buyingRate.setText("$ " + String.format("%.2f", buyRate));
+                text_buy_sellingRate.setText("$ " + String.format("%.2f", sellRate));
+                BTMApplication.getInstance().setSellingRate(sellingRate);
             } catch (Exception e) {
                 e.printStackTrace();
             }
