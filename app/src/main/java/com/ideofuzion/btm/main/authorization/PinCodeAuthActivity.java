@@ -237,8 +237,8 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         button_pinCodeAuth_cancel = (Button) findViewById(R.id.button_pinCodeAuth_cancel);
         button_pinCodeAuth_authorize = (Button) findViewById(R.id.button_pinCodeAuth_authorize);
 
-        text_pinCodeAuth_youKey.setText(Html.fromHtml("<i>Your ID</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
-        text_pinCodeAuth_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate() + " USD");
+        text_pinCodeAuth_youKey.setText(Html.fromHtml("<i>Your ID</i> " + BTMApplication.getInstance().getQrModel().getBitcoin()));
+        text_pinCodeAuth_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getSellingRate() + Constants.CURRENCY);
 
         text_pinCodeAuth_title.setText(Html.fromHtml("<i>Enter PIN Code</i>"));
     }

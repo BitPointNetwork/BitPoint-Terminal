@@ -43,6 +43,17 @@ public class BTMUser {
     @SerializedName("profitWalletAddress")
     private String profitWalletAddress;
 
+    @SerializedName("useKraken")
+    private boolean exchangeStatus;
+
+    public boolean getExchangeStatus() {
+        return exchangeStatus;
+    }
+
+    public void setExchangeStatus(boolean exchangeStatus) {
+        this.exchangeStatus = exchangeStatus;
+    }
+
     public String getBitpointProfitWalletAddress() {
         return bitpointProfitWalletAddress;
     }
@@ -98,13 +109,6 @@ public class BTMUser {
     @SerializedName("merchantProfitMargin")
     private String merchantProfitMargin;
 
-    public String getBitcoinDollarRate() {
-        return bitcoinDollarRate;
-    }
-
-    public void setBitcoinDollarRate(String bitcoinDollarRate) {
-        this.bitcoinDollarRate = bitcoinDollarRate;
-    }
 
     public String getHotWalletBenificiaryKey() {
         return hotWalletBenificiaryKey;
@@ -116,7 +120,6 @@ public class BTMUser {
 
     @SerializedName("hotWalletBenificiaryKey")
     private String hotWalletBenificiaryKey;
-    private String bitcoinDollarRate;
 
     public String getUserId() {
         return userId;

@@ -29,6 +29,9 @@ public class PermissionHandler {
     public static final String READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";
     public static final String RECORD_AUDIO = "android.permission.RECORD_AUDIO";
 
+    public static final String LOCATION_COARSE = "android.permission.ACCESS_COARSE_LOCATION";
+    public static final String LOCATION_FINE =   "android.permission.ACCESS_FINE_LOCATION";
+
     public PermissionHandler(Activity context) {
         this.context = context;
     }

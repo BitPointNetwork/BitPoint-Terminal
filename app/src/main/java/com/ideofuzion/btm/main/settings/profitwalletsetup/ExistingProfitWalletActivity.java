@@ -48,6 +48,7 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
     private DialogHelper dialogHelper;
     private boolean isFromRegistration = false;
     private Button cancel;
+    View editText_bottom_benificiary_line;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,13 +77,14 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
         profitWalletKrakenBenificiaryKey = (EditText) findViewById(R.id.edit_minMaxBalance_minBalance);
         profitWalletAddress = (EditText) findViewById(R.id.edit_minMaxBalance_maxBalance);
         button_minMaxBalance_submit = (Button) findViewById(R.id.button_minMaxBalance_submit);
-
+        editText_bottom_benificiary_line = findViewById(R.id.editText_bottom_benificiary_line);
         text_minMaxBalance_header.setTypeface(fontBold);
         profitWalletAddress.setTypeface(fontSemiBold);
         profitWalletKrakenBenificiaryKey.setTypeface(fontSemiBold);
         button_minMaxBalance_submit.setTypeface(fontBold);
         cancel = (Button) findViewById(R.id.cancel);
         profitWalletAddress.setText(BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress());
+        profitWalletKrakenBenificiaryKey.setText(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey());
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,8 +115,8 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
         Map<String, String> updateTaglineParams = new HashMap<>();
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
         updateTaglineParams.put("createNewProfitWallet", "0");
-        updateTaglineParams.put("profitWalletKrakenBenificiaryKey", profitWalletKrakenBenificiaryKey.getText().toString());
-        updateTaglineParams.put("profitWalletAddress", profitWalletAddress.getText().toString());
+        updateTaglineParams.put("profitWalletKrakenBenificiaryKey", profitWalletKrakenBenificiaryKey.getText().toString().trim());
+        updateTaglineParams.put("profitWalletAddress", profitWalletAddress.getText().toString().trim());
 
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
@@ -123,11 +125,7 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
 
 
     boolean validateFields() {
-        if (profitWalletKrakenBenificiaryKey.getText().toString().isEmpty()) {
-            AlertMessage.showError(profitWalletAddress, "Please enter Profit Wallet Kraken Benificiary Key");
-            profitWalletKrakenBenificiaryKey.requestFocus();
-            return false;
-        }
+        //No Need
         if (profitWalletAddress.getText().toString().isEmpty()) {
             AlertMessage.showError(profitWalletAddress, "Please enter Profit Wallet Address");
             profitWalletAddress.requestFocus();

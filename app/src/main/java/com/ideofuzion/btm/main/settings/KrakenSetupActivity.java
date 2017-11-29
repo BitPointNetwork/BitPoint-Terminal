@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -46,7 +47,7 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
     private DialogHelper dialogHelper;
     private boolean isFromRegistration = false;
     private Button cancel;
-
+    public static String EXTRA_SKIP_KRAKEN = "skip_kraken";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,14 +84,20 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(cancel.getText().toString().equalsIgnoreCase("Cancel")){
                 finish();
-
+                } else{
+                    sendRequestToSkipKraken();
+                }
             }
+
         });
         cancel.setTypeface(fontBold);
         if (isFromRegistration) {
-            cancel.setVisibility(View.GONE);
+            cancel.setText("Skip");
+            cancel.setVisibility(View.VISIBLE);
         } else {
+            cancel.setText("Cancel");
             cancel.setVisibility(View.VISIBLE);
         }
         button_krakenSetup_submit.setOnClickListener(new View.OnClickListener() {
@@ -111,10 +118,22 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
         updateTaglineParams.put("krakenAPIKey", edit_krakenSetup_krakenApiKey.getText().toString());
         updateTaglineParams.put("krakenAPISecret", edit_krakenSetup_krakenApiSecret.getText().toString());
-
+        if(isFromRegistration){
+        updateTaglineParams.put("isToggleChange",String.valueOf(1));
+        }
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
 
+    }
+    private void sendRequestToSkipKraken(){
+        String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_USE_KRAKEN;
+
+        Map<String, String> updateTaglineParams = new HashMap<>();
+        updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
+        updateTaglineParams.put("useKraken", 0+"");
+
+        VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, new KrakenDismiss());
+        dialogHelper.showProgressDialog();
     }
 
 
@@ -176,6 +195,53 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
 
         }//end of if for response not null
 
+    }
+    class KrakenDismiss implements  Response.Listener<JSONObject>, Response.ErrorListener{
+
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            if (dialogHelper != null) {
+                dialogHelper.hideProgressDialog();
+            }
+            Toast.makeText(KrakenSetupActivity.this,"Please Try Agian",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onResponse(JSONObject response) {
+            if (dialogHelper != null) {
+                dialogHelper.hideProgressDialog();
+            }
+            if (response != null) {
+                ServerMessage serverMessageResponse = new ServerMessage();
+                try {
+                    serverMessageResponse.setData(response.getString("data"));
+                    serverMessageResponse.setCode(response.getInt("code"));
+                    serverMessageResponse.setMessage(response.getString("message"));
+                    if (serverMessageResponse.getCode() == CODE_SUCCESS) {
+                        AlertMessage.show(edit_krakenSetup_krakenApiSecret, "Success");
+
+                        if (!serverMessageResponse.getData().isEmpty()) {
+                            Gson gsonForUser = new Gson();
+                            BTMUser btmUser = gsonForUser.fromJson(serverMessageResponse.getData(), BTMUser.class);
+                            BTMApplication.getInstance().setBTMUserObj(btmUser);
+                            if (isFromRegistration) {
+                                startActivity(new Intent(KrakenSetupActivity.this, BitpointProfitWalletActivity.class)
+                                        .putExtra(EXTRA_FROM_REGISTRATION, true));
+                            } else {
+                                finish();
+                            }
+
+                        }
+                    } else {
+                        AlertMessage.showError(edit_krakenSetup_krakenApiSecret, serverMessageResponse.getMessage());
+                    }//end oe else
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }//en
+
+        }
     }
 
 }

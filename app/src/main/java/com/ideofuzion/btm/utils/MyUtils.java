@@ -78,6 +78,11 @@ public class MyUtils {
             e.printStackTrace();
         }
     }
+
+    public static String getDecimalFormattedAmount(String amount) {
+        return String.format("%.5f", Double.parseDouble(amount));
+    }
+
     public static void setUnreadNotificationStatus(Context context, boolean status) {
         SharedPreferences settings;
         SharedPreferences.Editor editor;

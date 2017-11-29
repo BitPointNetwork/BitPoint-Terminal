@@ -11,34 +11,22 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.authorization.PinCodeAuthActivity;
 import com.ideofuzion.btm.main.authorization.SendBitcoins;
-import com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity;
-import com.ideofuzion.btm.model.ServerMessage;
-import com.ideofuzion.btm.network.VolleyRequestHelper;
 import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
 import com.ideofuzion.btm.utils.MyUtils;
-import com.ideofuzion.btm.utils.SessionManager;
-
-import org.json.JSONObject;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 import me.grantland.widget.AutofitTextView;
-
-import static com.ideofuzion.btm.utils.Constants.ResultCode.CODE_SUCCESS;
 
 
 /**
@@ -56,7 +44,7 @@ public class EnterAmountActivity extends Activity {
 
 
     AutofitTextView text_enterAmountFragment_userKey, text_enterAmountFragment_dollarRate;
-    TextView text_enterAmountFragment_bitcoinAmount;
+    TextView text_enterAmountFragment_bitcoinAmount, text_enterAmount_currencySymbol;
     TextView text_enterAmountFragment_title,
             text_enterAmountFragment_description, text_enterAmountFragment_BTC;
 
@@ -68,11 +56,16 @@ public class EnterAmountActivity extends Activity {
             button_enterAmountFragment_0, button_enterAmountFragment_clear;
 
     TextView edit_enterAmountFragment_calculator;
+    ImageView imageView_enterAmountFragment_switch;
 
 
-    Float dollarRate;
+    Double dollarRate;
     DialogHelper dialogHelper;
     public static final String BITCOIN_AMOUNT_X = "BITCOIN_AMOUNT_X";
+
+    public static final String BTC = "btc";
+    public static final String POUND = "pound";
+    String activeCurrency = POUND;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -160,7 +153,39 @@ public class EnterAmountActivity extends Activity {
         button_enterAmountFragment_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String amount = edit_enterAmountFragment_calculator.getText().toString();
+                if (amount.length() > 0)
+                    edit_enterAmountFragment_calculator.setText(
+                            amount.substring(0, amount.length() - 1));
+            }
+        });
+        button_enterAmountFragment_clear.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
                 edit_enterAmountFragment_calculator.setText("");
+                return false;
+            }
+        });
+
+        imageView_enterAmountFragment_switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageView_enterAmountFragment_switch.getDrawable().getConstantState()
+                        .equals(getResources().getDrawable(R.drawable.conv_btc).getConstantState())) {
+                    imageView_enterAmountFragment_switch.setImageDrawable(getResources().getDrawable(R.drawable.conv_pound));
+                    text_enterAmountFragment_description.setText("BTC will be transferred to your wallet");
+                    text_enterAmount_currencySymbol.setText(Constants.BITCOIN_SYMBOL);
+
+                    activeCurrency = POUND;
+                    edit_enterAmountFragment_calculator.setText(edit_enterAmountFragment_calculator.getText().toString());
+                } else {
+                    imageView_enterAmountFragment_switch.setImageDrawable(getResources().getDrawable(R.drawable.conv_btc));
+                    text_enterAmountFragment_description.setText("Pounds worth BTC will be transferred to your wallet");
+                    text_enterAmount_currencySymbol.setText(Constants.POUND_SYMBOL);
+
+                    activeCurrency = BTC;
+                    edit_enterAmountFragment_calculator.setText(edit_enterAmountFragment_calculator.getText().toString());
+                }
             }
         });
 
@@ -204,36 +229,48 @@ public class EnterAmountActivity extends Activity {
             }
         });
 
-        edit_enterAmountFragment_calculator.addTextChangedListener(new
+        edit_enterAmountFragment_calculator.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                                                                           TextWatcher() {
-                                                                               @Override
-                                                                               public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-                                                                               }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                                                                               @Override
-                                                                               public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
-                                                                               }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edit_enterAmountFragment_calculator.getText().toString().equals("")) {
+                    text_enterAmountFragment_bitcoinAmount.setText("0.0");
+                } else {
+                    if (activeCurrency.equals(POUND)) {
+                        Double rate = Double.valueOf(BTMApplication.getInstance().getOriginalSellingRate());
+                        Double amountEntered = Double.valueOf(edit_enterAmountFragment_calculator.getText().toString().trim());
+                        Double profitMargin = (amountEntered * Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin())) / 100;
+                        Double amountMinusProfitMargin = amountEntered - profitMargin;
 
-                                                                               @Override
-                                                                               public void afterTextChanged(Editable s) {
-                                                                                   if (edit_enterAmountFragment_calculator.getText().toString().equals("")) {
-                                                                                       text_enterAmountFragment_bitcoinAmount.setText("0.0");
-                                                                                   } else {
-                                                                                       Double amountEntered = Double.valueOf(edit_enterAmountFragment_calculator.getText().toString().trim());
-                                                                                       Double profitMargin = (amountEntered * Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin())) / 100;
-                                                                                       Double amountMinusProfitMargin = amountEntered - profitMargin;
+                        bitcoinsX = (amountMinusProfitMargin) /
+                                rate;
+                        bitcoinY = profitMargin / rate;
 
-                                                                                       bitcoinsX = (amountMinusProfitMargin) /
-                                                                                               dollarRate;
-                                                                                       bitcoinY = profitMargin / dollarRate;
+                        text_enterAmountFragment_bitcoinAmount.setText(MyUtils.getDecimalFormattedAmount(BigDecimal.valueOf(bitcoinsX).toPlainString()));
+                    } else {
+                        Double rate = Double.valueOf(BTMApplication.getInstance().getOriginalSellingRate());
+                        Double amountEntered = Double.valueOf(text_enterAmountFragment_bitcoinAmount.getText().toString().trim());
+                        Double profitMargin = (amountEntered * Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin())) / 100;
+                        Double amountMinusProfitMargin = amountEntered - profitMargin;
 
-                                                                                       text_enterAmountFragment_bitcoinAmount.setText(BigDecimal.valueOf(bitcoinsX).toPlainString());
-                                                                                   }
-                                                                               }
-                                                                           });
+                        bitcoinsX = (amountMinusProfitMargin) /
+                                rate;
+                        bitcoinY = profitMargin / rate;
+                        String amount = edit_enterAmountFragment_calculator.getText().toString().trim();
+                        text_enterAmountFragment_bitcoinAmount.setText(MyUtils.getDecimalFormattedAmount(String.valueOf(Double.parseDouble(amount) * dollarRate)));
+                    }
+                }
+            }
+        });
     }
 
 
@@ -244,6 +281,7 @@ public class EnterAmountActivity extends Activity {
         text_enterAmountFragment_title.setTypeface(fontBold);
         text_enterAmountFragment_description.setTypeface(fontSemiBold);
         text_enterAmountFragment_bitcoinAmount.setTypeface(fontSemiBold);
+        text_enterAmount_currencySymbol.setTypeface(fontSemiBold);
         // text_enterAmountFragment_BTC.setTypeface(fontSemiBold);
         button_enterAmountFragment_cancel.setTypeface(fontBold);
         button_enterAmountFragment_proceed.setTypeface(fontBold);
@@ -264,15 +302,15 @@ public class EnterAmountActivity extends Activity {
     private void initResources() {
 
         dialogHelper = new DialogHelper(this);
-        dollarRate = Float.valueOf(BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate());
+        dollarRate = Double.valueOf(BTMApplication.getInstance().getSellingRate());
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(this).getTypefaceRegular();
         fontSemiBold = Fonts.getInstance(this).getTypefaceSemiBold();
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
-
-        dollarRate = Float.valueOf(BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate());
-
+        text_enterAmount_currencySymbol = (TextView) findViewById(R.id.text_enterAmount_currencySymbol);
+        imageView_enterAmountFragment_switch = (ImageView) findViewById(R.id.imageView_enterAmountFragment_switch);
+        imageView_enterAmountFragment_switch.setImageDrawable(getResources().getDrawable(R.drawable.conv_pound));
         text_enterAmountFragment_userKey = (AutofitTextView) findViewById(R.id.text_enterAmountFragment_userKey);
         text_enterAmountFragment_dollarRate = (AutofitTextView) findViewById(R.id.text_enterAmountFragment_dollarRate);
         text_enterAmountFragment_title = (TextView) findViewById(R.id.text_enterAmountFragment_title);
@@ -299,8 +337,11 @@ public class EnterAmountActivity extends Activity {
 
 
         //init data
-        text_enterAmountFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
-        text_enterAmountFragment_dollarRate.setText("1 BTC = " + dollarRate + " USD");
+        text_enterAmountFragment_description.setText("BTC will be transferred to your wallet");
+        text_enterAmount_currencySymbol.setText(Constants.BITCOIN_SYMBOL);
+        text_enterAmountFragment_bitcoinAmount.setText("0.0");
+        text_enterAmountFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getBitcoin()));
+        text_enterAmountFragment_dollarRate.setText("1 BTC = " + MyUtils.getDecimalFormattedAmount(dollarRate.toString()) + " " + Constants.CURRENCY);
         text_enterAmountFragment_title.setText(Html.fromHtml("<i>Enter Amount</i>"));
 
     }

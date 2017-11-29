@@ -95,7 +95,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/background_cancel_button_all_rounded"
                 android:minHeight="80dp"
-                android:text="Dismiss"
+                android:text="Skip"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="26sp" />

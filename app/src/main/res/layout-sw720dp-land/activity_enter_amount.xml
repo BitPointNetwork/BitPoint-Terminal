@@ -1,316 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:scrollbars="vertical|horizontal" xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    android:scrollbars="vertical|horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@drawable/background_scanqractivity_title"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <me.grantland.widget.AutofitTextView
-                android:layout_weight="1"
-                android:layout_alignParentStart="true"
-                android:id="@+id/text_enterAmountFragment_userKey"
-                style="@android:style/TextAppearance.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/textView_TransferAmountActivity_yourId_left_margin"
-                android:layout_marginStart="@dimen/textView_TransferAmountActivity_yourId_left_margin"
-                android:singleLine="true"
-                android:layout_toRightOf="@+id/text_enterAmountFragment_dollarRate"
-                android:gravity="center_vertical|start"
-                android:text="Your ID asdfasfasdfasdfasdf "
-                android:textColor="@color/your_id_color"
-                android:textStyle="italic"
-                android:layout_alignParentLeft="true" />
-
-            <me.grantland.widget.AutofitTextView
-                android:layout_weight="1"
-                android:singleLine="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/text_enterAmountFragment_dollarRate"
-                style="@android:style/TextAppearance.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:minWidth="300dp"
-                android:layout_marginEnd="@dimen/textView_TransferAmountActivity_title_right_margin"
-                android:layout_marginRight="@dimen/textView_TransferAmountActivity_title_right_margin"
-                android:gravity="center_vertical|end"
-                android:text="1BTC = 2202 USD"
-                android:textColor="@color/text_hint_color" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="70dp"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <LinearLayout
-            android:layout_width="382dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/linearLayout_TransferAmountActivity_description_margin_top"
+            android:layout_height="70dp"
+            android:background="@drawable/background_scanqractivity_title"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_enterAmountFragment_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="center_vertical"
-                android:text="Enter Amount"
-                android:textColor="@color/text_color"
-                android:textSize="36sp"
-                android:textStyle="italic|bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/text_enterAmountFragment_userKey"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="@dimen/textView_TransferAmountActivity_yourId_left_margin"
+                    android:layout_marginStart="@dimen/textView_TransferAmountActivity_yourId_left_margin"
+                    android:layout_toRightOf="@+id/text_enterAmountFragment_dollarRate"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|start"
+                    android:singleLine="true"
+                    android:text="Your ID asdfasfasdfasdfasdf "
+                    android:textColor="@color/your_id_color"
+                    android:textStyle="italic" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/text_enterAmountFragment_dollarRate"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/textView_TransferAmountActivity_title_right_margin"
+                    android:layout_marginRight="@dimen/textView_TransferAmountActivity_title_right_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|end"
+                    android:minWidth="300dp"
+                    android:singleLine="true"
+                    android:text="1BTC = 2202 USD"
+                    android:textColor="@color/text_hint_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <TextView
                     android:id="@+id/text_enterAmountFragment_bitcoinAmount"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/textView_TransferAmountActivity_BTC_amount_top_margin"
-                    android:text="0.0"
+                    android:layout_weight="0.9"
+                    android:ellipsize="end"
                     android:maxLines="1"
+                    android:text="0.088888888888888888"
                     android:textColor="@color/qractivity_title_stroke_color"
                     android:textSize="32sp" />
 
+                <TextView
+                    android:id="@+id/text_enterAmount_currencySymbol"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:textColor="@color/qractivity_title_stroke_color"
+                    android:textSize="32sp" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_enterAmountFragment_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BTC will be transferred from your Wallet "
-                android:textColor="@color/text_color"
-                android:textSize="32sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/edit_enterAmountFragment_calculator"
-                android:layout_width="match_parent"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="50dp"
-                android:textSize="40sp"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_height="@dimen/button_enterAmountActivity_calculator_height"
-                android:background="@drawable/background_edittext_calculator"
-                android:textColor="#3C475D" />
 
             <LinearLayout
-                android:layout_width="292dp"
-                android:layout_height="274dp"
-                android:layout_marginTop="@dimen/linearLayout_TransferAmountActivity_calculator_keys_top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:orientation="horizontal">
+                    android:layout_height="88dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
 
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="1"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
+                    <TextView
+                        android:id="@+id/edit_enterAmountFragment_calculator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_enterAmountActivity_calculator_height"
+                        android:background="@drawable/background_edittext_calculator"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="50dp"
+                        android:singleLine="true"
+                        android:textColor="#3C475D"
+                        android:textSize="40sp" />
 
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="2"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="3"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView_enterAmountFragment_switch"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:paddingEnd="5dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/conv_btc" />
+                </FrameLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:orientation="horizontal">
+                    android:layout_width="292dp"
+                    android:layout_height="274dp"
+                    android:layout_marginTop="@dimen/linearLayout_TransferAmountActivity_calculator_keys_top_margin"
+                    android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="4"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="5"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="6"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="7"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="8"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="9"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="0"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
-
-                    <Button
-                        android:id="@+id/button_enterAmountFragment_clear"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/background_calculator_key"
-                        android:text="clear"
-                        android:textAllCaps="false"
-                        android:textColor="@color/text_color"
-                        android:textSize="26sp" />
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
 
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="1"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="2"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="3"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="4"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="5"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="6"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="7"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="8"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="9"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="0"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                        <Button
+                            android:id="@+id/button_enterAmountFragment_clear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/background_calculator_key"
+                            android:text="clear"
+                            android:textAllCaps="false"
+                            android:textColor="@color/text_color"
+                            android:textSize="26sp" />
+
+                    </LinearLayout>
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_enterAmountFragment_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_cancel_button_rihgt_side_rounded_only"
+                android:minHeight="70dp"
+                android:minWidth="200sp"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color"
+                android:textSize="26sp" />
+
+            <Button
+                android:id="@+id/button_enterAmountFragment_proceed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="166dp"
+                android:background="@drawable/button_background"
+                android:minHeight="70dp"
+                android:minWidth="310dp"
+                android:text="Proceed"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="26sp" />
+        </FrameLayout>
     </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_enterAmountFragment_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_cancel_button_rihgt_side_rounded_only"
-            android:minHeight="70dp"
-            android:minWidth="200sp"
-            android:text="Cancel"
-            android:textAllCaps="false"
-            android:textColor="@color/text_color"
-            android:textSize="26sp" />
-
-        <Button
-            android:id="@+id/button_enterAmountFragment_proceed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginRight="166dp"
-            android:background="@drawable/button_background"
-            android:minHeight="70dp"
-            android:minWidth="310dp"
-            android:text="Proceed"
-            android:textAllCaps="false"
-            android:textColor="@color/button_text_color"
-            android:textSize="26sp" />
-    </FrameLayout>
-</LinearLayout></ScrollView>
+</ScrollView>

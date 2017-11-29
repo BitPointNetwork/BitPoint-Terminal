@@ -1,6 +1,5 @@
 package com.ideofuzion.btm.main.transfercomplete;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ClipData;
@@ -10,12 +9,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -26,10 +21,9 @@ import android.widget.Toast;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.buy.BuyActivity;
-import com.ideofuzion.btm.main.settings.UpdateHotWalletBeneficiaryActivity;
+import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.Fonts;
-
-import org.w3c.dom.Text;
+import com.ideofuzion.btm.utils.MyUtils;
 
 import me.grantland.widget.AutofitTextView;
 
@@ -56,7 +50,7 @@ public class TransferCompleteActivity extends Activity {
         try {
             setContentView(R.layout.fragment_transfer_complete);
 
-            initResources();
+            initResources(savedInstanceState);
 
             initTypefaces();
 
@@ -91,13 +85,25 @@ public class TransferCompleteActivity extends Activity {
         text_transferCompleteFragment_amount.setTypeface(fontSemiBold);
     }
 
-    private void initResources() {
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("transactionId", getIntent().getStringExtra("transactionId"));
+        if (getIntent().hasExtra(EXTRA_AMOUNT_TO_BE_GIVEN)) {
+            outState.putString(EXTRA_AMOUNT_TO_BE_GIVEN, getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN).toString());
+            outState.putString("senderAddress", getIntent().getStringExtra("senderAddress").toString());
+        }
+    }
 
-        showTarnsacionId(getIntent().getStringExtra("transactionId"));
+    private void initResources(Bundle savedInstanceState) {
 
-
-
-        dollarRate = BTMApplication.getInstance().getBTMUserObj().getBitcoinDollarRate();
+        if (savedInstanceState != null) {
+            if (!savedInstanceState.containsKey(EXTRA_AMOUNT_TO_BE_GIVEN))
+                showTarnsacionId(savedInstanceState.getString("transactionId"), false);
+        } else {
+            if (!getIntent().hasExtra(EXTRA_AMOUNT_TO_BE_GIVEN))
+                showTarnsacionId(getIntent().getStringExtra("transactionId"), false);
+        }
 
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
@@ -110,17 +116,39 @@ public class TransferCompleteActivity extends Activity {
         imageView_transferCompleteFragment_success = (ImageView) findViewById(R.id.imageView_transferCompleteFragment_success);
         button_transferCompleteFragment_ok = (Button) findViewById(R.id.button_transferCompleteFragment_ok);
         text_transferCompleteFragment_amount = (TextView) findViewById(R.id.text_transferCompleteFragment_amount);
-
-        //init data
-        if (getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN) != null) {
-            text_transferCompleteFragment_amount.setText("You have to pay $ " + getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN)
-                    + " to customer");
+        try {
+            text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getBitcoin()));
+        } catch (Exception r) {
         }
-        text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + BTMApplication.getInstance().getQrModel().getPublicBitcoinId()));
-        text_transferCompleteFragment_dollarRate.setText("1 BTC = " + dollarRate + " USD");
+        //init data
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(EXTRA_AMOUNT_TO_BE_GIVEN)) {
+                dollarRate = BTMApplication.getInstance().getBuyingRate();
+
+                text_transferCompleteFragment_amount.setText("£ " + Double.parseDouble(savedInstanceState.getString(EXTRA_AMOUNT_TO_BE_GIVEN))*Double.parseDouble(dollarRate)
+                        + " you will receive for your Bitcoin");
+                text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + savedInstanceState.getString("senderAddress")));
+
+            } else
+                dollarRate = BTMApplication.getInstance().getSellingRate();
+        } else {
+            if (getIntent().hasExtra(EXTRA_AMOUNT_TO_BE_GIVEN)) {
+                dollarRate = BTMApplication.getInstance().getBuyingRate();
+
+                text_transferCompleteFragment_amount.setText("£ " + Double.parseDouble(getIntent().getStringExtra(EXTRA_AMOUNT_TO_BE_GIVEN))*Double.parseDouble(dollarRate)
+                        + " you will receive for your Bitcoin");
+                text_transferCompleteFragment_userKey.setText(Html.fromHtml("<i>Your ID:</i> " + getIntent().getStringExtra("senderAddress")));
+
+            } else
+                dollarRate = BTMApplication.getInstance().getSellingRate();
+        }
+
+        text_transferCompleteFragment_dollarRate.setText("1 BTC = " + MyUtils.getDecimalFormattedAmount(dollarRate) + " " + Constants.CURRENCY);
+
+
     }
 
-    private void showTarnsacionId(String id) {
+    private void showTarnsacionId(String id, boolean b) {
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -129,11 +157,15 @@ public class TransferCompleteActivity extends Activity {
         final TextView transactionId = (TextView) dialog.findViewById(R.id.transactionId);
         TextView ok = (TextView) dialog.findViewById(R.id.ok);
 
+        if (b) {
+            title.setText("Transaction Id\n(Tap id to copy)");
+        } else {
+            title.setText("Transaction Id\nPhotograph this transaction Id and keep it for reference");
+        }
+
         title.setTypeface(fontBold);
         transactionId.setTypeface(fontSemiBold);
         ok.setTypeface(fontSemiBold);
-
-        title.setText("Transaction Id\n(Tap id to copy)");
 
 
         transactionId.setText(id);
@@ -143,6 +175,7 @@ public class TransferCompleteActivity extends Activity {
             public void onClick(View v) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Transaction Id", transactionId.getText().toString());
+                Toast.makeText(TransferCompleteActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
                 clipboard.setPrimaryClip(clip);
                 dialog.dismiss();
             }
@@ -154,7 +187,6 @@ public class TransferCompleteActivity extends Activity {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Transaction Id", transactionId.getText().toString());
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(TransferCompleteActivity.this, "Copied!", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

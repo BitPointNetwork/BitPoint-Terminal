@@ -65,7 +65,6 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
     public void initResources() {
 
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
-
         dialogHelper = new DialogHelper(this);
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(this).getTypefaceRegular();
@@ -92,6 +91,8 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
         if (isFromRegistration) {
             cancel.setVisibility(View.GONE);
         } else {
+            bitpointProfitWalletAddress.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress());
+            bitpointProfitWalletKrakenBenificiaryKey.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey());
             cancel.setVisibility(View.VISIBLE);
         }
         cancel.setTypeface(fontBold);
@@ -103,6 +104,7 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
                 }
             }
         });
+
 
     }
 
@@ -126,11 +128,7 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
             bitpointProfitWalletAddress.requestFocus();
             return false;
         }
-        if (bitpointProfitWalletKrakenBenificiaryKey.getText().toString().isEmpty()) {
-            AlertMessage.showError(bitpointProfitWalletAddress, "Please enter bitpoint Profit Wallet Kraken Benificiary Key");
-            bitpointProfitWalletKrakenBenificiaryKey.requestFocus();
-            return false;
-        }
+
 
         return true;
     }
