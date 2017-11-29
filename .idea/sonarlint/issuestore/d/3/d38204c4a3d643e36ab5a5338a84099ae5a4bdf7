@@ -1,0 +1,15 @@
+
+`squid:S1659"FDeclare "text_transferCompleteFragment_dollarRate" on a separate line.(ÌÂ„üùÿÿÿÿ
+\squid:S1659"BDeclare "text_transferCompleteFragment_amount" on a separate line.(ù‰âãıÿÿÿÿ
+ksquid:S1192"QDefine a constant instead of duplicating this literal "<i>Your ID:</i> " 3 times.(¹‹şÀıÿÿÿÿ
+hsquid:S1192"NDefine a constant instead of duplicating this literal "transactionId" 4 times.(”¤¥ˆÿÿÿÿÿ
+csquid:S1192"NDefine a constant instead of duplicating this literal "senderAddress" 4 times.(È§áÔ
+ssquid:S1450"YRemove the "dollarRate" field and declare it as a local variable in the relevant methods.(»ÿÊÀşÿÿÿÿ
+Dsquid:S00108")Either remove or fill this block of code.(ç›Éæÿÿÿÿÿ
+‹squid:S00116"pRename this field "text_transferCompleteFragment_userKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÂ„üùÿÿÿÿ
+squid:S00116"sRename this field "text_transferCompleteFragment_dollarRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÂ„üùÿÿÿÿ
+—squid:S00116"|Rename this field "text_transferCompleteFragment_transactionComplete" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù‰âãıÿÿÿÿ
+Šsquid:S00116"oRename this field "text_transferCompleteFragment_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù‰âãıÿÿÿÿ
+squid:S00116"uRename this field "imageView_transferCompleteFragment_success" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¨×¶ûÿÿÿÿ
+ƒsquid:S00116"mRename this field "button_transferCompleteFragment_ok" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿùÑ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

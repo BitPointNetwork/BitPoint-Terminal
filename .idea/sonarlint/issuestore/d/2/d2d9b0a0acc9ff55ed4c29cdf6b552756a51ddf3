@@ -1,0 +1,17 @@
+
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
+hsquid:S1192"NDefine a constant instead of duplicating this literal "senderAddress" 3 times.(á€éÈûÿÿÿÿ
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+‚squid:S00116"lRename this field "linearLayout_sell_buttonContainer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İôï£
+usquid:S00116"`Rename this field "imageView_sell_qrCode" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨é 
+usquid:S1450"[Remove the "fontSemiBold" field and declare it as a local variable in the relevant methods.(³‹“ìÿÿÿÿÿ
+qsquid:S00116"[Rename this field "text_sell_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¯ê¢
+nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
+?squid:S00108")Either remove or fill this block of code.(”ı¾
+ˆsquid:S00116"mRename this field "linearLayout_sell_loadingContainer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ŸØ†øÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Ksquid:S1068"6Remove this unused "isFromRegistration" private field.(ª‰ÌØ
+€squid:S00116"eRename this field "button_sell_startListening" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç±£¹ûÿÿÿÿ
+vsquid:S1450"aRemove the "isFromRegistration" field and declare it as a local variable in the relevant methods.(ª‰ÌØ
+vsquid:S00116"`Rename this field "text_sell_loadingText" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°¶™ø

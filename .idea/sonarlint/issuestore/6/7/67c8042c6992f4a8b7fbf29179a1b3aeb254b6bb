@@ -1,0 +1,37 @@
+
+ksquid:UselessImportCheck"BRemove this unused import 'com.ideofuzion.btm.utils.AlertMessage'.(éü’ï8”ÉõÇş+
+’squid:S00116"pRename this field "linearLayout_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»’á€ûÿÿÿÿ8µìçÇş+
+ˆsquid:S00116"mRename this field "linearLayout_settings_pinCodeSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶·¿üúÿÿÿÿ
+Ksquid:S1659"6Declare "text_settings_dollarRate" on a separate line.(É‹Õ™
+Šsquid:S00116"uRename this field "linearLayout_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ßÁH
+usquid:S00116"_Rename this field "text_settings_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
+Šsquid:S00116"hRename this field "text_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Õ¶ûÿÿÿÿ8µìçÇş+
+squid:S00116"uRename this field "linearLayout_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¢Ü™ıÿÿÿÿ
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+ˆsquid:S00116"mRename this field "text_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÏŸüıÿÿÿÿ
+nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
+Asquid:S1068",Remove this unused "fontBold" private field.(”ãµ
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€ÓäÙıÿÿÿÿ8Š›îş+
+{squid:S00116"eRename this field "text_settings_setupBalance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úˆ
+{squid:S00116"eRename this field "text_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¶Ä©
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
+‹squid:S00116"uRename this field "linearLayout_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¼…³
+?squid:S00108")Either remove or fill this block of code.(”ı¾
+ƒsquid:S00116"mRename this field "linearLayout_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó‘ÉÒ
+ˆsquid:S00116"mRename this field "linearLayout_settings_setupBalance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èïè´şÿÿÿÿ
+}squid:S00116"gRename this field "text_settings_beneficiaryKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à´ˆ¡
+ysquid:S1858"X"getBitpointProfitWalletAddress" returns a string, there's no need to call "toString()".(½ÖÍ™ıÿÿÿÿ8ôıóş+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8´ÊğÇş+
+“squid:S00116"xRename this field "linearLayout_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬ñ¹úÿÿÿÿ
+†squid:S00116"pRename this field "text_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÇÍ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ƒµ™
+squid:S00116"rRename this field "linearLayout_settings_SetupProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ó†ùúÿÿÿÿ
+ˆsquid:S00116"rRename this field "linearLayout_settings_profitMarginSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öØ»º
+ysquid:S00116"cRename this field "text_settings_dollarRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
+ˆsquid:S00116"mRename this field "text_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¬âúÿÿÿÿ
+zsquid:S00116"dRename this field "text_settings_profitSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ƒéæ
+ˆsquid:S00116"mRename this field "text_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÏ«ûÿÿÿÿ
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦Œœ¢
+€squid:S00116"eRename this field "text_settings_pinCodeSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áæçâúÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+bsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(Öı¯

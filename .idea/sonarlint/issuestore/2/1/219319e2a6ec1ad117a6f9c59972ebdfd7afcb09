@@ -1,0 +1,32 @@
+
+4squid:S2068" Remove this hard-coded password.(Â£—0
+5squid:S2068" Remove this hard-coded password.(¯âÉ
+:squid:S2068" Remove this hard-coded password.(é“Îïúÿÿÿÿ
+hsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ÿ§É“
+Bsquid:S1444"-Make this "public static context" field final(ÿ§É“
+Isquid:S2095"4Close this "FileOutputStream" in a "finally" clause.(Ê¾ıµ
+Hsquid:S2095"3Close this "FileInputStream" in a "finally" clause.(­Ï
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«É§
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶íç¶øÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±ª´ùÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´‡Ô˜
+‡squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(”šµ©üÿÿÿÿ
+Vsquid:S1126"AReplace this if-then-else statement by a single return statement.(ìÇ³ò
+zsquid:S1488"`Immediately return this expression instead of assigning it to the temporary variable "UniqueID".(ÛÔè›ıÿÿÿÿ
+"squid:ClassVariableVisibilityCheck"SMake context a static final constant or non-public and provide accessors if needed.(ÿ§É“
+Lsquid:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+Wsquid:S1226"BIntroduce a new variable instead of reusing the parameter "angle".(ùù†­
+>squid:S1481")Remove this unused "data" local variable.(†êÜ
+?squid:S00108")Either remove or fill this block of code.(”ı¾
+Nsquid:S1854"9Remove this useless assignment to local variable "angle".(ùù†­
+Msquid:S1854"8Remove this useless assignment to local variable "data".(†êÜ
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÌáŒ 
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÌáŒ 
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÌáŒ 
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ¹øğ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÔè›ıÿÿÿÿ
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â£—0
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯âÉ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é“Îïúÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Osquid:S1161":Add the "@Override" annotation above this method signature(Á»›ê
