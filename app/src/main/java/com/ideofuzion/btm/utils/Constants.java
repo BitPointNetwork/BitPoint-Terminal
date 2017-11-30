@@ -32,18 +32,22 @@ public class Constants {
     public static final String TRANSACTION_TYPE_MERCHANTS = "2";
     public static final String ROUTE_UPDATE_MIN_MAX_BALANCE = "merchant/updateMinMaxBalance";
     public static final String ROUTE_UPDATE_KRAKEN_KEYS = "merchant/updateUserKrakenSetup";
+    public static final String ROUTE_UPDATE_USE_KRAKEN = "merchant/updateUseKraken";
     public static final String ROUTE_CREATE_PROFIT_WALLET = "merchant/createMerchantProfitWallet";
     public static final String ROUTE_UPDATE_MERCHANT_PROFIT = "merchant/updateMerchantProfit";
     public static final String ROUTE_CREATE_BITPOINT_PROFIT_WALLET = "merchant/createBitPointProfitWallet";
     public static final String ROUTE_UPDATE_MERCHANT_PROFIT_THRESHOLD = "merchant/updateUserProfitThresholdSetup";
     public static final String ROUTE_UPDATE_HOT_WALLET_BENEFICIARY = "merchant/updateHotWalletBenificiaryKey";
     public static final String ROUTE_RECEIVE_BALANCE = "merchant/receiveBalance";
+    public static final String ROUTE_LISTENER = "merchant/attachListener";
+    public static final String ROUTE_SAVE_SENDER_ADDRESS =  "merchant/postSaveSenderAddress";
+    public static final String ROUTE_UPDATE_LAT_LNG = "merchant/postUpdateLatLong";
 
     public static String EXTRA_MOBILE_NUMBER = "EXTRA_MOBILE_NUMBER";
     public static int COUNTRY_SELECT_REQUEST = 1;
 
-
-    public static final String BASE_SERVER_URL = "http://104.199.49.55:3000/";
+/*35.189.115.14:3000*/
+    public static final String BASE_SERVER_URL = "http://35.198.174.113:3000/";
     public static final String ROUTE_USER_SIGNUP = "merchant/createMerchant";
     public static final String ROUTE_COMPLETE_USERR_PROFILE = "ethereumUserCompleteProfile";
     public static final String ROUTE_SOCIAL_MEDIA_SIGNUP = "postSocialMediaUser";
@@ -58,6 +62,8 @@ public class Constants {
     public static final String ROUTE_PASSCODE_STATUS = "ethereumUsersChangePasscodeStatus";
     public static final String ROUTE_CONTACT_PROFILE = "getUserByContactNumber";
     public static final String ROUTE_FORGOT_PASSWORD = "forgotPassword";
+    public static final String BITCOIN_SYMBOL = "฿";
+    public static final String POUND_SYMBOL = "£";
 
     public static final String ARG_ACCOUNT_TYPE = "ARG_ACCOUNT_TYPE";
     public static final String ARG_AUTH_TYPE = "ARG_AUTH_TYPE";
@@ -73,7 +79,7 @@ public class Constants {
     public static String ALLOW_ACCESS = "ALLOW_ACCESS";
     public static String EXTRA_USER_ID = "data2";
     public static String EXTRA_USERNAME = "data1";
-    public static String EXTRA_USER_NUMBER =  "data4";
+    public static String EXTRA_USER_NUMBER = "data4";
     public static String Error_EMPTY_MESSAGE = "Please enter some text in message";
     public static String ROUTE_NEAREST_MERCHANTS = "getNearestMerchants";
     public static String ROUTE_UPDATE_LOCATION = "updateUserLocation";
@@ -85,6 +91,7 @@ public class Constants {
 
     public static String ERROR_SAME_OLD_AND_NEW_PASSWORD = "Old password and new password shouldn't be same ";
     public static final String SEND_BALANCE = "merchant/sendBalance";
+    public static String CURRENCY = " GBP";
 
     public interface ResultCode {
         public static int CODE_SUCCESS = 200;
@@ -125,6 +132,7 @@ public class Constants {
     public interface LocalContactSyncServices {
         String ACTION = "updateContactsList";
     }
+
     public interface SettingActivityConst {
         public enum SwitchStatus {
             SWITCH_ON(200),

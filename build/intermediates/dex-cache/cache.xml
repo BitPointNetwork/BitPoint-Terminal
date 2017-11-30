@@ -3,669 +3,75 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\dc7289c974e482a5f62e048ae26242d5b9c45733\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/.android/build-cache/23889e398e6fb0991dc39a783552712665f150f3/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bfd85a88cf976eb2c54507cc914d8e8914c2f71e">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6a19e807fd49cd39adb83f409c0868508aa882bc\classes.dex" />
+        sha1="7cb44d173897abe2c35a7d62201f997d5e374983">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_83e7cc276dd717b1395e4243bcc53707458fcbec/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c603b0cfb5d0f603e252f9fd485c058dfe26eb9a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_265c2a6a77b5014956ffbcc9cadaf1c5fec9fc0e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\286acccd9a870140fef9d927aa7d7d7dff8bf50e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6289df207b702c2fd175425009c059a76cfe2283\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\ac6cc18289ff6ba5bd8c9a1327dbfc041e7d2e97\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da5c606c36276a12a356e351882044c6b4b9e8d4">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_60ab444986b6225ad2584a960645bf27178575db\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\136ca3a02ae95759d709bef97c7a7ef2f8450c09\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8dfe54fbaf4f2a27d395ddf806d0c011170999e0">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6a7884e2e0f9ecd41facdeb6abde651b5dea8c49\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\997707724038fa187208b1459f71ab5a7ebf4932\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b6818f5804ca0b5eb089d902458faea4179eca1d">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ff4e1cd54ae7f32a49e4f415a6ecbaa91f755d94\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_b80cbe7ea518800299e47b34656d5de8cf6c18da\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\d4402f974765ada6fec9eac9442abbc48343b891\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_adf3f07aee3fc994fce6fc24bfb1a3ab4a4e8c1b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\65627b540dd173b666656d452198d066b8b5c519\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1f9df8b2bfff203397548ee400789154968adfe8">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2f528e053b8fa9b3be588370dfbc90036cfeb698\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c9a0e749c838355b003940c8de522f7064e4ffd3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d81a3b0a16f48b4456f442552b62f4b1a472ce24">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b598294a1145e3afe3a701cf1295331ecfceeb8f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\938392501d5467a231798e7e76bd067b3e664a6f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6c74dab42788b458960618238f338d324b6f0656">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d0b49447bb64e2992425e9d1823dbe6c005ce191\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\7b19b38a356ef2a8cd97bcd48f404d67a44d427b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c3c7f923e1df76640acb3a24823600f034a5d226">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e6fe41665f2f560be3aa2717bfe061471b44a2b5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\619b8a05a6a3535f136043d2e1901470f3809709\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3e103ed54568b1a9d6cf14c5f7910279fa97b2b2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\ba804b18c25e326f12d6f70a96af971d2b195bf6\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5196dc6119638ee490db23753ea4fdfac271b093\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\4861174da5faf73dd496059218a2676b562366bd\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_653b374d9ec955507680c99e798414cf2ad338a9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\ee3d72b307540beeb5f1bab7e491e19f8321193a\output\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_6221cf9a392544b9514b718ce226a874533f1a0f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\ec36493040bf73c93f234a11cc4f1ec85626b371\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ec7d3099b4e3cf23230c78acaae438f3371e1c19">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f2e5784b65d2b14d5303098db482bc9d16e426d0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\e61f167de5c2972539fb57899075c35b41ca533d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b136ac09f209c1d91fec7db8518e33d4373c8f39">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6590e593efe3c02fbdcfeb46bdba2f56bd04e7e4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\361f89963378739e9dd77f806ef74bac651518f2\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f24b4bfad9ebf092c7fcad0c4c0833a2fe39a143\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c623bc4d798d2ca8e7461526cb55f0fc76ea05dd\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7d67042688d34474a82fe4ef4c6514ef471377ef">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_11a48e64b79aaec1e1d8b260939ce1a3483f16e5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\4ab406ce89c6c6f57b24a0fa7ffce288ce75d9a1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3d6e14aa462e84244c86d376a4e92e1e414a2d93\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\f28d4c308c088339683aa49769a1de9d9a3da440\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="abf7c64e0bbaaa931738856734f76646ae62d9a5">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0e5390dcd6293c8d9c15635537655c0c8ed8470d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\aa2cc61a292054b95aa91f86d96deae1f8d557a9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ea372aba045202eb0621f0133c3dca0c2e214a8d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\656a930dafb47ccbf0fc3db7cf01289e6f2b828f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8334ba0deaca55e6a11e57b7285036b92991efd9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\ee3d72b307540beeb5f1bab7e491e19f8321193a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e958373df74b6504b510f6f10754c977ae5eac25\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\139f13add6cc119b12ad736a0535c549b7dcbd45\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32df5210e7ff16c572da9be1dd19caba692987c0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\378c86127f1904187140dd8de56e35e9f7354881\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cce5792fa30ee8520620f298bf920309423b180f">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_113d17aa4cbadf7f67f98d710fdc82423430fcba\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\66169c8a57deb13e34b60c7d5bfe48a1df0f48e6\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_16291ce0185398c246cc7a89a237a921769cec49\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\7d9113c4a22159aebcdbd7bc38df1ee651d97fe1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_47c05b54904051ccaf016615ac7c89e846483217\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\86f2e83886d3ce41de195b84e480e92aadd9e3e4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bb115a110992b254f767f337da233071f6f940b8">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5a970f354f684221e002ab65c0f2a3bcaef32b50\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\Ideofuzion\BTM\BTM\app\libs\commons-io-2.4.jar"
-        jumboMode="false"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/commons-io-2.4.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-io-2.4_4cdc6a088dd85657a441ec3baa1c4313f2c3c4c5\classes.dex" />
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/commons-io-2.4_5a937427f8702414d1401a6df9a0a9a225c8b9a3/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="E:\Ideofuzion\BTM\BTM\app\libs\mint-5.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="79b2a1223e63b47da7d06294fadf99e5e35ba20e">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\2\mint-5.1.0_1982a817869f338572ab8c8d03b80f01a567fb99\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c194745ed7a56b8b47c2fc0d621c29c1f20de07f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ce2e032d180c2d72ea1664bd2526fc28ea75566a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\943c5e981e17aff7053d133d9e18d9f71d6e14a4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ab8343c3aadefce37313ceadd8bc4db1993f2ff0">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8e17dd1051ea924c62d7abc57950985a97692ce1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\19e734c495f93bfd601b464692104a117792b136\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5a8b004bf674ca0757b225741b07dea223123779\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\b1211ae26d094c99cf7b6ec383aa65598d8e9cd0\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_635a8526258a1a5a7022dad091abcc8d925d8c11\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\e7451ef2467e43158a37394e17be0c8a550a4dd4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4480bc4fcd01c1a933775cbb137ddac62f222573\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\f5c340baf4c917919a9d30e150f1258559677163\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="12032271e6be735e811ad529cb08ff066c381640">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f2df9d0cae119e1456a5cfe578a2b7747558da13\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\4be97331690a7c52a51d307bfdf426a505cdda67\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3683531139103cc263b71d8b5ac6062832a8fd30">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_03fc3a36c16be157ad06054ae59bb1ce8ef1643d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\b108a68c33d847ad3fa319a06a97ffdfe2bd6ac2\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6f233cb35a6ea92364130d2d48791c461ec65983">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4813bf32c8fb16a324bf68a01c4a7144c608af7a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\f9458f907f57ae6423d909c9a2c9f29edc03dbf9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_41496237ff59195d7d2b355785d6fc1f295ee815\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\2754b5f6be6e7341121fd42a146f4e1a597b3c29\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="888983f51cf34f57a93ff16832552f2f15937212">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a873eab18698dfb8fa60be44f6d672370491d87\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\454420954e6e414a0fe5c9816c59fb69b6a66c9f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7ba26433d9e9f4429d83ff65ad79bfc801dc00a">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5552ff1e6eeb44bf9bbe983373c8a55fec70303b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_52aa18501f30ee8f5266a1716edc76611e260529\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\d82fcf7422bcc8ae9a2f796c5ddfaf7d66158984\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_55f27783682b16332c179780f5e5c74058cc70c9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\cbe8dc885b0a3530b6fa0e4bad61da0ef7edaabf\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="536fd6afd6e1280607c5d70306eb32d385db7964">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e368f5cf598f051efd028837883726d7920f40ed\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\4315bf272cacf229e99e8b80a298298a5e17ce3a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_99d4834d681edc7a0712cbdff132e9e3afb87b23\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\9a58a9683a21af92eea21b281c02707007f5d3bf\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d395c5142f474891c7750f13b6a85d14682f166b">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a1cef2ccd7567bee09388d6295beff1df5a31e7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\be60a801ac7de112536a6482b187a672f31a775a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_34c3a634da67737c73b8a4d713a61ae20e4c1af7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.8.0_010f11cee6db5c24e19a8dd135d9d13099d8dfae\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\00e851610a2068bcd76da747dcb07997ec42432b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="972ca945f0cf5ff0765ab94fa8e1a90661ea197a">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7d1c0eb2b668495d600f1315c85058e0a21f762f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\a089f444c6a4f2e8251174b8c986ceebbe4a57c1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0bb2f0934fa55799508ba58ffc9ba579b35744b8">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a707261ea6b83f3343a0ee122d59cf70d32317a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\cad4cf195080956964c5a6902f34ba57388af286\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a68b2a160411ea88eefe81ab61f08696a2b72d88\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c64a6fd66a8037aab446b204efd9a0d73e57f91f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="125bce1fb2d481b964fabf75f0949957ebe9ecd1">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a8341858b83fdbc49c3e03150cb022edd768fb48\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\a9947c551269cc0bee1a1a45cb9c08e450adaee0\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/.android/build-cache/111b0ba611a2b0bac62b56a2f9f59fbc15f5fcd7/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="414c5172d9739a35339700d133288418059e7d83">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3dde0ca7f92cb2da7f00ad3a0826ef1a3730dab2\classes.dex" />
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b936f4adfde21ed23cd6552236a1d4f3ebb18fdb/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\bb2829e11fd869d5194762f7215be6abcde8976f\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/.android/build-cache/9de411374cde83ca0188c21046ea33751138e35d/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e95326e857844b96da4d548a840ad9c10c5e45ff\classes.dex" />
+        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_61828a18ea2436e4bf5bfb712bc32ab973a5be02/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\e524c6513e577349251c73302db5281227fb5a21\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="e4851331b3944beb6e7f77316a7661f53781da62">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d9111088c587534426b924c059bef9281ce3777f\classes.dex" />
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e357b708854a221dd8bb90f4ee6d658a4410eea8/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c75fe2628f571545377271c90c2e5b16fcc4be45\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/mint-5.1.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_310234ba28213896c4186bdeed23267b04fa5dc5\classes.dex" />
+        sha1="79b2a1223e63b47da7d06294fadf99e5e35ba20e">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/mint-5.1.0_3a041c94b4b5c539770f5af15a738fbf21194c80/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\b421b9b2932e741b32f2beaa192361890cb421c4\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/.android/build-cache/23bac9d2715a17d1d94070e46a6d41886d6df189/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1b7a6be45cb1d7db930d334918dbd6a3dd539b31\classes.dex" />
+        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0b9ec75bf8fa5fd53213c10bbcac5e6f4d6ba391/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\f284709f8fb73f66eebd2d0f98dfdc694794809b\output\jars\classes.jar"
-        jumboMode="false"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f9f3ccded484e07de8855687b23ac0fd65dcbd86\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\7a990320eb9a292cf375c3a21132a4b595b55f2c\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efae381df589f3d4977c346c8a980f030315bb8b">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7b70033fb8eafc8dc6aec82609527ac93b64b1d9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\166bbe9210f9dc5945045534a33b0237dd25d1e7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77fbc59ce9e5fb26ec26de5891328a9f5fb55f38\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\1c09056ef9b7d4b3d0b79de3646a5efbb14abad4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_55c43c5e796c5e7f0231b19ab97071542cb4a263\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\fc5c0e89fcc44a5afefd5bae6a8076d800bab78b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="825c2e97a00df4df5b0f3081faa4fd6280cd7c72">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5785f38efd4a5e374aef55a0cb1b1e0ed1f0ddea\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\3fbb7069ab94a84876d81e28ef0d37beb2b7f17e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cfa47e1b140562d47bc670629d07e209cd8b02c4">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b65e0ab7c98806acbd12b58e49739722e54e416\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\7035b4bc9e94bb69300cd61341a716f9b1d8240b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b9b4a82ded07f07d6dfa0c694ddfe936691bbc96\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c0e49b45975c5b1f63c15bf7bb212c70e9dc8ff9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1424cfc281c2f272835f30bfaee8c6cb1bc05b08\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\c81d65f5ca0b6b01f7a9247a53b6fc50cfce0587\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bb004ea36f8802bad30000e286c177691740a322">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_29c35a4f6aa6c37d8ba56301cf4258bcce3adc13\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.3.0\73c49077166faa4c3c0059c5f583d1d7bd1475fe\core-3.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\core-3.3.0_d0705a14d74a1fdd5e907911621a83af98890277\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\cfc4b2f7e76adce54f62fcb315a75b7608120ec2\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f149f864a303403161ad4a06ac51b980c0143a91\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\fd9677af597886f8476a450451bcbb30019625d5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44098e691b36776973374ac03afe0225b17f8a74">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_10db82d526ac5b6b3dfb537e8a77ba8908ad2a0d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\381f9fd083135b5854ec647371ad6717c29f455e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4e684205744f814a73b7752545e0661330415c9e">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b74c30fc03bdcce87fcdc227325be8a1db2d7ba5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\25ebebe837ea11dd26d63e22278425a5fb75f652\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a3826817a4de1daa170c33bbc04db24ab6826bd5">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a66732459c518729b250a9e2ab7eb73595b33cfd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\khali\.android\build-cache\fa2a80f3890976d408476d117fd339633c83791b\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5ee29abfc804ebd51d65a4bde424c0ee74363939">
-        <dex dex="E:\Ideofuzion\BTM\BTM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32d6c843c00199587505ed88522b6a47da6f4cbd\classes.dex" />
+        sha1="6a5d762bf27dc5f9f244a8da9eb1ca28efdacf74">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e378a54e8fd8909664fb6a3e39fd374c7804a7b7/classes.dex" />
     </item>
 
 </items>

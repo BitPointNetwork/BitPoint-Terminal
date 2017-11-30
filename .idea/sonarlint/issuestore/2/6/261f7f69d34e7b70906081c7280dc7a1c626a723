@@ -1,0 +1,18 @@
+
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í¤Ã
+squid:S00116"iRename this field "text_scanQRFragment_dollarRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¤ÄŽ
+Œsquid:S00116"wRename this field "linearLayout_scanQRFragment_scannerContainer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕöÝ/
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ø¢Ç¹úÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(â’ŸØùÿÿÿÿ
+Osquid:S1659":Declare "text_scanQRFragment_scanning" on a separate line.(Éµµì
+Dsquid:S1068"/Remove this unused "flashStatus" private field.(ˆû«ü
+Rsquid:S3985"8Remove this unused private "CustomViewFinderView" class.(ùåŒìþÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(”ý¾
+zsquid:S00116"dRename this field "text_scanQRFragment_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¤ÄŽ
+‚squid:S00116"gRename this field "button_scanQRFragment_cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¶éæþÿÿÿÿ
+fsquid:S00116"PRename this field "PAINT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ýØ›
+}squid:S00116"gRename this field "text_scanQRFragment_scanning" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éµµì
+xsquid:S2177"WRename this method; there is a "private" method in the parent class with the same name.(þñÊëÿÿÿÿÿ8‚ÎÉþ+
+Rsquid:S1659"=Declare "text_scanQRFragment_description" on a separate line.(Éµµì
+€squid:S00116"jRename this field "text_scanQRFragment_description" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éµµì
+Lsquid:S1659"7Declare "text_scanQRFragment_title" on a separate line.(«¤ÄŽ

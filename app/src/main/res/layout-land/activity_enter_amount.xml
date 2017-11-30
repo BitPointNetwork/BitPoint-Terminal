@@ -50,9 +50,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="@dimen/textView_TransferAmountActivity_title_right_margin"
                     android:layout_marginRight="@dimen/textView_TransferAmountActivity_title_right_margin"
-                    android:minWidth="300dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|end"
+                    android:minWidth="300dp"
                     android:singleLine="true"
                     android:text="1BTC = 2202 USD"
                     android:textColor="@color/text_hint_color" />
@@ -89,21 +89,32 @@
                     android:textStyle="italic|bold" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
                     <TextView
                         android:id="@+id/text_enterAmountFragment_bitcoinAmount"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="0.088888888888888888"
+                        android:layout_weight="0.9"
                         android:ellipsize="end"
                         android:maxLines="1"
+                        android:text="0.088888888888888888"
                         android:textColor="@color/qractivity_title_stroke_color"
                         android:textSize="32sp" />
 
+                    <TextView
+                        android:id="@+id/text_enterAmount_currencySymbol"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:textColor="@color/qractivity_title_stroke_color"
+                        android:textSize="32sp" />
 
                 </LinearLayout>
 
@@ -124,19 +135,34 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/edit_enterAmountFragment_calculator"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/background_edittext_calculator"
-                    android:maxLines="1"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:singleLine="true"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:textColor="#3C475D"
-                    android:textSize="35sp" />
+                    android:layout_height="70dp">
+
+                    <TextView
+                        android:id="@+id/edit_enterAmountFragment_calculator"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_edittext_calculator"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="50dp"
+                        android:singleLine="true"
+                        android:textColor="#3C475D"
+                        android:textSize="35sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView_enterAmountFragment_switch"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:paddingEnd="5dp"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/conv_btc" />
+                </FrameLayout>
 
                 <LinearLayout
                     android:layout_width="252dp"

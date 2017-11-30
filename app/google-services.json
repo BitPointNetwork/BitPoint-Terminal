@@ -1,0 +1,186 @@
+{
+  "project_info": {
+    "project_number": "1093076598681",
+    "firebase_url": "https://blockchain-c0321.firebaseio.com",
+    "project_id": "blockchain-c0321",
+    "storage_bucket": "blockchain-c0321.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093076598681:android:dd2bb97115f04ea4",
+        "android_client_info": {
+          "package_name": "com.ideofuzion.bitpoint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093076598681-l4u9ae0bgd0frait7oftm1nq3eu75llm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "81fc5a8bf0872ea0503c28df49530a5707bc56df"
+          }
+        },
+        {
+          "client_id": "1093076598681-8er7tk8kn7lu00u2blbufss0f3gef172.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "a189f5472c9ec9e17f6bc2c6bd26dec7f1bffd04"
+          }
+        },
+        {
+          "client_id": "1093076598681-7lbaeuafed6it0jvtfdc3ssrdiu1o2f1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "310d302f2b74e7b1b56d408493cd852da38380da"
+          }
+        },
+        {
+          "client_id": "1093076598681-sf9ffj77db0r1c16f9u84uf501fnvcc0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "ae397e9894fec82b3af76b5fc825038bfe435d9d"
+          }
+        },
+        {
+          "client_id": "1093076598681-4n7t60p1jdat93qijqv0ju0lqipfumj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "e10a6778af45870067ece8329c8399fc959edf1a"
+          }
+        },
+        {
+          "client_id": "1093076598681-50p3n64pib738di4rll5ao64p38ouv8e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint",
+            "certificate_hash": "135dcc7470a15ea7abc288b9fbc4e8aad9d4dc69"
+          }
+        },
+        {
+          "client_id": "1093076598681-t78r2r2nk4q3vd79c93ojdjst0olmmi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxvMr1kZVixBC7RZTX3mEprgE_hsN_dNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093076598681-t78r2r2nk4q3vd79c93ojdjst0olmmi7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093076598681:android:5a372dac126a30bc",
+        "android_client_info": {
+          "package_name": "com.ideofuzion.bitpoint.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093076598681-rpb4gug2l7p2jkshk6d9fgruvprs2bm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint.app",
+            "certificate_hash": "e49ed677138d5a3f374caf74291aa2b9245dfc5d"
+          }
+        },
+        {
+          "client_id": "1093076598681-qqieh1f1det5c870fi8le4oojm8g4fhc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint.app",
+            "certificate_hash": "310d302f2b74e7b1b56d408493cd852da38380da"
+          }
+        },
+        {
+          "client_id": "1093076598681-91evm1f2s8tf6qhnn07n9h44t2hvk0rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ideofuzion.bitpoint.app",
+            "certificate_hash": "135dcc7470a15ea7abc288b9fbc4e8aad9d4dc69"
+          }
+        },
+        {
+          "client_id": "1093076598681-t78r2r2nk4q3vd79c93ojdjst0olmmi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxvMr1kZVixBC7RZTX3mEprgE_hsN_dNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093076598681-t78r2r2nk4q3vd79c93ojdjst0olmmi7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093076598681:android:8c6410bb722eaab8",
+        "android_client_info": {
+          "package_name": "com.bitpoint.btm.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093076598681-t78r2r2nk4q3vd79c93ojdjst0olmmi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxvMr1kZVixBC7RZTX3mEprgE_hsN_dNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

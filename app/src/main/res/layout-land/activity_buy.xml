@@ -44,13 +44,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/text_buy_buyingAt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buying At"
+                    android:text="Buy  "
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/text_hint_color"
                     android:textSize="30sp" />
 
@@ -58,7 +59,6 @@
                     android:id="@+id/text_buy_buyingRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="53256.06"
                     android:textColor="@color/text_color"
                     android:textSize="36sp" />
@@ -75,13 +75,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/text_buy_sellingAt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selling At"
+                    android:text="Sell  "
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/text_hint_color"
                     android:textSize="30sp" />
 
@@ -89,7 +90,6 @@
                     android:id="@+id/text_buy_sellingRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="53256.06"
                     android:textColor="@color/text_color"
                     android:textSize="36sp" />

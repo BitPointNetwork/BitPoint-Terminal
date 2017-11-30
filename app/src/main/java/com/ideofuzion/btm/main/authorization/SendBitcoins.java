@@ -2,7 +2,6 @@ package com.ideofuzion.btm.main.authorization;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.android.volley.Response;
@@ -47,7 +46,7 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
             String url = Constants.BASE_SERVER_URL + Constants.SEND_BALANCE;
 
             Map<String, String> map = new HashMap<>();
-            map.put("customerAddress", BTMApplication.getInstance().getQrModel().getPublicBitcoinId());
+            map.put("customerAddress", BTMApplication.getInstance().getQrModel().getBitcoin());
             map.put("amount",bitcoinsX+"");
             map.put("merchantProfit",bitcoinY+"");
 

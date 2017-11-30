@@ -7,16 +7,16 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class QRModel {
-    public String getPublicBitcoinId() {
-        return publicBitcoinId;
+    public String getBitcoin() {
+        return bitcoin;
     }
 
-    public void setPublicBitcoinId(String publicBitcoinId) {
-        this.publicBitcoinId = publicBitcoinId;
+    public void setBitcoin(String bitcoin) {
+        this.bitcoin = bitcoin;
     }
 
     @SerializedName("bitcoin")
-    String publicBitcoinId;
+    String bitcoin;
 
 
 }

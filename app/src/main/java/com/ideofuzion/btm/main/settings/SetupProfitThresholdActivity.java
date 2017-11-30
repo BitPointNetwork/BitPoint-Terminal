@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
+import com.ideofuzion.btm.main.settings.profitwalletsetup.ExistingProfitWalletActivity;
 import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
@@ -87,6 +88,7 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
         if (isFromRegistration) {
             cancel.setVisibility(View.GONE);
         } else {
+
             cancel.setVisibility(View.VISIBLE);
         }
         cancel.setTypeface(fontBold);
@@ -153,8 +155,13 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
                         BTMUser btmUser = gsonForUser.fromJson(serverMessageResponse.getData(), BTMUser.class);
                         BTMApplication.getInstance().setBTMUserObj(btmUser);
                         if (isFromRegistration) {
-                            startActivity(new Intent(SetupProfitThresholdActivity.this, UpdateHotWalletBeneficiaryActivity.class)
-                                    .putExtra(EXTRA_FROM_REGISTRATION, true));
+                            if(btmUser.getExchangeStatus()) {
+                                startActivity(new Intent(SetupProfitThresholdActivity.this, UpdateHotWalletBeneficiaryActivity.class)
+                                        .putExtra(EXTRA_FROM_REGISTRATION, true));
+                            }else{
+                                startActivity(new Intent(SetupProfitThresholdActivity.this, ExistingProfitWalletActivity.class)
+                                        .putExtra(EXTRA_FROM_REGISTRATION, true));
+                            }
                         } else {
                             finish();
                         }

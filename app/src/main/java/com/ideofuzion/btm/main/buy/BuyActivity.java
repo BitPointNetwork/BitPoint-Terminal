@@ -8,6 +8,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.LocationManager;
@@ -32,9 +33,19 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
+import com.ideofuzion.btm.locationservice.LocationUpdateService;
+import com.ideofuzion.btm.main.sell.SellBitcoinActivity;
 import com.ideofuzion.btm.main.settings.SettingsActivity;
 import com.ideofuzion.btm.main.scanqr.ScanQRActivity;
 import com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity;
@@ -43,6 +54,7 @@ import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
 import com.ideofuzion.btm.utils.MyUtils;
+import com.ideofuzion.btm.utils.PermissionHandler;
 import com.ideofuzion.btm.utils.SessionManager;
 
 import org.json.JSONException;
@@ -51,6 +63,8 @@ import org.json.JSONObject;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by khali on 6/1/2017.
  */
@@ -58,10 +72,10 @@ import java.util.HashMap;
 public class BuyActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener {
     public static final String ACTION_UPDATE_LOCATION = "com.ideofuzion.btm.locationUpdate";
     public static final String EXTRA_IS_BUYING = "isBuying";
+    private static final int LOCATION_PERMISSION_ID = 1;
     private Typeface fontBold;
     Button button_buyActivity_sellBitcoins;
     private final int MY_PERMISSIONS_REQUEST_READ_LOCATION = 1;
-    protected LocationSettingsRequest mLocationSettingsRequest;
     private final int REQUEST_CHECK_SETTINGS = 2;
     Intent serviceIntent;
     Boolean hasSession = false;
@@ -75,7 +89,19 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     ImageView imageView_buy_settings;
     private String dollarRate;
     private Button button_buyActivity_buyBitcoins;
+    private PermissionHandler permissionHandler;
 
+
+    /*
+        QRGEncoder qrgEncoder = new QRGEncoder(address, null, QRGContents.Type.TEXT, Constants.QR_CODE_SIZE);
+        try {
+            // Getting QR-Code as Bitmap
+            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
+            imageView_qrCode_qr.setImageBitmap(bitmap);
+            // Setting Bitmap to ImageView
+        } catch (Exception e) {
+            Log.v(TAG, e.toString());
+        }*/
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,19 +124,18 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         button_buyActivity_buyBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateFields())
                     startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                            .putExtra("dollarRate", dollarRate)
                             .putExtra(EXTRA_IS_BUYING, true));
             }
         });
         button_buyActivity_sellBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validateFields())
                     startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                            .putExtra("dollarRate", dollarRate)
                             .putExtra(EXTRA_IS_BUYING, false));
+/*
+                AlertMessage.showError(button_buyActivity_sellBitcoins,"Not Available!");
+*/
             }
         });
     }
@@ -125,6 +150,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     }
 
     private void initResources() {
+        permissionHandler = new PermissionHandler(this);
         dialogHelper = new DialogHelper(this);
         fontBold = Fonts.getInstance(getApplicationContext()).getTypefaceBold();
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
@@ -146,7 +172,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         });
 
 
-        if (BTMApplication.getInstance().getBTMUserObj() != null) {
+      /*  if (BTMApplication.getInstance().getBTMUserObj() != null) {
             new AlertDialog.Builder(this)
                     .setTitle("Your Bitcoin Address Key")
                     .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
@@ -156,7 +182,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
 
                         }
                     }).show();
-        }
+        }*/
 
 
     }
@@ -188,10 +214,9 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         if (response != null) {
             Log.e("bitcons", response.toString());
             try {
-                JSONObject jsonObject = new JSONObject(response.getString("USD"));
+                JSONObject jsonObject = new JSONObject(response.getString("GBP"));
                 dollarRate = jsonObject.getString("sell");
-                BTMApplication.getInstance().getBTMUserObj().setBitcoinDollarRate(dollarRate);
-
+                BTMApplication.getInstance().setOriginalSellingRate(dollarRate);
 
                 Double margin = (Double.parseDouble(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin()) / 100);
 
@@ -203,9 +228,12 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
                 sellingRate = String.valueOf(sellRate);
                 buyingRate = String.valueOf(buyRate);
 
-                text_buy_buyingRate.setText("$ " + String.format("%.2f", buyRate));
-                text_buy_sellingRate.setText("$ " + String.format("%.2f", sellRate));
+                text_buy_buyingRate.setText("£ " + String.format("%.2f", sellRate));
+                text_buy_sellingRate.setText("£ " + String.format("%.2f", buyRate));
                 BTMApplication.getInstance().setSellingRate(sellingRate);
+                BTMApplication.getInstance().setBuyingRate(buyingRate);
+                checkLocationAccessPermission();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -242,7 +270,7 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
             return false;
         }
         if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitThreshold())) {
-            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Merhcnat Profit Threshold setup from settings");
+            AlertMessage.showError(button_buyActivity_sellBitcoins, "Please complete Merchant Profit Threshold setup from settings");
             return false;
         }
         if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getHotWalletBenificiaryKey())) {
@@ -251,4 +279,94 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         }
         return true;
     }
+
+    public boolean checkLocationAccessPermission() {
+
+        if (!permissionHandler.isPermissionAvailable(PermissionHandler.LOCATION_COARSE)
+                && !permissionHandler.isPermissionAvailable(PermissionHandler.LOCATION_FINE)) {
+            permissionHandler.requestMultiplePermission(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_ID);
+            return false;
+        }
+        checkLocationEnabled();
+        return true;
+    }
+
+    private void checkLocationEnabled() {
+        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
+
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        if (!gps_enabled && !network_enabled) {
+            displayLocationSettingsRequest(this);
+        } else {
+            startService(new Intent(BuyActivity.this, LocationUpdateService.class));
+        }
+    }
+    private void displayLocationSettingsRequest(Context context) {
+        GoogleApiClient googleApiClient = new GoogleApiClient.Builder(context)
+                .addApi(LocationServices.API).build();
+        googleApiClient.connect();
+
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(10000 / 2);
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
+        builder.setAlwaysShow(true);
+
+        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
+        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
+            @Override
+            public void onResult(LocationSettingsResult result) {
+                final Status status = result.getStatus();
+                switch (status.getStatusCode()) {
+                    case LocationSettingsStatusCodes.SUCCESS:
+                        Log.i(TAG, "All location settings are satisfied.");
+                        break;
+                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                        Log.i(TAG, "Location settings are not satisfied. Show the user a dialog to upgrade location settings ");
+
+                        try {
+                            // Show the dialog by calling startResolutionForResult(), and check the result
+                            // in onActivityResult().
+                            status.startResolutionForResult(BuyActivity.this, REQUEST_CHECK_SETTINGS);
+                        } catch (IntentSender.SendIntentException e) {
+                            Log.i(TAG, "PendingIntent unable to execute request.");
+                        }
+                        break;
+                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                        Log.i(TAG, "Location settings are inadequate, and cannot be fixed here. Dialog not created.");
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_ID) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                checkLocationAccessPermission();
+            }/* else {
+                if (!permissionHandler.shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    getActivity().startActivityForResult(new Intent(getActivity(), PermissionActivity.class)
+                            .putExtra(PermissionActivity.PARAM_PERMISSION_LOCATION, true), PERMISSION_ACTIVITY_ID);
+                }
+            }*/
+        }
+    }
+
 }

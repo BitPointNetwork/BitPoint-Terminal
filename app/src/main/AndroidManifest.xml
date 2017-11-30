@@ -138,6 +138,24 @@
             android:name=".main.settings.profitwalletsetup.NewProfitWalletActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".main.sell.SellBitcoinActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <service android:name=".locationservice.LocationUpdateService"/>
+
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.QRModel;
@@ -33,6 +34,16 @@ public class BTMApplication extends MultiDexApplication {
     private RequestQueue mRequestQueue;
     private static BTMApplication ourInstance;
     BTMUser btmUser;
+
+    public String getOriginalSellingRate() {
+        return originalSellingRate;
+    }
+
+    public void setOriginalSellingRate(String originalSellingRate) {
+        this.originalSellingRate = originalSellingRate;
+    }
+
+    String originalSellingRate;
     public FirebaseAnalytics firebaseAnalytics;
 
     public String getSellingRate() {
@@ -44,6 +55,16 @@ public class BTMApplication extends MultiDexApplication {
     }
 
     String sellingRate;
+
+    public String getBuyingRate() {
+        return buyingRate;
+    }
+
+    public void setBuyingRate(String buyingRate) {
+        this.buyingRate = buyingRate;
+    }
+
+    String buyingRate;
     public Hashtable<String, String> contactNamesHashMap = new Hashtable<>();
 
     public QRModel getQrModel() {
@@ -70,18 +91,19 @@ public class BTMApplication extends MultiDexApplication {
     }
 
     public FirebaseAnalytics getFirebaseAnalytics() {
-        return firebaseAnalytics == null ?  FirebaseAnalytics.getInstance(this): firebaseAnalytics;
+        return firebaseAnalytics == null ? FirebaseAnalytics.getInstance(this) : firebaseAnalytics;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        try{
+        try {
             Mint.initAndStartSession(this, "6fb67f85");
-        }
-        catch(Throwable ignore) {
+        } catch (Throwable ignore) {
             // ignored
         }
+        FirebaseApp.initializeApp(this);
+
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         ourInstance = this;
@@ -113,6 +135,7 @@ public class BTMApplication extends MultiDexApplication {
             mRequestQueue.cancelAll(tag);
         }
     }
+
     public void setBTMUserObj(BTMUser btmUser) {
         this.btmUser = btmUser;
     }

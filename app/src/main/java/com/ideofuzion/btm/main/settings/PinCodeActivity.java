@@ -1,11 +1,13 @@
 package com.ideofuzion.btm.main.settings;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -44,6 +46,8 @@ import java.util.Map;
 public class PinCodeActivity extends Activity implements View.OnKeyListener, Constants.ResultCode, Response.Listener<JSONObject>,
         Response.ErrorListener {
     public static final String EXTRA_FROM_REGISTRATION = "registration";
+    public static final String EXTRA_SHOW_BITCOIN_PUBLIC_ADDRESS = "bitcoinPublicAddress";
+    private static final String ENTER_YOUR_PIN = "Enter You PIN";
     TextView text_settings_header, text_pincode_title;
     EditText edit_pinCode_1, edit_pinCode_2, edit_pinCode_3, edit_pinCode_4;
     Button button_pinCode_cancel, button_pinCode_set;
@@ -55,7 +59,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
     public static final String NEW_PIN_CODE = "New PIN Code";
     public static final String OLD_PIN_CODE = "Enter Old PIN Code";
     DialogHelper dialogHelper;
-    boolean isFromRegistration = false;
+    boolean isFromRegistration = false, shouldShowBitcoinAddress = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -207,7 +211,24 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
                     edit_pinCode_3.getText().toString() +
                     edit_pinCode_4.getText().toString();
 
-            if (text_pincode_title.getText().toString().equals(OLD_PIN_CODE)) {
+            if (text_pincode_title.getText().toString().equals(ENTER_YOUR_PIN)) {
+                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+                    new AlertDialog.Builder(PinCodeActivity.this)
+                            .setTitle("Your Bitcoin Address Key")
+                            .setCancelable(false)
+                            .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
+                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    finish();
+                                }
+                            }).show();
+
+                } else {
+                    AlertMessage.showError(edit_pinCode_1, "Wrong PIN Code");
+                }
+            } else if (text_pincode_title.getText().toString().equals(OLD_PIN_CODE)) {
                 if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
                     resetAllFields();
                     text_pincode_title.setText(NEW_PIN_CODE);
@@ -228,6 +249,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
         dialogHelper = new DialogHelper(this);
 
+        shouldShowBitcoinAddress = getIntent().getBooleanExtra(EXTRA_SHOW_BITCOIN_PUBLIC_ADDRESS, false);
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
 
         //initializing TypeFaces objects
@@ -245,8 +267,12 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         button_pinCode_set = (Button) findViewById(R.id.button_pinCode_set);
         text_pincode_title = (TextView) findViewById(R.id.text_pincode_title);
 
+        if (shouldShowBitcoinAddress) {
+            button_pinCode_cancel.setVisibility(View.GONE);
+            text_pincode_title.setText(ENTER_YOUR_PIN);
+            button_pinCode_set.setText("Proceed");
 
-        if (isFromRegistration) {
+        } else if (isFromRegistration) {
             button_pinCode_cancel.setVisibility(View.GONE);
             text_pincode_title.setText(NEW_PIN_CODE);
             button_pinCode_set.setText("Set");
