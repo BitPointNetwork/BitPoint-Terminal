@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +17,8 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
+import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.scanqr.ScanQRActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -36,6 +39,7 @@ import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGIST
  */
 
 public class BitpointProfitWalletActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
+    public static final String EXTRA_IS_FROM_BITPOINT_PROFIT = "profit_wallet";
     TextView text_minMaxBalance_header;
     EditText bitpointProfitWalletKrakenBenificiaryKey;
     EditText bitpointProfitWalletAddress;
@@ -85,10 +89,11 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
             @Override
             public void onClick(View v) {
 
-                    finish();
+                finish();
             }
         });
         if (isFromRegistration) {
+            bitpointProfitWalletAddress.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress());
             cancel.setVisibility(View.GONE);
         } else {
             bitpointProfitWalletAddress.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress());
@@ -105,8 +110,33 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
             }
         });
 
+        bitpointProfitWalletAddress.setOnTouchListener(new View.OnTouchListener() {
+            final int DRAWABLE_RIGHT = 2;
 
-    }
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (view.getRight() - bitpointProfitWalletAddress.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        startActivityForResult(new Intent(BitpointProfitWalletActivity.this, ScanQRActivity.class)
+                                .putExtra(EXTRA_IS_FROM_BITPOINT_PROFIT, true),110);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+
+    }//end of onCreate
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==110&&resultCode ==RESULT_OK){
+            String qr = data.getStringExtra("address");
+            bitpointProfitWalletAddress.setText(qr);
+        }
+    }//end of onActivityResult
 
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_CREATE_BITPOINT_PROFIT_WALLET;

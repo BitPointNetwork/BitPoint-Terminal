@@ -161,9 +161,11 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         text_signIn_signUp.setHighlightColor(Color.TRANSPARENT);
     }
 
+    String userName,password;
     private void sendSignInRequestToServer(String username, String password) {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_USER_LOGIN;
-
+        this.userName = username;
+        this.password = password;
         String deviceModel = android.os.Build.MODEL;
         //String deviceOS = android.os.Build.
         String deviceOSVersion = android.os.Build.VERSION.RELEASE; // e.g. myVersion := "1.6"
@@ -217,7 +219,7 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                    SessionManager.getInstance(getApplicationContext()).createSession(edit_login_email.getText().toString(), edit_login_password.getText().toString());
+                    SessionManager.getInstance(getApplicationContext()).createSession(userName, password);
                     redirectUserAfterSuccessSignIn(serverMessageResponse.getData());
                 } else {
                     if (!s)

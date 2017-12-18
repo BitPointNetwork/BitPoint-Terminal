@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,6 +30,7 @@ import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
+import com.ideofuzion.btm.utils.MyUtils;
 
 import org.json.JSONObject;
 
@@ -37,6 +39,7 @@ import java.util.Map;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 import static com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity.EXTRA_AMOUNT_TO_BE_GIVEN;
@@ -61,6 +64,7 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
     String senderAddress;
     public static final String SUCCESS_CONFRIMATION_ACTION = "confirmationAction";
     IntentFilter intentFilter;
+    TextView txt_sell_merchantwalletaddr;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,13 +91,14 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
         fontBold = Fonts.getInstance(this).getTypefaceBold();
         imageView_sell_qrCode = (ImageView) findViewById(R.id.imageView_sell_qrCode);
         text_sell_header = (TextView) findViewById(R.id.text_sell_header);
-        text_sell_header = (TextView) findViewById(R.id.text_sell_header);
         linearLayout_sell_buttonContainer = (LinearLayout) findViewById(R.id.linearLayout_sell_buttonContainer);
         button_sell_startListening = (Button) findViewById(R.id.button_sell_startListening);
         linearLayout_sell_loadingContainer = (LinearLayout) findViewById(R.id.linearLayout_sell_loadingContainer);
         text_sell_loadingText = (TextView) findViewById(R.id.text_sell_loadingText);
+        txt_sell_merchantwalletaddr = (TextView) findViewById(R.id.txt_sell_merchantwalletaddr);
 
-        QRGEncoder qrgEncoder = new QRGEncoder("bitcoin:" + BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId(), null, QRGContents.Type.TEXT, 350);
+//        QRGEncoder qrgEncoder = new QRGEncoder("bitcoin:" + BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId(), null, QRGContents.Type.TEXT, 350);
+        QRGEncoder qrgEncoder = new QRGEncoder(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId(), null, QRGContents.Type.TEXT, 350);
         try {
             // Getting QR-Code as Bitmap
             Bitmap bitmap = qrgEncoder.encodeAsBitmap();
@@ -102,10 +107,12 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
         } catch (Exception e) {
             e.printStackTrace();
         }
+        txt_sell_merchantwalletaddr.setText("Merchant Address : " + BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId());
 
         text_sell_header.setTypeface(fontBold);
         button_sell_startListening.setTypeface(fontSemiBold);
         text_sell_loadingText.setTypeface(fontSemiBold);
+        txt_sell_merchantwalletaddr.setTypeface(fontSemiBold);
         cancel = (Button) findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,12 +122,8 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
             }
         });
 
-        button_sell_startListening.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendRequestToServer();
-            }
-        });
+        sendRequestToServer();
+
 
     }
 
@@ -130,7 +133,6 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
         Map<String, String> updateTaglineParams = new HashMap<>();
         updateTaglineParams.put("receiverAddress", BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId());
         updateTaglineParams.put("fcmId", FirebaseInstanceId.getInstance().getToken());
-        updateTaglineParams.put("senderAddress", senderAddress);
 
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
@@ -160,11 +162,11 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                    AlertMessage.show(text_sell_header, "Success");
+                    AlertMessage.show(text_sell_header, serverMessageResponse.getMessage());
                     linearLayout_sell_buttonContainer.setVisibility(View.GONE);
                     linearLayout_sell_loadingContainer.setVisibility(View.VISIBLE);
                 } else {
-                    linearLayout_sell_buttonContainer.setVisibility(View.VISIBLE);
+                    linearLayout_sell_buttonContainer.setVisibility(View.GONE);
                     linearLayout_sell_loadingContainer.setVisibility(View.GONE);
                     AlertMessage.showError(text_sell_header, serverMessageResponse.getMessage());
                 }//end oe else
@@ -189,15 +191,36 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
                 .getInstance(this).unregisterReceiver(broadcastReceiverSuccessConfirmation);
     }
 
+    SweetAlertDialog pDialog;
     BroadcastReceiver broadcastReceiverSuccessConfirmation = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
-                startActivity(new Intent(SellBitcoinActivity.this, TransferCompleteActivity.class)
-                        .putExtra("senderAddress", intent.getStringExtra("senderAddress"))
-                        .putExtra(EXTRA_AMOUNT_TO_BE_GIVEN, intent.getStringExtra("amount")));
-                finish();
-            }
+               String type = intent.getStringExtra("type");
+                if(type.equalsIgnoreCase("transactionUnConfirmed")){
+                    String txId = intent.getStringExtra("txId");
+                    if(txId!=null) {
+//                        pDialog = new SweetAlertDialog(SellBitcoinActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+//                        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+//                        pDialog.setTitleText("Uncofirmed Transaction Recieved");
+//                        pDialog.setContentText("Transaction Hash : "+txId);
+//                        pDialog.setCancelable(true);
+//                        pDialog.setCanceledOnTouchOutside(true);
+//                        pDialog.show();
+                        text_sell_loadingText.setText("Tracking Transaction hash : "+txId);
+                        linearLayout_sell_loadingContainer.setVisibility(View.VISIBLE);
+                    }
+
+                }else{
+                    if(pDialog!=null){
+                        pDialog.dismissWithAnimation();
+                    }
+                    startActivity(new Intent(SellBitcoinActivity.this, TransferCompleteActivity.class)
+                            .putExtra("senderAddress", intent.getStringExtra("senderAddress"))
+                            .putExtra(EXTRA_AMOUNT_TO_BE_GIVEN, intent.getStringExtra("amount")));
+                    finish();
+                }
+            }//end of intent not null
         }
     };
 

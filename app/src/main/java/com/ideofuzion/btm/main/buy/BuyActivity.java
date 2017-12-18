@@ -131,8 +131,9 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         button_buyActivity_sellBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                            .putExtra(EXTRA_IS_BUYING, false));
+                startActivity(new Intent(BuyActivity.this, SellBitcoinActivity.class));
+//                    startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
+//                            .putExtra(EXTRA_IS_BUYING, false));
 /*
                 AlertMessage.showError(button_buyActivity_sellBitcoins,"Not Available!");
 */

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,7 +21,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.google.android.gms.vision.CameraSource;
 import com.google.gson.Gson;
 import com.google.zxing.Result;
@@ -38,16 +41,16 @@ import com.ideofuzion.btm.utils.MyUtils;
 import com.ideofuzion.btm.utils.PermissionHandler;
 
 import me.dm7.barcodescanner.core.ViewFinderView;
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static com.ideofuzion.btm.main.buy.BuyActivity.EXTRA_IS_BUYING;
+import static com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity.EXTRA_IS_FROM_BITPOINT_PROFIT;
 
 
 /**
  * Created by khali on 6/5/2017.
  */
 
-public class ScanQRActivity extends Activity implements ZXingScannerView.ResultHandler {
+public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCodeReadListener {
     private static final int CAMERA_PERMISSION_ID = 1;
     //my resources
     private Typeface fontRegular;
@@ -58,12 +61,12 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
             text_scanQRFragment_description, text_scanQRFragment_scanning;
     Button button_scanQRFragment_cancel;
     LinearLayout linearLayout_scanQRFragment_scannerContainer;
-    private ZXingScannerView mScannerView;
     DialogHelper dialogHelper;
     PermissionHandler permissionHandler;
     boolean isBuying = false;
+    boolean isFromBitcoinScan;
     QRModel qrModel = null;
-
+    private QRCodeReaderView qrCodeReaderView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,13 +106,16 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(EXTRA_IS_BUYING, isBuying);
+        outState.putBoolean(EXTRA_IS_FROM_BITPOINT_PROFIT,isFromBitcoinScan);
     }
 
     private void initResources(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             isBuying = savedInstanceState.getBoolean(EXTRA_IS_BUYING, false);
+            isFromBitcoinScan =savedInstanceState.getBoolean(EXTRA_IS_FROM_BITPOINT_PROFIT,false);
         } else {
             isBuying = getIntent().getBooleanExtra(EXTRA_IS_BUYING, false);
+            isFromBitcoinScan =getIntent().getBooleanExtra(EXTRA_IS_FROM_BITPOINT_PROFIT,false);
         }
         permissionHandler = new PermissionHandler(this);
         dialogHelper = new DialogHelper(this);
@@ -128,10 +134,18 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
 
         button_scanQRFragment_cancel = (Button) findViewById(R.id.button_scanQRFragment_cancel);
         linearLayout_scanQRFragment_scannerContainer = (LinearLayout) findViewById(R.id.linearLayout_scanQRFragment_scannerContainer);
+        qrCodeReaderView = (QRCodeReaderView) findViewById(R.id.qrdecoderview);
+        qrCodeReaderView.setOnQRCodeReadListener(this);
+        qrCodeReaderView.setAutofocusInterval(1000);
+        // Use this function to enable/disable decoding
+        qrCodeReaderView.setQRDecodingEnabled(true);
 
-        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
 
-        linearLayout_scanQRFragment_scannerContainer.addView(mScannerView);
+        // Use this function to enable/disable Torch
+        qrCodeReaderView.setTorchEnabled(true);
+
+        // Use this function to set front camera preview
+        qrCodeReaderView.setFrontCamera();
 
 
         //init data
@@ -148,23 +162,19 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
     public void onResume() {
         super.onResume();
         if (permissionHandler.isPermissionAvailable(Manifest.permission.CAMERA))
-            startCamera();
+            qrCodeReaderView.startCamera();
         else {
             permissionHandler.requestPermission(Manifest.permission.CAMERA);
         }
     }
 
-    private void startCamera() {
-        mScannerView.setResultHandler(this);
-        mScannerView.startCamera(CameraSource.CAMERA_FACING_FRONT);
-        mScannerView.resumeCameraPreview(this);
-    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CAMERA_PERMISSION_ID && grantResults.length > 0 && grantResults[0] > -1) {
-            startCamera();
+            qrCodeReaderView.startCamera();
         } else {
             Intent intent = new Intent(this, PermissionActivity.class);
             intent.putExtra(PermissionActivity.PARAM_PERMISSION_CAMERA, true);
@@ -176,43 +186,58 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
     @Override
     public void onPause() {
         super.onPause();
-        mScannerView.stopCamera();
+        qrCodeReaderView.stopCamera();
     }
 
-    @Override
+
     public void handleResult(Result rawResult) {
         /*Toast.makeText(this, "Contents = " + rawResult.getText() +
                 ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).initResources();*/
         String data = rawResult.getText();
-        if (!rawResult.getText().contains("{"))
-            data = "{" + data + "}";
+            //data = "{" + data + "}";
 
-        if (data != null) {
-            Gson gson = new Gson();
 
-            try {
-                qrModel = gson.fromJson(data, QRModel.class);
-                if(qrModel.getBitcoin()== null)
-                    throw new NullPointerException();
-                BTMApplication.getInstance().setQrModel(qrModel);
-                if (isBuying)
-                    startActivity(new Intent(ScanQRActivity.this, EnterAmountActivity.class));
-                else {
-                    startActivity(new Intent(ScanQRActivity.this, SellBitcoinActivity.class)
-                            .putExtra("address", qrModel.getBitcoin()));
-                }
-
-            } catch (Exception e) {
-                qrModel = null;
-                AlertMessage.showError(text_scanQRFragment_description, "No appropriate data found");
-                mScannerView.resumeCameraPreview(this);
-            }
-        }
     }
 
  /*            mScannerView.resumeCameraPreview(this);
 */
+ @Override
+ public void onQRCodeRead(String data, PointF[] points) {
 
+     if (data != null) {
+
+
+         try {
+             if(data.contains("bitcoin:")){
+                String[]bitcoinStrArr= data.split(":");
+                 data=bitcoinStrArr[1];
+             }
+             qrModel = new QRModel();
+             qrModel.setBitcoin(data);
+             if(qrModel.getBitcoin()== null)
+                 throw new NullPointerException();
+             BTMApplication.getInstance().setQrModel(qrModel);
+             if(isFromBitcoinScan){
+                 Intent intent = new Intent();
+                 intent.putExtra("address",qrModel.getBitcoin());
+                 setResult(Activity.RESULT_OK,intent);
+                    finish();
+             }else {
+                 if (isBuying)
+                     startActivity(new Intent(ScanQRActivity.this, EnterAmountActivity.class));
+                 else {
+                     startActivity(new Intent(ScanQRActivity.this, SellBitcoinActivity.class)
+                             .putExtra("address", qrModel.getBitcoin()));
+                 }
+             }
+
+         } catch (Exception e) {
+             qrModel = null;
+             AlertMessage.showError(text_scanQRFragment_description, "No appropriate data found");
+             //mScannerView.resumeCameraPreview(this);
+         }
+     }
+ }
 
     private static class CustomViewFinderView extends ViewFinderView {
         public static final String TRADE_MARK_TEXT = "";
@@ -257,5 +282,6 @@ public class ScanQRActivity extends Activity implements ZXingScannerView.ResultH
             }
             canvas.drawText(TRADE_MARK_TEXT, tradeMarkLeft, tradeMarkTop, PAINT);
         }
+
     }
 }

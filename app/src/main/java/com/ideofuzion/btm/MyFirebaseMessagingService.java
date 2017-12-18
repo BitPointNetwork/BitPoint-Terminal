@@ -26,17 +26,27 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
         Log.e("message", remoteMessage.getData().toString());
         try {
-            JSONObject jsonObject = new JSONObject(remoteMessage.getData());
-            JSONObject jsonObject1 = new JSONObject(jsonObject.getString("data"));
-            String senderAddresss = jsonObject1.getString("senderAddress");
-            String amount = jsonObject1.getString("amount");
+           String type= remoteMessage.getData().get("type");
+            if(type.equalsIgnoreCase("transactionUnConfirmed")){
+                String txId = remoteMessage.getData().get("txId");
+                String amount = remoteMessage.getData().get("amount");
+                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(SellBitcoinActivity.SUCCESS_CONFRIMATION_ACTION)
+                        .putExtra("txId", txId)
+                        .putExtra("amount", amount)
+                        .putExtra("type",type));
+            }else{
+                String txId = remoteMessage.getData().get("txId");
+                String amount = remoteMessage.getData().get("amount");
+                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(SellBitcoinActivity.SUCCESS_CONFRIMATION_ACTION)
+                        .putExtra("txId", txId)
+                        .putExtra("amount", amount)
+                        .putExtra("type",type));
+                sendNotification("Transaction Confirmation", "You" +
+                        " received " + amount + " BTC In Transaction Hash " + txId, 0);
 
-            sendNotification("Transaction Confirmation", "You" +
-                    " received " + amount + " BTC from this address " + senderAddresss, 0);
+            }
 
-            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(new Intent(SellBitcoinActivity.SUCCESS_CONFRIMATION_ACTION)
-                    .putExtra("senderAddress", senderAddresss)
-                    .putExtra("amount", amount));
+
 
         } catch (Exception e) {
         }

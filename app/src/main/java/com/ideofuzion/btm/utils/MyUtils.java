@@ -233,31 +233,6 @@ public class MyUtils {
         return loginParams;
     }
 
-    public static String getPasswordStregth(String password) {
-        final String PASSWORD_PATTERN_VERY_STRONG =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
-        final String PASSWORD_PATTERN_STRONG =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
-        final String PASSWORD_PATTERN_WEAK =
-                "((?=.*[a-z])(?=.*[A-Z]).{6,20})";
-
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN_VERY_STRONG);
-        Matcher matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.VeryStrong.toString();
-        }
-        pattern = Pattern.compile(PASSWORD_PATTERN_STRONG);
-        matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.Strong.toString();
-        }
-        pattern = Pattern.compile(PASSWORD_PATTERN_WEAK);
-        matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.Weak.toString();
-        }
-        return PaswordStrength.Weak.toString();
-    }//end of function
 
     enum PaswordStrength {
         Weak("Weak"), Strong("Strong"), VeryStrong("Very Strong");
@@ -320,6 +295,7 @@ public class MyUtils {
         } catch (Exception e) {
 
         }
+
     }
 
     public static void hideSoftKeyboard(Activity activity) {
@@ -352,5 +328,11 @@ public class MyUtils {
                 hideKeyboardOnTocuhAnyWhereElse(activity, innerView);
             }
         }
+    }
+    public static boolean isValidBTCAddress(String btcAddress){
+        boolean isValid = false;
+        String regex = "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$\n";
+        isValid=btcAddress.matches(regex);
+        return isValid;
     }
 }

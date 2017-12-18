@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
+import com.ideofuzion.btm.main.login.LoginActivity;
 import com.ideofuzion.btm.main.settings.profitwalletsetup.ExistingProfitWalletActivity;
 import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionActivity;
 import com.ideofuzion.btm.model.BTMUser;
@@ -27,6 +28,7 @@ import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
 import com.ideofuzion.btm.utils.MyUtils;
+import com.ideofuzion.btm.utils.SessionManager;
 
 import org.json.JSONObject;
 
@@ -64,7 +66,10 @@ public class SettingsActivity extends AppCompatActivity {
     LinearLayout linearLayout_settings_toggleexhchange;
     TextView text_settings_toggleexhchange;
 
+    LinearLayout linearLayout_settings_logout;
+    TextView text_settings_logout;
     private DialogHelper dialogHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,11 +108,11 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             linearLayout_settings_krackenSetup.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
         }
-        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress())&&
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress()) &&
                 MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey())) {
             linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
 
-        }else if (BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress().length()>0&&
+        } else if (BTMApplication.getInstance().getBTMUserObj().getProfitWalletAddress().length() > 0 &&
                 MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey())) {
             linearLayout_settings_SetupProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.half_complete_settings_background));
 
@@ -123,13 +128,12 @@ public class SettingsActivity extends AppCompatActivity {
 
         }
 
-        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress())&&MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey())) {
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress()) && MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey())) {
             linearLayout_settings_bitpointProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.incomplete_settings_background));
 
-        }else if(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress().toString().length()>0 &&MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey())){
+        } else if (BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress().toString().length() > 0 && MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey())) {
             linearLayout_settings_bitpointProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.half_complete_settings_background));
-        }
-        else {
+        } else {
             linearLayout_settings_bitpointProfitWallet.setBackgroundDrawable(getResources().getDrawable(R.drawable.completed_settings_background));
 
         }
@@ -179,7 +183,7 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_SetupProfitWallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(SettingsActivity.this, ProfitWalletOptionActivity.class));
+                // startActivity(new Intent(SettingsActivity.this, ProfitWalletOptionActivity.class));
                 startActivity(new Intent(SettingsActivity.this, ExistingProfitWalletActivity.class));
             }
         });
@@ -212,10 +216,10 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_bitcoinPublicAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode()!= null) {
+                if (BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode() != null) {
                     startActivity(new Intent(SettingsActivity.this, PinCodeActivity.class)
                             .putExtra(PinCodeActivity.EXTRA_SHOW_BITCOIN_PUBLIC_ADDRESS, true));
-                }else {
+                } else {
                     new AlertDialog.Builder(SettingsActivity.this)
                             .setTitle("Your Bitcoin Address Key")
                             .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
@@ -235,6 +239,15 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
         });
+        linearLayout_settings_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SessionManager.getInstance(getApplicationContext()).createSession("", "");
+                finish();
+                startActivity(new Intent(SettingsActivity.this, LoginActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            }
+        });
     }
 
     private void initTypefaces() {
@@ -250,6 +263,7 @@ public class SettingsActivity extends AppCompatActivity {
         text_settings_hotWalletBeneficiary.setTypeface(fontSemiBold);
         text_settings_bitcoinPublicAddress.setTypeface(fontSemiBold);
         text_settings_toggleexhchange.setTypeface(fontSemiBold);
+        text_settings_logout.setTypeface(fontSemiBold);
     }
 
     private void initResources() {
@@ -284,6 +298,8 @@ public class SettingsActivity extends AppCompatActivity {
         text_settings_bitcoinPublicAddress = (TextView) findViewById(R.id.text_settings_bitcoinPublicAddress);
         linearLayout_settings_toggleexhchange = (LinearLayout) findViewById(R.id.linearLayout_settings_toggleexhchange);
         text_settings_toggleexhchange = (TextView) findViewById(R.id.text_settings_toggleexhchange);
+        linearLayout_settings_logout = (LinearLayout) findViewById(R.id.linearLayout_settings_logout);
+        text_settings_logout = (TextView) findViewById(R.id.text_settings_logout);
     }
 
     @Override
@@ -295,14 +311,15 @@ public class SettingsActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
     }
-    private void sendRequestToSkipKraken(){
+
+    private void sendRequestToSkipKraken() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_USE_KRAKEN;
 
-        int toggleNotification =1;
-        if(BTMApplication.getInstance().getBTMUserObj().getExchangeStatus()){
-            toggleNotification=0;
-        }else{
-            toggleNotification=1;
+        int toggleNotification = 1;
+        if (BTMApplication.getInstance().getBTMUserObj().getExchangeStatus()) {
+            toggleNotification = 0;
+        } else {
+            toggleNotification = 1;
         }
 
         Map<String, String> updateTaglineParams = new HashMap<>();
@@ -314,14 +331,14 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
-    class ExchangeToggle implements  Response.Listener<JSONObject>, Response.ErrorListener{
+    class ExchangeToggle implements Response.Listener<JSONObject>, Response.ErrorListener {
 
         @Override
         public void onErrorResponse(VolleyError error) {
             if (dialogHelper != null) {
                 dialogHelper.hideProgressDialog();
             }
-            Toast.makeText(SettingsActivity.this,"Please Try Agian",Toast.LENGTH_LONG).show();
+            Toast.makeText(SettingsActivity.this, "Please Try Agian", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -350,7 +367,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         }
                     } else {
-                        Toast.makeText(SettingsActivity.this, serverMessageResponse.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(SettingsActivity.this, serverMessageResponse.getMessage(), Toast.LENGTH_LONG).show();
                     }//end oe else
                 } catch (Exception e) {
                     e.printStackTrace();

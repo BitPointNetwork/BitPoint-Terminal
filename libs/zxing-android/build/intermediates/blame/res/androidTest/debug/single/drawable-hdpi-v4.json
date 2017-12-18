@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/light.png",
+        "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/bundles/debug/res/drawable-hdpi-v4/light.png"
+    },
+    {
+        "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/camera_switcher.png",
+        "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/bundles/debug/res/drawable-hdpi-v4/camera_switcher.png"
+    }
+]

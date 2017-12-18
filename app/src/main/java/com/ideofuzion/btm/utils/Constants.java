@@ -46,8 +46,7 @@ public class Constants {
     public static String EXTRA_MOBILE_NUMBER = "EXTRA_MOBILE_NUMBER";
     public static int COUNTRY_SELECT_REQUEST = 1;
 
-/*35.189.115.14:3000*/
-    public static final String BASE_SERVER_URL = "http://35.198.174.113:3000/";
+    public static final String BASE_SERVER_URL ="http://40.68.174.13:3000/";
     public static final String ROUTE_USER_SIGNUP = "merchant/createMerchant";
     public static final String ROUTE_COMPLETE_USERR_PROFILE = "ethereumUserCompleteProfile";
     public static final String ROUTE_SOCIAL_MEDIA_SIGNUP = "postSocialMediaUser";

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,6 +19,8 @@ import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.scanqr.ScanQRActivity;
+import com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -31,6 +34,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity.EXTRA_IS_FROM_BITPOINT_PROFIT;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
@@ -107,8 +111,33 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
             }
         });
 
-    }
+        profitWalletAddress.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.img_scan_qr, 0);
+        profitWalletAddress.setOnTouchListener(new View.OnTouchListener() {
+            final int DRAWABLE_RIGHT = 2;
 
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (view.getRight() - profitWalletAddress.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        startActivityForResult(new Intent(ExistingProfitWalletActivity.this, ScanQRActivity.class)
+                                .putExtra(EXTRA_IS_FROM_BITPOINT_PROFIT, true),110);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==110&&resultCode ==RESULT_OK){
+            String qr = data.getStringExtra("address");
+            profitWalletAddress.setText(qr);
+        }
+    }//end of onActivityResult
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_CREATE_PROFIT_WALLET;
 
