@@ -20,10 +20,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 6/7/2017.
+ * Created by Ideofuzion on 6/7/2017.
+ * <p>
+ * this class is used to save and
+ * retrieve session saved
  */
 
-public class SessionManager  {
+public class SessionManager {
 
     public static SessionManager sessionManager;
     static Context mContext;
@@ -41,6 +44,7 @@ public class SessionManager  {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("session", mContext.MODE_PRIVATE);
         return sharedPreferences.getString("password", "");
     }
+
     public String getEmail() {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("session", mContext.MODE_PRIVATE);
         return sharedPreferences.getString("email", "");
@@ -63,5 +67,11 @@ public class SessionManager  {
     }
 
 
-
+    public void clearSesssion() {
+        try {
+            SharedPreferences sharedPreferences = mContext.getSharedPreferences("session", mContext.MODE_PRIVATE);
+            sharedPreferences.edit().clear().commit();
+        } catch (Exception e) {
+        }
+    }
 }

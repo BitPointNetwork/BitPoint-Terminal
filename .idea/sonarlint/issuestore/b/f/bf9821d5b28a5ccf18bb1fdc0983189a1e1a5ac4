@@ -1,11 +1,11 @@
 
-Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Å˜ñ
+usquid:S1450"[Remove the "fontSemiBold" field and declare it as a local variable in the relevant methods.(³‹“ìÿÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ÛÊúÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(Äé†ˆ
 Jsquid:S1068"0Remove this unused "fontSemiBold" private field.(³‹“ìÿÿÿÿÿ
 nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
-usquid:S1450"[Remove the "fontSemiBold" field and declare it as a local variable in the relevant methods.(³‹“ìÿÿÿÿÿ
-lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
-?squid:S00108")Either remove or fill this block of code.(Äé†ˆ
-gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Å˜ñ
-lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ÛÊúÿÿÿÿ
-lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯øİûÿÿÿÿ
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
 tsquid:UselessImportCheck"MRemove this unused import 'com.ideofuzion.btm.main.settings.PinCodeActivity'.(õÕÿŠûÿÿÿÿ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯øİûÿÿÿÿ
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ

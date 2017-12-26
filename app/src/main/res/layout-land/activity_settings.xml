@@ -268,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"
-                    android:text="View\nYour Bitcoin\nAdderss"
+                    android:text="View\nBitcoin\nAddress/Balance"
                     android:textColor="@color/text_color" />
             </LinearLayout>
 
@@ -291,6 +291,27 @@
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"
                     android:text="Toggle\n Exchange"
+                    android:textColor="@color/text_color" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout_settings_logout"
+                android:layout_width="97dp"
+                android:layout_height="102dp"
+                android:layout_marginLeft="43dp"
+                android:background="#3C475D"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/text_settings_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="Logout"
                     android:textColor="@color/text_color" />
             </LinearLayout>
         </LinearLayout>

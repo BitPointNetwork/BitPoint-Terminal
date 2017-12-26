@@ -1,3 +1,5 @@
 
-?squid:S00108")Either remove or fill this block of code.(”ı¾
+hsquid:S1192"GDefine a constant instead of duplicating this literal "amount" 4 times.(°‚Ø†úÿÿÿÿ8§»Á­…,
+^squid:UselessImportCheck"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ8©ı­…,
 Wsquid:UselessImportCheck"0Remove this unused import 'android.app.Service'.(èœ—ÿúÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(”ı¾

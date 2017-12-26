@@ -40,7 +40,7 @@
                 android:background="@drawable/background_transparent"
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
-                android:hint="Enter Profit Wallet Kraken Benificiary Key"
+                android:hint="Enter Profit Wallet Kraken Benificiary Key(optional)"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:singleLine="true"

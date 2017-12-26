@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -18,6 +19,8 @@ import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.buy.BuyActivity;
+import com.ideofuzion.btm.main.scanqr.ScanQRActivity;
+import com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -31,10 +34,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity.EXTRA_IS_FROM_BITPOINT_PROFIT;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to add existing profit wallet
+ * in the application and the request is send to server
  */
 
 public class ExistingProfitWalletActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -50,6 +57,10 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
     private Button cancel;
     View editText_bottom_benificiary_line;
 
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +73,10 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
 
     }
 
+    /**
+     *
+     * getting data from intent, initiating ui resources and dialog helper object
+     */
     public void initResources() {
 
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
@@ -107,8 +122,48 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
             }
         });
 
+        profitWalletAddress.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.img_scan_qr, 0);
+        profitWalletAddress.setOnTouchListener(new View.OnTouchListener() {
+            final int DRAWABLE_RIGHT = 2;
+
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (view.getRight() - profitWalletAddress.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        startActivityForResult(new Intent(ExistingProfitWalletActivity.this, ScanQRActivity.class)
+                                .putExtra(EXTRA_IS_FROM_BITPOINT_PROFIT, true),110);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        //init data
+        profitWalletKrakenBenificiaryKey.setText(BTMApplication.getInstance().getBTMUserObj().getProfitWalletKrakenBenificiaryKey());
+
     }
 
+    /**
+     * this function will return the result from scanner activity
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==110&&resultCode ==RESULT_OK){
+            String qr = data.getStringExtra("address");
+            profitWalletAddress.setText(qr);
+        }
+    }//end of onActivityResult
+
+
+    /**
+     * send create profit wallet to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_CREATE_PROFIT_WALLET;
 
@@ -123,17 +178,26 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
 
     }
 
-
+    /**
+     * validating fields return true if validated else
+     * will return false
+     * @return
+     */
     boolean validateFields() {
         //No Need
-        if (profitWalletAddress.getText().toString().isEmpty()) {
+       /* if (profitWalletAddress.getText().toString().isEmpty()) {
             AlertMessage.showError(profitWalletAddress, "Please enter Profit Wallet Address");
             profitWalletAddress.requestFocus();
             return false;
-        }
+        }*/
         return true;
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -143,6 +207,11 @@ public class ExistingProfitWalletActivity extends Activity implements Response.L
 
     }
 
+    /**
+     * thi function will be called when server successfully executes
+     * profit wallet create request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

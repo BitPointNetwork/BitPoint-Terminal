@@ -1,43 +1,43 @@
 
-\squid:UselessImportCheck"5Remove this unused import 'android.content.ClipData'.(°ú‚üÿÿÿÿ
-dsquid:UselessImportCheck"=Remove this unused import 'android.content.ClipboardManager'.(ŠİÒ¬ùÿÿÿÿ
-esquid:UselessImportCheck"CRemove this unused import 'android.text.style.ForegroundColorSpan'.(¸±í
-isquid:UselessImportCheck"BRemove this unused import 'android.support.v4.app.ActivityCompat'.(Äüşÿÿÿÿ
-Wsquid:UselessImportCheck"0Remove this unused import 'android.view.Window'.(¿è™÷úÿÿÿÿ
-U"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(Û ‰¹8‘”ÊÉş+
-Xsquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ
-nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ğ´8‘”ÊÉş+
-Xsquid:UselessImportCheck"6Remove this unused import 'android.provider.Settings'.(Š¯„
-ssquid:S1450"YRemove the "dollarRate" field and declare it as a local variable in the relevant methods.(»ÿÊÀşÿÿÿÿ
-„squid:S00116"iRename this field "button_buyActivity_buyBitcoins" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÉÒÇşÿÿÿÿ
+Ksquid:S00108")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ8‘”ÊÉş+
+rsquid:S00116"\Rename this field "text_buy_buyingAt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò¢ºÿ
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œƒƒ©ùÿÿÿÿ8‘”ÊÉş+
+tsquid:S00116"^Rename this field "text_buy_buyingRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉ„
+Ssquid:UselessImportCheck"1Remove this unused import 'android.text.Spanned'.(Çë®õ
 esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óïú™ùÿÿÿÿ
-5squid:S1170"!Make this final field static too.(ªú
-Ksquid:S00108")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ8‘”ÊÉş+
-gsquid:UselessImportCheck"ERemove this unused import 'android.support.v4.content.ContextCompat'.(¹†Ç
-osquid:UselessImportCheck"MRemove this unused import 'com.ideofuzion.btm.main.sell.SellBitcoinActivity'.(‚êŠ€
-[squid:UselessImportCheck"9Remove this unused import 'android.text.SpannableString'.(üÒş™
-Vsquid:UselessImportCheck"4Remove this unused import 'java.text.DecimalFormat'.(¤°Ó˜
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àŸ˜ıÿÿÿÿ8‘”ÊÉş+
-Zsquid:UselessImportCheck"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‘”ÊÉş+
-Ksquid:S00108")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ8‘”ÊÉş+
-]squid:S1068"HRemove this unused "MY_PERMISSIONS_REQUEST_READ_LOCATION" private field.(¡ı ç
 €squid:S00116"jRename this field "button_buyActivity_sellBitcoins" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¥â
 …squid:S00116"oRename this field "MY_PERMISSIONS_REQUEST_READ_LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ı ç
-xsquid:S00116"]Rename this field "text_buy_sellingAt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å‘ñèıÿÿÿÿ
 zsquid:S00116"_Rename this field "text_buy_sellingRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ÊÙôúÿÿÿÿ
-ksquid:UselessImportCheck"DRemove this unused import 'com.ideofuzion.btm.utils.SessionManager'.(„ø¼Íøÿÿÿÿ
-¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œƒƒ©ùÿÿÿÿ8‘”ÊÉş+
-|squid:S00116"aRename this field "imageView_buy_settings" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è²œ÷ıÿÿÿÿ
+Zsquid:UselessImportCheck"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ
 gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‘ÁÁ½8‘”ÊÉş+
-rsquid:S00116"\Rename this field "text_buy_buyingAt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò¢ºÿ
+Vsquid:UselessImportCheck"4Remove this unused import 'java.text.DecimalFormat'.(¤°Ó˜
+U"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(Û ‰¹8‘”ÊÉş+
+gsquid:UselessImportCheck"ERemove this unused import 'android.support.v4.content.ContextCompat'.(¹†Ç
+5squid:S1170"!Make this final field static too.(ªú
 vsquid:S00116"aRename this field "REQUEST_CHECK_SETTINGS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªú
-6squid:S1170"!Make this final field static too.(¡ı ç
-Ssquid:UselessImportCheck"1Remove this unused import 'android.text.Spanned'.(Çë®õ
-Bsquid:S1659"(Declare "buyingRate" on a separate line.(¦Ü’Áúÿÿÿÿ
-€squid:UselessImportCheck"^Remove this unused import 'com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity'.(è¤æ
 gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÕÔ«
-tsquid:S00116"^Rename this field "text_buy_buyingRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆÉ„
-?squid:S00108")Either remove or fill this block of code.(”ı¾
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(²¢ñ8‘”ÊÉş+
+€squid:UselessImportCheck"^Remove this unused import 'com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity'.(è¤æ
+Wsquid:UselessImportCheck"0Remove this unused import 'android.view.Window'.(¿è™÷úÿÿÿÿ
+\squid:UselessImportCheck"5Remove this unused import 'android.content.ClipData'.(°ú‚üÿÿÿÿ
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‘”ÊÉş+
+Xsquid:UselessImportCheck"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ
+ssquid:S1450"YRemove the "dollarRate" field and declare it as a local variable in the relevant methods.(»ÿÊÀşÿÿÿÿ
+6squid:S1170"!Make this final field static too.(¡ı ç
+xsquid:S00116"]Rename this field "text_buy_sellingAt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å‘ñèıÿÿÿÿ
 Psquid:S1066"/Merge this if statement with the enclosing one.(’âÎ“ıÿÿÿÿ8‘”ÊÉş+
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àŸ˜ıÿÿÿÿ8‘”ÊÉş+
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³İØ¬üÿÿÿÿ8Ÿ¦¨…,
+Bsquid:S1659"(Declare "buyingRate" on a separate line.(¦Ü’Áúÿÿÿÿ
+|squid:S00116"aRename this field "imageView_buy_settings" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è²œ÷ıÿÿÿÿ
+esquid:UselessImportCheck"CRemove this unused import 'android.text.style.ForegroundColorSpan'.(¸±í
+Ksquid:S00108")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ8‘”ÊÉş+
+ksquid:UselessImportCheck"DRemove this unused import 'com.ideofuzion.btm.utils.SessionManager'.(„ø¼Íøÿÿÿÿ
+[squid:UselessImportCheck"9Remove this unused import 'android.text.SpannableString'.(üÒş™
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(²¢ñ8‘”ÊÉş+
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ğ´8‘”ÊÉş+
+„squid:S00116"iRename this field "button_buyActivity_buyBitcoins" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ÉÒÇşÿÿÿÿ
+]squid:S1068"HRemove this unused "MY_PERMISSIONS_REQUEST_READ_LOCATION" private field.(¡ı ç
+Xsquid:UselessImportCheck"6Remove this unused import 'android.provider.Settings'.(Š¯„
+dsquid:UselessImportCheck"=Remove this unused import 'android.content.ClipboardManager'.(ŠİÒ¬ùÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(”ı¾
+isquid:UselessImportCheck"BRemove this unused import 'android.support.v4.app.ActivityCompat'.(Äüşÿÿÿÿ

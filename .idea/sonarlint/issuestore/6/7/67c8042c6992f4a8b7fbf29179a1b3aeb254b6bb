@@ -1,37 +1,39 @@
 
+“squid:S00116"xRename this field "linearLayout_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬ñ¹úÿÿÿÿ
+bsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(Öý¯
+nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨þK
+ˆsquid:S00116"rRename this field "linearLayout_settings_profitMarginSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öØ»º
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+„squid:S00116"gRename this field "linearLayout_settings_logout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨Ïí©8î­Ã”‚,
+ysquid:S1858"X"getBitpointProfitWalletAddress" returns a string, there's no need to call "toString()".(½ÖÍ™ýÿÿÿÿ8ôýóþ+
 ksquid:UselessImportCheck"BRemove this unused import 'com.ideofuzion.btm.utils.AlertMessage'.(éü’ï8”ÉõÇþ+
-’squid:S00116"pRename this field "linearLayout_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»’á€ûÿÿÿÿ8µìçÇþ+
+ˆsquid:S00116"mRename this field "text_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÏ«ûÿÿÿÿ
 ˆsquid:S00116"mRename this field "linearLayout_settings_pinCodeSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶·¿üúÿÿÿÿ
 Ksquid:S1659"6Declare "text_settings_dollarRate" on a separate line.(É‹Õ™
-Šsquid:S00116"uRename this field "linearLayout_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ßÁH
-usquid:S00116"_Rename this field "text_settings_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
-Šsquid:S00116"hRename this field "text_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Õ¶Žûÿÿÿÿ8µìçÇþ+
-squid:S00116"uRename this field "linearLayout_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¢Ü™ýÿÿÿÿ
-Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨þK
-ˆsquid:S00116"mRename this field "text_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÏŸüýÿÿÿÿ
-nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨þK
-Asquid:S1068",Remove this unused "fontBold" private field.(”ãµ
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€ÓäÙýÿÿÿÿ8Š›îþ+
-{squid:S00116"eRename this field "text_settings_setupBalance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úˆ
-{squid:S00116"eRename this field "text_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¶Ä©
-lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
-‹squid:S00116"uRename this field "linearLayout_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¼…³
-?squid:S00108")Either remove or fill this block of code.(”ý¾
-ƒsquid:S00116"mRename this field "linearLayout_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó‘ÉÒ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ƒµ™ž
+ysquid:S00116"cRename this field "text_settings_dollarRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
 ˆsquid:S00116"mRename this field "linearLayout_settings_setupBalance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èïè´þÿÿÿÿ
 }squid:S00116"gRename this field "text_settings_beneficiaryKey" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à´ˆ¡
-ysquid:S1858"X"getBitpointProfitWalletAddress" returns a string, there's no need to call "toString()".(½ÖÍ™ýÿÿÿÿ8ôýóþ+
-Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8´ÊðÇþ+
-“squid:S00116"xRename this field "linearLayout_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¬ñ¹úÿÿÿÿ
-†squid:S00116"pRename this field "text_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÇÍŽ
-gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ƒµ™ž
-squid:S00116"rRename this field "linearLayout_settings_SetupProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ó†ùúÿÿÿÿ
-ˆsquid:S00116"rRename this field "linearLayout_settings_profitMarginSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öØ»º
-ysquid:S00116"cRename this field "text_settings_dollarRate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
-ˆsquid:S00116"mRename this field "text_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¬âúÿÿÿÿ
-zsquid:S00116"dRename this field "text_settings_profitSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ƒéæ
-ˆsquid:S00116"mRename this field "text_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÏ«ûÿÿÿÿ
-–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦Œœ¢
+{squid:S00116"eRename this field "text_settings_setupBalance" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úˆ
+Šsquid:S00116"uRename this field "linearLayout_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ßÁH
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
 €squid:S00116"eRename this field "text_settings_pinCodeSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áæçâúÿÿÿÿ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-bsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(Öý¯
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨þK
+Asquid:S1068",Remove this unused "fontBold" private field.(”ãµ
+usquid:S00116"_Rename this field "text_settings_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‹Õ™
+’squid:S00116"pRename this field "linearLayout_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»’á€ûÿÿÿÿ8µìçÇþ+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8´ÊðÇþ+
+squid:S00116"rRename this field "linearLayout_settings_SetupProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Ó†ùúÿÿÿÿ
+‹squid:S00116"uRename this field "linearLayout_settings_bitcoinPublicAddress" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¼…³
+ˆsquid:S00116"mRename this field "text_settings_hotWalletBeneficiary" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÏŸüýÿÿÿÿ
+?squid:S00108")Either remove or fill this block of code.(”ý¾
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€ÓäÙýÿÿÿÿ8Š›îþ+
+ˆsquid:S00116"mRename this field "text_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¬âúÿÿÿÿ
+†squid:S00116"pRename this field "text_settings_merchantProfitThreshold" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÇÍŽ
+squid:S00116"uRename this field "linearLayout_settings_bitpointProfitWallet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¢Ü™ýÿÿÿÿ
+Šsquid:S00116"hRename this field "text_settings_toggleexhchange" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Õ¶Žûÿÿÿÿ8µìçÇþ+
+squid:S00116"_Rename this field "text_settings_logout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªîÂâüÿÿÿÿ8î­Ã”‚,
+zsquid:S00116"dRename this field "text_settings_profitSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ƒéæ
+{squid:S00116"eRename this field "text_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³¶Ä©
+ƒsquid:S00116"mRename this field "linearLayout_settings_krackenSetup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó‘ÉÒ
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦Œœ¢

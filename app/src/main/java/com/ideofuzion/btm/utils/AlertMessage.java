@@ -12,10 +12,18 @@ import com.ideofuzion.btm.R;
 
 
 /**
- * Created by Zohaib Khaliq on 4/10/2017.
+ * Created by ideofuzion on 4/10/2017.
+ *
+ * this class has static functions that are used
+ * to show error or other information messages from all around the application
  */
 
 public class AlertMessage {
+    /**
+     * this function shows error
+     * @param view this is view towhome the error is associated
+     * @param message this is message to display
+     */
     public static void showError(View view, String message)
     {
         if(message != null) {
@@ -32,6 +40,12 @@ public class AlertMessage {
             }
         }
     }
+
+    /**
+     * this function shows information message
+     * @param view this is view towhome the error is associated
+     * @param message this is message to display
+     */
     public static void show(View view, String message)
     {
         Typeface fontSemiBold = Fonts.getInstance(view.getContext()).typefaceSemiBold;

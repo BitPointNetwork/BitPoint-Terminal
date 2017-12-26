@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.google.android.gms.vision.text.Text;
 import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
@@ -38,12 +37,12 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
  */
 
 public class UpdateHotWalletBeneficiaryActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
     TextView text_minMaxBalance_header;
-    EditText merchantProfitMargin;
+    EditText hotWalletBeneficiary;
     Button submit;
     private Typeface fontBold;
     private Typeface fontRegular;
@@ -55,6 +54,11 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
     TextView textView_hotWalletAddressValue;
     TextView text_copy;
 
+
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,12 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
         }
     }
 
+    /**
+     * getting data from intent, init classes
+     * objects including dialog helper, fonts
+     * and applying those fonts to ui resources
+     * and applying click listeners to ui resources
+     */
     public void initResources() {
 
 
@@ -79,7 +89,7 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
         text_minMaxBalance_header = (TextView) findViewById(R.id.text_minMaxBalance_header);
-        merchantProfitMargin = (EditText) findViewById(R.id.edit_minMaxBalance_minBalance);
+        hotWalletBeneficiary = (EditText) findViewById(R.id.edit_minMaxBalance_minBalance);
         textView_hotWalletAddressText = (TextView) findViewById(R.id.textView_hotWalletAddressText);
         textView_hotWalletAddressValue = (TextView) findViewById(R.id.textView_hotWalletAddressValue);
         text_copy = (TextView) findViewById(R.id.text_copy);
@@ -100,7 +110,7 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
         cancel.setTypeface(fontBold);
 
         text_minMaxBalance_header.setTypeface(fontBold);
-        merchantProfitMargin.setTypeface(fontSemiBold);
+        hotWalletBeneficiary.setTypeface(fontSemiBold);
         submit.setTypeface(fontBold);
         textView_hotWalletAddressText.setTypeface(fontSemiBold);
         textView_hotWalletAddressValue.setTypeface(fontSemiBold);
@@ -126,14 +136,21 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
             }
         });
 
+
+        //init data
+        hotWalletBeneficiary.setText(BTMApplication.getInstance().getBTMUserObj().getHotWalletBenificiaryKey());
     }
 
+
+    /**
+     * sending hot waller beneficiary update request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_HOT_WALLET_BENEFICIARY;
 
         Map<String, String> updateTaglineParams = new HashMap<>();
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
-        updateTaglineParams.put("hotWalletBenificiaryKey", merchantProfitMargin.getText().toString());
+        updateTaglineParams.put("hotWalletBenificiaryKey", hotWalletBeneficiary.getText().toString());
 
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
@@ -141,25 +158,38 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
     }
 
 
+    /**
+     * validating edit text fields
+     * @return
+     */
     boolean validateFields() {
-        if (merchantProfitMargin.getText().toString().isEmpty()) {
-            AlertMessage.showError(merchantProfitMargin, "Please enter merchant margin profit margin threshold");
-            merchantProfitMargin.requestFocus();
+        if (hotWalletBeneficiary.getText().toString().isEmpty()) {
+            AlertMessage.showError(hotWalletBeneficiary, "Please enter merchant margin profit margin threshold");
+            hotWalletBeneficiary.requestFocus();
             return false;
         }
 
         return true;
     }
 
-    @Override
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */    @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
             dialogHelper.hideProgressDialog();
         }
-        AlertMessage.showError(merchantProfitMargin, Constants.ERROR_CHECK_INTERNET);
+        AlertMessage.showError(hotWalletBeneficiary, Constants.ERROR_CHECK_INTERNET);
 
     }
 
+    /**
+     * this function will be called when the update beneficiary request is
+     * successfully executed by the server
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -172,7 +202,7 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                    AlertMessage.show(merchantProfitMargin, "Success");
+                    AlertMessage.show(hotWalletBeneficiary, "Success");
 
                     if (!serverMessageResponse.getData().isEmpty()) {
                         Gson gsonForUser = new Gson();
@@ -186,7 +216,7 @@ public class UpdateHotWalletBeneficiaryActivity extends Activity implements Resp
                         }
                     }
                 } else {
-                    AlertMessage.showError(merchantProfitMargin, serverMessageResponse.getMessage());
+                    AlertMessage.showError(hotWalletBeneficiary, serverMessageResponse.getMessage());
                 }//end oe else
             } catch (Exception e) {
                 e.printStackTrace();

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 
 /**
- * Created by Zohaib Khaliq on 4/12/2017.
+ * Created by Ideofuzion on 4/12/2017.
+ *
+ * this class is used to check internet connection all around the application
  */
 
 //TODO use MyUtils class function isInternetConnected and remove this class

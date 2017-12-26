@@ -46,6 +46,11 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
     private boolean isFromRegistration = false;
     private Button cancel;
 
+
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,11 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
         {}
     }
 
+    /**
+     * getting data from intent, init dialog helper object
+     * and setting up fonts object and applying fonts to ui resources
+     * and also applying listeners to ui resources
+     */
     public void initResources() {
 
 
@@ -100,8 +110,13 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
             }
         });
 
+        //init data
+        merchantProfitMargin.setText(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitMargin());
     }
 
+    /**
+     * sending merchant profit update request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_MERCHANT_PROFIT;
 
@@ -115,6 +130,10 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
     }
 
 
+    /**
+     * validating edit text fields
+     * @return
+     */
     boolean validateFields() {
         if (merchantProfitMargin.getText().toString().isEmpty()) {
             AlertMessage.showError(merchantProfitMargin, "Please enter profit margin percentage");
@@ -125,6 +144,12 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
         return true;
     }
 
+
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -134,6 +159,11 @@ public class SetupProfitMarginActivity extends Activity implements Response.List
 
     }
 
+    /**
+     * this function will be called if server
+     * successfully executes the merchant profit margin update request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

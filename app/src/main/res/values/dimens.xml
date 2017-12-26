@@ -41,4 +41,6 @@
     <dimen name="linearLayout_authorizeActivity_profile_details_left_margin">60dp</dimen>
     <dimen name="linearLayout_authorizeActivity_profile_details_margin_top">25dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="scan_width_height">250dp</dimen>
+    <dimen name="txt_sell_hotwallet_addr">14sp</dimen>
 </resources>

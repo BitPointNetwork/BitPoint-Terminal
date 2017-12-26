@@ -45,6 +45,7 @@
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
+                android:drawableRight="@drawable/img_scan_qr"
                 android:textColor="@color/text_hint_color"
                 android:textColorHint="@color/text_hint_color"
                 android:textCursorDrawable="@drawable/cursor_drawable" />
@@ -66,7 +67,7 @@
                 android:background="@drawable/background_transparent"
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
-                android:hint="Enter Bitpoint Profit Wallet Kraken Beneficiary Key"
+                android:hint="Enter Bitpoint Profit Wallet Kraken Beneficiary Key(Optional)"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:singleLine="true"

@@ -20,7 +20,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 6/23/2017.
+ * Created by ideofuzion on 6/23/2017.
+ *
+ * this is an activity and sending bitcoin functionality is achieved
+ * in this activity
  */
 
 public class SendBitcoins implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -31,6 +34,17 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
     Double bitcoinsX;
     Double bitcoinY;
 
+    /**
+     * this is constructor of this class
+     * it will be called each time the
+     * user init this class's object
+     * with these params
+     *
+     * @param context
+     * @param view
+     * @param bitcoinsX
+     * @param bitcoinY
+     */
     public SendBitcoins(Context context, View view, Double bitcoinsX, Double bitcoinY) {
         this.context = context;
         this.view = view;
@@ -38,7 +52,12 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
         this.bitcoinY = bitcoinY;
     }
 
-    public void sendBitcoinTransferRequestToServer(String amount) {
+
+    /**
+     * sending request send balance
+     * request to server
+     */
+    public void sendBitcoinTransferRequestToServer() {
         try {
             dialogHelper = new DialogHelper(context);
             dialogHelper.showProgressDialog();
@@ -60,7 +79,11 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
         }
     }
 
-
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -70,6 +93,12 @@ public class SendBitcoins implements Response.Listener<JSONObject>, Response.Err
 
     }
 
+    /**
+     * this function will be called each time when server
+     * successfully executes over request
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

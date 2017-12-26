@@ -44,7 +44,7 @@ android:layout_height="55dp"            android:layout_marginTop="@dimen/editTex
                 android:drawableLeft="@drawable/img_name"
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
-                android:hint="Name"
+                android:hint="@string/hint_username"
                 android:singleLine="true"
                 android:textColor="@color/text_hint_color"
                 android:textColorHint="@color/text_hint_color" />

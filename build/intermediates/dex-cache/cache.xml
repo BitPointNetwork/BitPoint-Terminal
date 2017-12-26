@@ -3,75 +3,66 @@
 
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/23889e398e6fb0991dc39a783552712665f150f3/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7cb44d173897abe2c35a7d62201f997d5e374983">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_83e7cc276dd717b1395e4243bcc53707458fcbec/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/commons-io-2.4.jar"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/libs/commons-io-2.4.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/commons-io-2.4_5a937427f8702414d1401a6df9a0a9a225c8b9a3/classes.dex" />
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/2/commons-io-2.4_6768cc18ee55335549d6d738c84bf82d13397817/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/111b0ba611a2b0bac62b56a2f9f59fbc15f5fcd7/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="414c5172d9739a35339700d133288418059e7d83">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b936f4adfde21ed23cd6552236a1d4f3ebb18fdb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/9de411374cde83ca0188c21046ea33751138e35d/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_61828a18ea2436e4bf5bfb712bc32ab973a5be02/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e357b708854a221dd8bb90f4ee6d658a4410eea8/classes.dex" />
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_63837bf8dee290ba3b70704bd5b45ba40f158c34/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/mint-5.1.0.jar"
+        jar="/Users/mac/.android/build-cache/010bc0671ed9b26600fd3b60ebe0f65ee6c194ba/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7e2d67e311b171de8535dbe5f53af653012b73f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9c21987394501ff1835e92a7594723b8cb6373b7">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4a54c706f2398bfe3dd82c034623466d7067468a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/.android/build-cache/7a10af9fdb1495b94dc1d37646561e6ecb4f6c0b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ded76870e286da76793d7bfeaf65e6660f1bec08">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7ba257e85033bc302a0fef70e0efbb2cc3da1099/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/.android/build-cache/66f534db165b362a7dfd2849cf90f97d8ead2674/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0782b7adec19e18c4715d3759b1fef1d96737e5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/libs/mint-5.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="79b2a1223e63b47da7d06294fadf99e5e35ba20e">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/mint-5.1.0_3a041c94b4b5c539770f5af15a738fbf21194c80/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/23bac9d2715a17d1d94070e46a6d41886d6df189/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0b9ec75bf8fa5fd53213c10bbcac5e6f4d6ba391/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6a5d762bf27dc5f9f244a8da9eb1ca28efdacf74">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e378a54e8fd8909664fb6a3e39fd374c7804a7b7/classes.dex" />
+        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/app/build/intermediates/transforms/dex/debug/folders/1000/2/mint-5.1.0_77736e88dfa969f586e443564d342218c3d8b1c6/classes.dex" />
     </item>
 
 </items>
