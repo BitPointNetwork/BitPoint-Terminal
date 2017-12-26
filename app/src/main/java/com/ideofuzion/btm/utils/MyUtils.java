@@ -41,15 +41,24 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by Ideofuzion on 9/23/2017.
+ *
+ * this class has all the utils functions that are used
+ * all around the applications
  */
 
 public class MyUtils {
+    /**
+     * checking if the string is null or empty
+     * @param string string to check
+     * @return
+     */
     public static boolean isNullOrEmpty(String string) {
         if (string == null || string.length() == 0)
             return true;
@@ -80,7 +89,11 @@ public class MyUtils {
     }
 
     public static String getDecimalFormattedAmount(String amount) {
-        return String.format("%.5f", Double.parseDouble(amount));
+        double d = Double.valueOf(amount);
+        if (d == (long) d)
+            return String.format("%d", (long) d);
+        else
+            return amount;
     }
 
     public static void setUnreadNotificationStatus(Context context, boolean status) {

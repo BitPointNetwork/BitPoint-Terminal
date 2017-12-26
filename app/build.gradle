@@ -7,8 +7,8 @@ android {
         applicationId "com.bitpoint.btm.app"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 7
-        versionName '1.6'
+        versionCode 11
+        versionName '1.1.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
@@ -31,6 +31,7 @@ repositories {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

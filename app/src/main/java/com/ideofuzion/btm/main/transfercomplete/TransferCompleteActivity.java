@@ -28,7 +28,10 @@ import com.ideofuzion.btm.utils.MyUtils;
 import me.grantland.widget.AutofitTextView;
 
 /**
- * Created by khali on 6/2/2017.
+ * Created by ideofuzion on 6/2/2017.
+ *
+ * this  activity is the final activity in which
+ * the user will be shown that the sell or buy was successful
  */
 
 public class TransferCompleteActivity extends Activity {
@@ -43,7 +46,10 @@ public class TransferCompleteActivity extends Activity {
     ImageView imageView_transferCompleteFragment_success;
     Button button_transferCompleteFragment_ok;
     private String dollarRate;
-
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +70,9 @@ public class TransferCompleteActivity extends Activity {
     }
 
 
+    /**
+     * adding listener to ui resources
+     */
     private void addListener() {
         button_transferCompleteFragment_ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +86,9 @@ public class TransferCompleteActivity extends Activity {
         });
     }
 
+    /**
+     * applying typeface to ui elements
+     */
     private void initTypefaces() {
         text_transferCompleteFragment_userKey.setTypeface(fontBold);
         text_transferCompleteFragment_dollarRate.setTypeface(fontSemiBold);
@@ -85,6 +97,11 @@ public class TransferCompleteActivity extends Activity {
         text_transferCompleteFragment_amount.setTypeface(fontSemiBold);
     }
 
+    /**
+     * setting data in bundle to retain the data
+     * on config changes in activity lifecycle
+     * @param outState
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -95,6 +112,12 @@ public class TransferCompleteActivity extends Activity {
         }
     }
 
+    /**
+     * getting data from intent or savedInstanceState object, init
+     * other font objects applying fonts to ui elements and adding listeners
+     * to those ui resources
+     * @param savedInstanceState
+     */
     private void initResources(Bundle savedInstanceState) {
 
         if (savedInstanceState != null) {
@@ -148,6 +171,15 @@ public class TransferCompleteActivity extends Activity {
 
     }
 
+
+    /**
+     * this will show a dialog with transaction
+     * id and message, user can also copy the transaction
+     * id from this dialog
+     * this will be displayed on activity start
+     * @param id
+     * @param b
+     */
     private void showTarnsacionId(String id, boolean b) {
 
         final Dialog dialog = new Dialog(this);

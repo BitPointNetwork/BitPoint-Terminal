@@ -45,8 +45,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 6/1/2017.
+ * Created by ideofuzion on 6/1/2017.
+ *
+ * this activity ia used to register a
+ * new user to this application user has to provide basic and
+ * accurate information is required to create an account in this application.
  */
+
 
 public class RegisterActivity extends Activity implements Constants.ResultCode, Response.Listener<JSONObject>,
         Response.ErrorListener {
@@ -60,6 +65,13 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
     Typeface fontBold;
     DialogHelper dialogHelper;
 
+
+    /**
+     * this function will be called when the activity starts
+     * and all the init things are setup here to start the activity
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +89,9 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         }
     }
 
+    /**
+     * adding listeners to ui elements
+     */
     private void addListener() {
         edit_registerActivity_name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -125,6 +140,12 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         });
     }
 
+    /**
+     * sending signUp request to server
+     * after validating fields
+     * amd checking the internet
+     *
+     */
     private void signUp() {
         if (Internet.isConnected(RegisterActivity.this)) {
             if (validateFields()) {
@@ -136,6 +157,9 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         }
     }
 
+    /**
+     * applying fonts to ui elements
+     */
     private void initTypefaces() {
         edit_registerActivity_name.setTypeface(fontRegular);
         edit_registerActivity_email.setTypeface(fontRegular);
@@ -145,7 +169,10 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         button_registerActivity_register.setTypeface(fontBold);
     }
 
-
+    /**
+     * settings up ui resources
+     * init fonts obje
+     */
     private void initResources() {
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(getApplicationContext()).getTypefaceRegular();
@@ -165,6 +192,9 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
 
     }
 
+    /**
+     * making text clickable
+     */
     private void makeTextClickable() {
 
 
@@ -198,6 +228,9 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
     }
 
 
+    /**
+     * sending signup request to server
+     */
     private void sendSignUpRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_USER_SIGNUP;
 
@@ -212,6 +245,12 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
 
     }
 
+    /**
+     * validating fields, returning true if validation is successful
+     * and returning false if validation fails and showing user
+     * appropriate message
+     * @return
+     */
     private boolean validateFields() {
         if (edit_registerActivity_name.getText().toString().equals("")) {
             AlertMessage.showError(edit_registerActivity_name, Constants.ERROR_EMPTY_NAME);
@@ -258,6 +297,11 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
         return true;
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -267,6 +311,11 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
 
     }
 
+    /**
+     * this function will be called when server
+     * successfully execute signup request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -295,12 +344,19 @@ public class RegisterActivity extends Activity implements Constants.ResultCode, 
 
     }
 
+    /**
+     * this will redirect user to main
+     * activity after successfully sign up
+     *
+     *
+     * @param data
+     */
     private void redirectUserAfterSuccessSignUp(String data) {
         if (!data.isEmpty()) {
             Gson gsonForUser = new Gson();
             BTMUser btmUser = gsonForUser.fromJson(data, BTMUser.class);
             BTMApplication.getInstance().setBTMUserObj(btmUser);
-            SessionManager.getInstance(getApplicationContext()).createSession(edit_registerActivity_email.getText().toString(), edit_registerActivity_password.getText().toString());
+            SessionManager.getInstance(getApplicationContext()).createSession(edit_registerActivity_name.getText().toString(), edit_registerActivity_password.getText().toString());
             startActivity(new Intent(RegisterActivity.this, PinCodeActivity.class)
                     .putExtra(PinCodeActivity.EXTRA_FROM_REGISTRATION, true));
             finish();

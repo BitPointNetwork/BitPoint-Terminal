@@ -17,7 +17,12 @@ import com.ideofuzion.btm.main.sell.SellBitcoinActivity;
 import org.json.JSONObject;
 
 /**
- * Created by user on 11/1/2017.
+ * Created by ideofuzion on 11/1/2017.
+ *
+ * this class's onMessageReceived is called
+ * each time a notification is received the data from the
+ * notification is parsed and actions are performed based upon that
+ * data
  */
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {

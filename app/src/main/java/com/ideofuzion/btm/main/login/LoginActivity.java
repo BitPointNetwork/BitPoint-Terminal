@@ -42,7 +42,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 6/19/2017.
+ * Created by ideofuzion on 6/19/2017.
+ *
+ * this an activity and this activity allow users
+ * to login in to application in order to start using the features od this app
+ * this is the startup activity as well
  */
 
 public class LoginActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -55,6 +59,16 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
     DialogHelper dialogHelper;
     boolean s = false;
 
+    /**
+     * this function will be called when
+     * activity starts and all init setup is done
+     * here to run the activity
+     *
+     * also sending signin request to server
+     * if session exists
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +95,9 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
 
     }
 
+    /**
+     * adding listener to ui elements
+     */
     private void addListener() {
         button_login_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +117,11 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         });
     }
 
+    /**
+     * sign in request will be send to server
+     * after validating the fields and checking the internet
+     * connection sing in request will be sent
+     */
     private void signIn() {
         if (validateFields()) {
             if (Internet.isConnected(LoginActivity.this)) {
@@ -109,12 +131,21 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         }
     }
 
+    /**
+     * applying fonts to ui elements
+     */
     private void initTypeface() {
         edit_login_email.setTypeface(fontSemiBold);
         edit_login_password.setTypeface(fontSemiBold);
         button_login_login.setTypeface(fontBold);
     }
 
+
+    /**
+     * getting referenece to ui resources of xml
+     * init fonts obj
+     *
+     */
     private void initResources() {
 
         dialogHelper = new DialogHelper(this);
@@ -132,6 +163,10 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         makeTextSignInSignUpClickable(text_loginActivity_signUp);
     }
 
+    /**
+     * making text click able
+     * @param text_signIn_signUp
+     */
     private void makeTextSignInSignUpClickable(TextView text_signIn_signUp) {
         SpannableString ss = new SpannableString("Not a Registered member? SIGN UP");
         ClickableSpan clickableSpan = new ClickableSpan() {
@@ -182,6 +217,12 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         VolleyRequestHelper.sendPostRequestWithParam(url, signInParams, this);
     }
 
+    /**
+     * validating fields, if feilds are valid returning true
+     * else returning false
+     *
+     * @return
+     */
     private boolean validateFields() {
 
         if (edit_login_email.getText().toString().equals("")) {
@@ -197,6 +238,11 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         return true;
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -207,6 +253,13 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
 
     }
 
+    /**
+     * this function will be called
+     * each times the server successfully executes
+     * over request
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -233,6 +286,12 @@ public class LoginActivity extends Activity implements Response.Listener<JSONObj
         s = false;
     }
 
+    /**
+     * redirecting user after success response from
+     * server
+     *
+     * @param data
+     */
     private void redirectUserAfterSuccessSignIn(String data) {
         if (!data.isEmpty()) {
             Gson gsonForUser = new Gson();

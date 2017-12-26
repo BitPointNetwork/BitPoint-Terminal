@@ -17,7 +17,10 @@ import com.ideofuzion.btm.utils.Fonts;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/24/2017.
+ * Created by ideofuzion on 9/24/2017.
+ *
+ * this activity is used to prompt user to select an existing or new profit
+ * wallet addrtessed
  */
 
 public class ProfitWalletOptionActivity extends Activity {
@@ -26,7 +29,10 @@ public class ProfitWalletOptionActivity extends Activity {
     private Typeface fontSemiBold;
     private Typeface fontBold;
     private boolean isFromRegistration = false;
-
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +45,17 @@ public class ProfitWalletOptionActivity extends Activity {
         {}
     }
 
+    /**
+     * getting data from intent, getting reference to xml elements
+     * setting up classes objects
+     */
     public void initResources() {
 
+        //getting data from intent
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
 
 
+        //init ui resources
         TextView text_dialog_header = (TextView) findViewById(R.id.text_dialog_header);
         Button button_dialog_newAccount = (Button) findViewById(R.id.button_dialog_newAccount);
         Button button_dialog_existingAccount = (Button) findViewById(R.id.button_dialog_existingAccount);
@@ -53,10 +65,12 @@ public class ProfitWalletOptionActivity extends Activity {
         fontSemiBold = Fonts.getInstance(this).getTypefaceSemiBold();
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
+        //applying fonts
         text_dialog_header.setTypeface(fontBold);
         button_dialog_newAccount.setTypeface(fontBold);
         button_dialog_existingAccount.setTypeface(fontBold);
 
+        //adding listener to buttons
         button_dialog_existingAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

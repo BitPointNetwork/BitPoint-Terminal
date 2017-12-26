@@ -47,7 +47,10 @@ import static com.ideofuzion.btm.main.settings.BitpointProfitWalletActivity.EXTR
 
 
 /**
- * Created by khali on 6/5/2017.
+ * Created by ideofuzion on 6/5/2017.
+ *
+ * this activity us use to scan the qr code from other application
+ * and fetch the data from the qr code
  */
 
 public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCodeReadListener {
@@ -67,6 +70,14 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
     boolean isFromBitcoinScan;
     QRModel qrModel = null;
     private QRCodeReaderView qrCodeReaderView;
+
+    /**
+     * this function will be called
+     * when activity starts and
+     * setting up init setup required to start activity
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,17 +94,22 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
         }
     }
 
+    /**
+     * adding listener to ui elements
+     */
     private void addListener() {
         button_scanQRFragment_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ((MainActivity) getActivity()).replaceFragment(((MainActivity) getActivity()).enterAmountFragment);
                 finish();
 
             }
         });
     }
 
+    /**
+     * applying fonts to ui elements
+     */
     private void iniTypeface() {
         text_scanQRFragment_dollarRate.setTypeface(fontSemiBold);
         text_scanQRFragment_title.setTypeface(fontBold);
@@ -102,6 +118,13 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
         button_scanQRFragment_cancel.setTypeface(fontRegular);
     }
 
+    /**
+     * this function will be called each time
+     * the there is config changes and we are saving some data
+     * so that the data retains even if the activity restarts
+     *
+     * @param outState
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -109,7 +132,15 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
         outState.putBoolean(EXTRA_IS_FROM_BITPOINT_PROFIT,isFromBitcoinScan);
     }
 
+    /**
+     * getting data from intents
+     * getting reference to xml ui elements
+     * setting up init data
+     *
+     * @param savedInstanceState
+     */
     private void initResources(Bundle savedInstanceState) {
+        //gettings data from intents if data exists
         if (savedInstanceState != null) {
             isBuying = savedInstanceState.getBoolean(EXTRA_IS_BUYING, false);
             isFromBitcoinScan =savedInstanceState.getBoolean(EXTRA_IS_FROM_BITPOINT_PROFIT,false);
@@ -117,7 +148,11 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
             isBuying = getIntent().getBooleanExtra(EXTRA_IS_BUYING, false);
             isFromBitcoinScan =getIntent().getBooleanExtra(EXTRA_IS_FROM_BITPOINT_PROFIT,false);
         }
+
+        //init permission handler obj
         permissionHandler = new PermissionHandler(this);
+
+        //init dialopg helper obj
         dialogHelper = new DialogHelper(this);
 
         //initializing TypeFaces objects
@@ -125,6 +160,7 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
         fontSemiBold = Fonts.getInstance(getApplicationContext()).getTypefaceSemiBold();
         fontBold = Fonts.getInstance(getApplicationContext()).getTypefaceBold();
 
+        //init ui elements and setting up init data
         text_scanQRFragment_dollarRate = (TextView) findViewById(R.id.text_scanQRFragment_dollarRate);
         text_scanQRFragment_title = (TextView) findViewById(R.id.text_scanQRFragment_title);
         text_scanQRFragment_title.setText(Html.fromHtml("<i>Scan QR Code</i>"));
@@ -158,6 +194,12 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
 
     }
 
+    /**
+     * this fucntion will be called each time the activity starts
+     * performing camera permission check and starting camera if permission exists
+     * else prompting user to start camera
+     *
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -169,7 +211,13 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
     }
 
 
-
+    /**
+     * this function will be called
+     * when user deny or grant the prompted permission
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -183,6 +231,10 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
     }
 
 
+    /**
+     * this function will be called when the
+     * activity go to pause state and stoping camera in that state
+     */
     @Override
     public void onPause() {
         super.onPause();
@@ -190,17 +242,12 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
     }
 
 
-    public void handleResult(Result rawResult) {
-        /*Toast.makeText(this, "Contents = " + rawResult.getText() +
-                ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).initResources();*/
-        String data = rawResult.getText();
-            //data = "{" + data + "}";
-
-
-    }
-
- /*            mScannerView.resumeCameraPreview(this);
-*/
+    /**
+     * this function will be called when user scan qr and
+     * the result of that scan will be returned in this function
+     * @param data
+     * @param points
+     */
  @Override
  public void onQRCodeRead(String data, PointF[] points) {
 
@@ -238,50 +285,4 @@ public class ScanQRActivity extends Activity implements QRCodeReaderView.OnQRCod
          }
      }
  }
-
-    private static class CustomViewFinderView extends ViewFinderView {
-        public static final String TRADE_MARK_TEXT = "";
-        public static final int TRADE_MARK_TEXT_SIZE_SP = 40;
-        public final Paint PAINT = new Paint();
-
-        public CustomViewFinderView(Context context) {
-            super(context);
-            init();
-        }
-
-        public CustomViewFinderView(Context context, AttributeSet attrs) {
-            super(context, attrs);
-            init();
-        }
-
-        private void init() {
-            PAINT.setColor(Color.WHITE);
-            PAINT.setAntiAlias(true);
-            float textPixelSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                    TRADE_MARK_TEXT_SIZE_SP, getResources().getDisplayMetrics());
-            PAINT.setTextSize(textPixelSize);
-            setSquareViewFinder(true);
-        }
-
-        @Override
-        public void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            drawTradeMark(canvas);
-        }
-
-        private void drawTradeMark(Canvas canvas) {
-            Rect framingRect = getFramingRect();
-            float tradeMarkTop;
-            float tradeMarkLeft;
-            if (framingRect != null) {
-                tradeMarkTop = framingRect.bottom + PAINT.getTextSize() + 10;
-                tradeMarkLeft = framingRect.left;
-            } else {
-                tradeMarkTop = 10;
-                tradeMarkLeft = canvas.getHeight() - PAINT.getTextSize() - 10;
-            }
-            canvas.drawText(TRADE_MARK_TEXT, tradeMarkLeft, tradeMarkTop, PAINT);
-        }
-
-    }
 }

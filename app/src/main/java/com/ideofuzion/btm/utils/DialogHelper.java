@@ -4,8 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 
 /**
- * Created by Zohaib Khaliq on 4/8/2017.
+ * Created by ideofuzion on 4/8/2017.
+ *
+ * this class is the loader class all the loading in the application
+ * is achieved from this class
  */
+
+
 
 public class DialogHelper {
 

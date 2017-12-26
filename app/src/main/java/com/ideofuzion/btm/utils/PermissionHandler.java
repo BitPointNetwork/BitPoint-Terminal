@@ -9,7 +9,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 /**
- * Created by Yasir on 1/13/2016.
+ * Created by Ideofuzion on 1/13/2016.
+ *
+ *
+ * this class is used to handle the runtime permissions
+ * all around the application
  */
 public class PermissionHandler {
     Activity context;

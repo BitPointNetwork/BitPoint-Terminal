@@ -8,7 +8,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 /**
- * Created by Zohaib Khaliq on 4/11/2017.
+ * Created by ideofuzion on 4/11/2017.
+ *
+ * this class act as model all data
+ * of the current active users resides
+ * in it's object
  */
 
 public class BTMUser {
@@ -42,6 +46,17 @@ public class BTMUser {
     private String krakenAPISecret;
     @SerializedName("profitWalletAddress")
     private String profitWalletAddress;
+
+    public String getHotWalletBalance() {
+        return hotWalletBalance;
+    }
+
+    public void setHotWalletBalance(String hotWalletBalance) {
+        this.hotWalletBalance = hotWalletBalance;
+    }
+
+    @SerializedName("hotWalletBalance")
+    private String hotWalletBalance;
 
     @SerializedName("useKraken")
     private boolean exchangeStatus;

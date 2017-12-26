@@ -25,7 +25,12 @@ import java.util.List;
 import static java.security.AccessController.getContext;
 
 /**
- * Created by khali on 6/6/2017.
+ * Created by Ideofuzion on 6/6/2017.
+ *
+ * this is the application class that's
+ * lifecycle is associated with application all data that is necessary
+ * during running the application is maintained in this class
+ *
  */
 
 public class BTMApplication extends MultiDexApplication {

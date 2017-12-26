@@ -45,7 +45,11 @@ import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGIST
 import static com.ideofuzion.btm.main.transfercomplete.TransferCompleteActivity.EXTRA_AMOUNT_TO_BE_GIVEN;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to sell bitcoin user will be navigated to this
+ * activity if he want to sell bitcoins the rate the application is sending bitcoin is
+ * displayed on the left top of this screen as well
  */
 
 public class SellBitcoinActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -66,6 +70,12 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
     IntentFilter intentFilter;
     TextView txt_sell_merchantwalletaddr;
 
+    /**
+     * this function will be called each time
+     * the activity starts and the init setting are setup here
+     * to run the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +88,13 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
         }
     }
 
+    /**
+     * getting data from intent
+     * getting reference to ui resources from xml
+     * init dialog helper object
+     * init font object
+     * init initial data
+     */
     public void initResources() {
         intentFilter = new IntentFilter(SUCCESS_CONFRIMATION_ACTION);
         senderAddress = getIntent().getStringExtra("address");
@@ -127,6 +144,10 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
 
     }
 
+    /**
+     * sending save sender request to server
+     */
+
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_SAVE_SENDER_ADDRESS;
 
@@ -140,6 +161,11 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
     }
 
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -151,6 +177,11 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
 
     }
 
+    /**
+     * this function will be called each time the
+     * server successfully execute over request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -178,12 +209,21 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
 
     }
 
+    /**
+     * this function will be called when
+     * activity starts and registering a broadcast receiver
+     */
     @Override
     protected void onResume() {
         super.onResume();
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiverSuccessConfirmation, intentFilter);
     }
 
+    /**
+     * this function will be called
+     * when the activity goes to pause state
+     * and unregistering the broadcast receiver
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -192,6 +232,10 @@ public class SellBitcoinActivity extends Activity implements Response.Listener<J
     }
 
     SweetAlertDialog pDialog;
+    /**
+     * this is broadcast receiver and this will
+     * be called when ever a broadcast is send
+     */
     BroadcastReceiver broadcastReceiverSuccessConfirmation = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

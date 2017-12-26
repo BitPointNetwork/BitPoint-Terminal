@@ -1,6 +1,18 @@
 [
     {
+        "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Users\\mac\\Desktop\\Projects\\AndroidStudioProjects\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
+        "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Users\\mac\\Desktop\\Projects\\AndroidStudioProjects\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Ideofuzion\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
+        "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Ideofuzion\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
+    },
+    {
         "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/res/merged/androidTest/debug/xml/preferences.xml",
         "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/libs/zxing-android/build/intermediates/bundles/debug/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Ideofuzion\\BTM By Yasir Iqbal\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
+        "source": "/Users/mac/Desktop/Projects/AndroidStudioProjects/btm-atm-mobile-app/E:\\Ideofuzion\\BTM By Yasir Iqbal\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
     }
 ]

@@ -1,10 +1,8 @@
 package com.ideofuzion.btm.main.settings;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,11 +17,9 @@ import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.login.LoginActivity;
 import com.ideofuzion.btm.main.settings.profitwalletsetup.ExistingProfitWalletActivity;
-import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
-import com.ideofuzion.btm.utils.AlertMessage;
 import com.ideofuzion.btm.utils.Constants;
 import com.ideofuzion.btm.utils.DialogHelper;
 import com.ideofuzion.btm.utils.Fonts;
@@ -35,9 +31,12 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 import static com.ideofuzion.btm.utils.Constants.ResultCode.CODE_SUCCESS;
 
+/**
+ * this activity is used to set up and find out which component in the application has
+ * successfully been set up which is required to be set and and which are
+ */
 public class SettingsActivity extends AppCompatActivity {
     TextView text_settings_header, text_settings_dollarRate;
     private Typeface fontRegular;
@@ -70,6 +69,12 @@ public class SettingsActivity extends AppCompatActivity {
     TextView text_settings_logout;
     private DialogHelper dialogHelper;
 
+
+    /**
+     * this function will be called each time the activity starts
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +94,12 @@ public class SettingsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
+    /**
+     * validating all settings fields and showing proper indicator to the user
+     * weather the field is is mandatory or optional
+     */
 
     public void validateFields() {
         if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
@@ -161,6 +172,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * adding click listener to ui resources
+     */
     private void adListener() {
         linearLayout_settings_pinCodeSetup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -216,19 +230,12 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_bitcoinPublicAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode() != null) {
                     startActivity(new Intent(SettingsActivity.this, PinCodeActivity.class)
                             .putExtra(PinCodeActivity.EXTRA_SHOW_BITCOIN_PUBLIC_ADDRESS, true));
                 } else {
-                    new AlertDialog.Builder(SettingsActivity.this)
-                            .setTitle("Your Bitcoin Address Key")
-                            .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
-                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            }).show();
+                    startActivity(new Intent(SettingsActivity.this, YourAddressAndBalanceActivity.class));
                 }
             }
         });
@@ -242,7 +249,7 @@ public class SettingsActivity extends AppCompatActivity {
         linearLayout_settings_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SessionManager.getInstance(getApplicationContext()).createSession("", "");
+                SessionManager.getInstance(getApplicationContext()).clearSesssion();
                 finish();
                 startActivity(new Intent(SettingsActivity.this, LoginActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
@@ -250,6 +257,9 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * applying fonts to ui resources
+     */
     private void initTypefaces() {
         text_settings_setupBalance.setTypeface(fontSemiBold);
         text_settings_krackenSetup.setTypeface(fontSemiBold);
@@ -266,6 +276,11 @@ public class SettingsActivity extends AppCompatActivity {
         text_settings_logout.setTypeface(fontSemiBold);
     }
 
+
+    /**
+     * initiating dialog helper object,
+     * init font objects and getting reference to xml ui elements
+     */
     private void initResources() {
 
 
@@ -302,6 +317,12 @@ public class SettingsActivity extends AppCompatActivity {
         text_settings_logout = (TextView) findViewById(R.id.text_settings_logout);
     }
 
+
+    /**
+     * this function will be called each time activity start
+     * perfoming validations and showing user indicators of the settings
+     * fields
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -312,6 +333,9 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * sending skip karaken request to server
+     */
     private void sendRequestToSkipKraken() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_USE_KRAKEN;
 
@@ -331,8 +355,19 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * this class is to
+     * toggle the exchange feature
+     * weather to turn on or off
+     */
     class ExchangeToggle implements Response.Listener<JSONObject>, Response.ErrorListener {
 
+        /**
+         * this function will be called when the server throws an
+         * error when failed to connect to server
+         *
+         * @param error
+         */
         @Override
         public void onErrorResponse(VolleyError error) {
             if (dialogHelper != null) {
@@ -341,6 +376,11 @@ public class SettingsActivity extends AppCompatActivity {
             Toast.makeText(SettingsActivity.this, "Please Try Agian", Toast.LENGTH_LONG).show();
         }
 
+        /**
+         * this function will be executed on success execution of request
+         *
+         * @param response
+         */
         @Override
         public void onResponse(JSONObject response) {
             if (dialogHelper != null) {

@@ -268,7 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center_horizontal"
-                    android:text="View\nYour Bitcoin\nAdderss"
+                    android:text="View\nBitcoin\nAddress/Balance"
                     android:textColor="@color/text_color" />
             </LinearLayout>
 

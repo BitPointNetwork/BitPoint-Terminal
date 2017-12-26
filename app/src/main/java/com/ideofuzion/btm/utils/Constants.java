@@ -1,7 +1,11 @@
 package com.ideofuzion.btm.utils;
 
 /**
- * Created by Zohaib Khaliq on 4/8/2017.
+ * Created by ideofuzuion on 4/8/2017.
+ *
+ * this class has all static members and these
+ * incclude urls static message and other data
+ * member that are used all around the application
  */
 
 public class Constants {

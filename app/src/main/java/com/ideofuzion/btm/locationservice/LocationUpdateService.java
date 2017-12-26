@@ -27,7 +27,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 5/23/2017.
+ * Created by ideofuzion on 5/23/2017.
+ *
+ * this is a service class all location update
+ * functions are performed in this class
+ * this runs in background and sends user update
+ * request to server each time it's updated
  */
 
 public class LocationUpdateService extends Service implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -37,11 +42,20 @@ public class LocationUpdateService extends Service implements Response.Listener<
     public Location previousBestLocation = null;
     long delayTime = 60000;
 
-
+    /**
+     * this is constructor
+     */
     public LocationUpdateService() {
         super();
     }
 
+
+    /**
+     * setting
+     * LocationManager obj
+     * and
+     * LocationListener obj
+     */
     @Override
     public void onCreate() {
         super.onCreate();
@@ -49,6 +63,16 @@ public class LocationUpdateService extends Service implements Response.Listener<
         mLocationListener = new LocationUpdaterListener();
     }
 
+    /**
+     *
+     * this will start service as START_STICKY service
+     * function will start or stop location update listener
+     *
+     * @param intent
+     * @param flags
+     * @param startId
+     * @return
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null) {
@@ -59,12 +83,23 @@ public class LocationUpdateService extends Service implements Response.Listener<
         return START_STICKY;
     }
 
+    /**
+     *
+     * @param intent
+     * @return
+     */
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
 
+
+    /**
+     * starting locationUpdateListener
+     * based up on location provider
+     * also checking location update permission before accessing it
+     */
     private void startListening() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -75,6 +110,10 @@ public class LocationUpdateService extends Service implements Response.Listener<
         }
     }
 
+    /**
+     * checking the location permission and
+     * removing location update callback from locationManager obj
+     */
     private void stopListening() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -83,18 +122,26 @@ public class LocationUpdateService extends Service implements Response.Listener<
     }
 
 
-
-
+    /**
+     * location update listener class
+     * each update of location will call this function
+     * and location update will be set to server
+     */
     public class LocationUpdaterListener implements LocationListener {
+
+        /**
+         * each time change in location
+         * will call this function
+         *
+         * @param location
+         */
         @Override
         public void onLocationChanged(Location location) {
             previousBestLocation = location;
             try {
                 Log.d("lcoation updates", location.toString());
                 if (BTMApplication.getInstance().getBTMUserObj() != null) {
-/*
                     sendLocationUpdateRequestToServer(location);
-*/
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -118,7 +165,10 @@ public class LocationUpdateService extends Service implements Response.Listener<
     }
 
 
-    //sending location updates to server
+    /**
+     * sending location update call to server
+     * @param location
+     */
     public void sendLocationUpdateRequestToServer(Location location) {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_LAT_LNG;
         Map<String, String> param = new HashMap<>();
@@ -128,12 +178,23 @@ public class LocationUpdateService extends Service implements Response.Listener<
         VolleyRequestHelper.sendPostRequestWithParam(url, param, this);
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         Log.e("test", "server error");
 
     }
 
+    /**
+     * this function will be called if over
+     * request is successfully executed by server
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         Log.e("test", response.toString());

@@ -35,7 +35,10 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to create bitpoint profit wallet address
+ * in the application
  */
 
 public class BitpointProfitWalletActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -51,7 +54,10 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
     private boolean isFromRegistration = false;
     private Button cancel;
 
-
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,25 +72,40 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
         }
     }
 
+    /**
+     * getting data from intent, init font objects and getting reference to ui elements
+     * setting fonts to ui resources and applying  click listeners to it.
+     *
+     */
     public void initResources() {
 
+        //getting data from intent
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
+
+        //init dialog helper object
         dialogHelper = new DialogHelper(this);
+
+
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(this).getTypefaceRegular();
         fontSemiBold = Fonts.getInstance(this).getTypefaceSemiBold();
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
+        //init ui resources
         text_minMaxBalance_header = (TextView) findViewById(R.id.text_minMaxBalance_header);
         bitpointProfitWalletKrakenBenificiaryKey = (EditText) findViewById(R.id.bitpointProfitWalletKrakenBenificiaryKey);
         bitpointProfitWalletAddress = (EditText) findViewById(R.id.bitpointProfitWalletAddress);
         button_minMaxBalance_submit = (Button) findViewById(R.id.button_minMaxBalance_submit);
 
+        //applying fonts to ui resources
         text_minMaxBalance_header.setTypeface(fontBold);
         bitpointProfitWalletAddress.setTypeface(fontSemiBold);
         bitpointProfitWalletKrakenBenificiaryKey.setTypeface(fontSemiBold);
         button_minMaxBalance_submit.setTypeface(fontBold);
         cancel = (Button) findViewById(R.id.cancel);
+
+
+        //adding click listners to ui resouces
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,9 +147,21 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
             }
         });
 
+        //init data
+        bitpointProfitWalletKrakenBenificiaryKey.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletKrakenBenificiaryKey());
+        bitpointProfitWalletAddress.setText(BTMApplication.getInstance().getBTMUserObj().getBitpointProfitWalletAddress());
 
     }//end of onCreate
 
+
+
+    /**
+     * this function will return the result from scanner activity
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -138,6 +171,9 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
         }
     }//end of onActivityResult
 
+    /**
+     * sending create bitpoint profit wallet request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_CREATE_BITPOINT_PROFIT_WALLET;
 
@@ -152,6 +188,10 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
     }
 
 
+    /**
+     * validating form fields
+     * @return
+     */
     boolean validateFields() {
         if (bitpointProfitWalletAddress.getText().toString().isEmpty()) {
             AlertMessage.showError(bitpointProfitWalletAddress, "Please enter bitpoint Profit Wallet Address");
@@ -163,6 +203,11 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
         return true;
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -172,6 +217,11 @@ public class BitpointProfitWalletActivity extends Activity implements Response.L
 
     }
 
+    /**
+     *this fucntion will be called when the server successfully executes
+     * bitpoint wallet creation request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
