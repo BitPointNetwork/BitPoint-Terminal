@@ -3,75 +3,732 @@
 
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/23889e398e6fb0991dc39a783552712665f150f3/output/jars/classes.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\007cd5db2af98843573182645ab3f6af826b3f0f\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="7cb44d173897abe2c35a7d62201f997d5e374983">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_83e7cc276dd717b1395e4243bcc53707458fcbec/classes.dex" />
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1161f299879cf3c81bdf771d6354b05ac2deb81a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/commons-io-2.4.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\1185f03467dd0280768a81037a73f14a67de6151\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/commons-io-2.4_5a937427f8702414d1401a6df9a0a9a225c8b9a3/classes.dex" />
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_54e27b8947794353e9b2910918e07172eed22698\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/111b0ba611a2b0bac62b56a2f9f59fbc15f5fcd7/output/jars/classes.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\cc0f9d98728fdf83aee48d752e790ac6dab3c74e\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="414c5172d9739a35339700d133288418059e7d83">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b936f4adfde21ed23cd6552236a1d4f3ebb18fdb/classes.dex" />
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0fd45407c4fc6866305321d91788584e88257475\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/9de411374cde83ca0188c21046ea33751138e35d/output/jars/classes.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\0b131c74d1be903bab290ceda6e3988b7babb179\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_61828a18ea2436e4bf5bfb712bc32ab973a5be02/classes.dex" />
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b3af09d14e892cb41dcc5463f07a9eb52008df2c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\5cb542b985ed9404d8bdd3dbf9c832b387014131\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e357b708854a221dd8bb90f4ee6d658a4410eea8/classes.dex" />
+        sha1="b6818f5804ca0b5eb089d902458faea4179eca1d">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8f421d4e6b6bc57bb7b525c776bf7dac8a2b9444\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/libs/mint-5.1.0.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\73f42edf05f663422cc35a71cf0b48ffc6773990\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e3a664c1fae2b3692af0a4baa913f544798aab3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\d4336f07a5b5a64feba74c443c335435532b7455\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8dfe54fbaf4f2a27d395ddf806d0c011170999e0">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d400735407a54b69650f19e3f0fdc4349940d07d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b194c1174ef7750b18808ce425d83af54b4928ed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c3c7f923e1df76640acb3a24823600f034a5d226">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_572d9eee688da9e45bb4bdca41f116b105e36d4c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_d6ccd51dfd1448b8c35f9f437887099c5391aeaf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Ideofuzion\btm-atm-mobile-app\app\libs\mint-5.1.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="79b2a1223e63b47da7d06294fadf99e5e35ba20e">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/2/mint-5.1.0_3a041c94b4b5c539770f5af15a738fbf21194c80/classes.dex" />
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\2\mint-5.1.0_ad6c49bb427f6d1a89b361c20b14d61248150a49\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/23bac9d2715a17d1d94070e46a6d41886d6df189/output/jars/classes.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\96209b70034bc79eb99a77947444c0298175186d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="972ca945f0cf5ff0765ab94fa8e1a90661ea197a">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6cdd1137a279c6c603d0002105addd55902be40\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\0507b5a83aa34a5fd7cc789113ec244256b6c831\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="825c2e97a00df4df5b0f3081faa4fd6280cd7c72">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c93310e57ae2b64cca051ff107a6e2342ea1e9f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\e16872f40c7174949376b1109fb3e4dc3197fc45\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_86bb3b2a9d7c89029fa50870b10f404691c67d7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_a69735fb31405abb6c5b972e1b2bb4f918f620e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\9d16b5c6c605f1f14f655593ebd388f43f4d2035\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fe8c845ac296d90b24a4cbf702fe97bd6158f955\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\a3a6cc8ecc27005a14170ce66bd675eeb1b558ac\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fb268c69eb898259f6d03ac9f93b8762d343fc11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.3.0\73c49077166faa4c3c0059c5f583d1d7bd1475fe\core-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\core-3.3.0_33de8b5c5892c83b32e83fef6d1f4d5efef468e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\0638ff3e12890d08ec09d0e81087c3d548a8da0f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7d67042688d34474a82fe4ef4c6514ef471377ef">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_374cdb18d90ab8f63d0ad49acfaa8938ec8f1993\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\d675211d5093c9e1e7ee577bb9f7c9af631ae5b7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ab8343c3aadefce37313ceadd8bc4db1993f2ff0">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_173af6c314c6a0398b1444d28667718f72389991\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\ac67df734ad7ad63603f97679a261e24047b4c56\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da5c606c36276a12a356e351882044c6b4b9e8d4">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8af31998e0da974f4dd90e27e02d24a41f716e84\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\efc3d24a599314286e615b1d0ab1deadcaf37aa2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0b723383fcc5c9e6d233f12cf3670c153dcb9f72">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_53eab491a4f4c9d23a727be9526c677f079a5268\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\fdd6050ae5a608eae447944cbc35227091777111\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="414c5172d9739a35339700d133288418059e7d83">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_373bd76b89690151a3fe03e141d4ccca56d0c254\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\9649b5e708c02ec81519b51e697867dd852d8ec6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c4f7e05b243b6f4a4f4e62d5e32f67514f792de2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\5eaf743c524a38328acd86b2ac63e600716e46db\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efae381df589f3d4977c346c8a980f030315bb8b">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_11f1f9b2706443304ee1575cc63c358c176d0b92\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b36cfcbd6669084ee727cf47e6206726e08bd75c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c270b52a540afa36733945759c303af85818c1b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\7de0ecf54d1fd10e4944d43697f04239935e3c23\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4e684205744f814a73b7752545e0661330415c9e">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_be991ee630bac307e4555dfedf4af512c6a00896\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\65c7f3547cf778fd7384284ac83fad9c7246913c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2d5277bce3f910712374fed281bc438292b7027a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\aeb7285eaf9f0befe373f08b0b6c94e9f524a174\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a38f7ae0546b93741e007299e5877e4c6939f3bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\695ed0804edcc7a2c5877a287cd69441c5f1e918\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_41b3f65ce8d10400517c35a551f6a59c8c2a4fda\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\eb30091bd29d4032c0ef95fceccc8ab94c535f4a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cce5792fa30ee8520620f298bf920309423b180f">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e38209a7b59aa90f2cf7a4c8c300bcf590831c87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\010632065d330d88f2031d6a1991aecabcbc83e0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_819d297f53a5eaaf76466de5afe70c5bd75ad04a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\e4234ad8250ff49f347dfc4afd171fff60c6cfca\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ec7d3099b4e3cf23230c78acaae438f3371e1c19">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ed51a70a112414168a8792e70ce81d9559577ef6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\c9c3398fb856889a30653ed0e468ba08f763f84e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44098e691b36776973374ac03afe0225b17f8a74">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d6d6864f74a44ee0a71f7eba42b43c3b88be4132\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\e5be60bf7e537d89624a007cae246d0b70a7cdfc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ee9f1e90054e4185850736a2287d4e319d8a9c86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\4705650880f939b9e1473caf243a919b806951a1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_417001052ab0a9238dbdede1c595e58e1af65a60\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_5548ccada9aa534b99e5bae3d17100e81aae0ecf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\Ideofuzion\btm-atm-mobile-app\app\libs\commons-io-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-io-2.4_5956f080071bbee8c6edd67b20a7fa72a3f91c40\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\a1ef512e71356df4df6fc009302f44298cb4295c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b136ac09f209c1d91fec7db8518e33d4373c8f39">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2544db2f16735d8258f525ba149885d8b2d7614e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\67d1ad991472fcf7ce63361f2658fe36549f721d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="536fd6afd6e1280607c5d70306eb32d385db7964">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0cf1b9164dcf41f4c6196bf72a2de364626c6601\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\7afc9de84d8cce640722589bf6e7a45af44dc4d4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ced8f281135b4cc87cd0a2bd854dc6174a48e1d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\401af64ed3bdfd45ac2bdf9afc2743578fbe3e0f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d395c5142f474891c7750f13b6a85d14682f166b">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0a3875da08fb3af6f7e28709cc81dd852d9e178a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\56d33584e66222e86601f0d8b07b00f67476d644\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7ba26433d9e9f4429d83ff65ad79bfc801dc00a">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d0d63915143896754d79d913d78034c6afaec325\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\39a7206394f82f48e8d5e7720580b81c68620760\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1f9df8b2bfff203397548ee400789154968adfe8">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df1c7e2734ef9f22c40526b8bf20005805472fcb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\116a3d0fde6b6893d22587b29605e4191ed4c4d2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e2feb5d3dab36f1ee5b6ac56f704a0f8df8ed6a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\7aadb85013d395b4e7d7a829f4884f3c1486d5e4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_542cf7b5c720ba6460f28d71ddfcc70cb860b7be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\7fedfb9215e3acb2aee2db4c577b24b8a0e28b12\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_45f9808c9489141c6a6585b1324fc6058491a25c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\cad24c6a71a8685d0f6315af8edb4f8dea5ccf9c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7bcc8d14a2af51aa628118551d1cded6951625f6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\45bcbf0600f016618a7895d1c7257290cfbb3165\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ded76870e286da76793d7bfeaf65e6660f1bec08">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_99ea271e2714b497efcae8e24900d0aa85626700\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\09dca0d1e66d11a207de2aebde2d9bd48698d0bb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6c74dab42788b458960618238f338d324b6f0656">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_939dd5270a78b620577036f1aa5a60794b09f63a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\c0624c286a2b11cf9a1fb8df5a1f4c45dbbdc3da\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4939690bd0c6d496347dcc0a4a858ffa9b716112\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\8ad0db90fb18541068b4ecf8a2e6c44827e50cb0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b698faa72fa9841cdd5d3717ee41130a45d61f43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\854a7f42121593991681fd5ac6e8084f8fb84a9b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3826817a4de1daa170c33bbc04db24ab6826bd5">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_623cdd98f731bd57dcf57acfa079a08e4523dfc5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\49c7f210e5417fdc599a42ed9a4d3150ec6c18ff\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="abf7c64e0bbaaa931738856734f76646ae62d9a5">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1f611471a64e268ca53bf91ec689727555f5c5e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\fa23de93c6c83b6d8b78ed29c8cdf9f0dca1a7ac\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_34f5694432e41edbf261f5b4a339ea18a1ed6e70\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\f399dc9bcf46d16e334c05371afe68f04c48246e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d81a3b0a16f48b4456f442552b62f4b1a472ce24">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fea2a48006636e8bc4c6e7d12cc60359bf337b49\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.0\c4ba5371a29ac9b2ad6129b1d39ea38750043eff\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.8.0_dc057325a5d9b9680d21b464c456438ae2abd526\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\10e6f491a9121e98123b17be4c1b7aa7cd6b8a71\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5ee29abfc804ebd51d65a4bde424c0ee74363939">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cfb91edfe9d892bd5d49a99756608561ef65012f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b2fa3d16c4f3f83701179b16e3aeca4d52b85ba3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1194ad10b09239400d836b3416f336f7a08c8497\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\ded1a5b68e394643c60909f2143d167502cd490a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bb004ea36f8802bad30000e286c177691740a322">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7fa5b26e0665e34b7768f9552a8d0c1f161374cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\eb210f0b9a0a650d8bb0a4e03b0eb221e54330a7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c5902f30a216699e3163b64127cae959c1ea3185\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\55ae943e663c102c305dcf3b6fdbdab8290a5d45\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0b9ec75bf8fa5fd53213c10bbcac5e6f4d6ba391/classes.dex" />
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_857af183ca30971ebf82679589a05afd36c7749a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        jar="C:\Users\user\.android\build-cache\3a4537eb7f486cf2e75df043c37e9a77c3857fc2\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="6a5d762bf27dc5f9f244a8da9eb1ca28efdacf74">
-        <dex dex="/Users/mac/Desktop/Projects/AndroidStudioProjects/BTM/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e378a54e8fd8909664fb6a3e39fd374c7804a7b7/classes.dex" />
+        sha1="12032271e6be735e811ad529cb08ff066c381640">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_dba0541500808609d3455f33f26121aeb1a0ef1b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\d91d70da4373f45235e8917da7078f2d45154eaf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0bb2f0934fa55799508ba58ffc9ba579b35744b8">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b014a7e9f166ce18185be946e17f6927249d6789\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\4c1b8d3c4140eeb73b7658065857ec9a4be4226a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3683531139103cc263b71d8b5ac6062832a8fd30">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9ada9a005887644b14917be872da150cba5f9c85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\82da024fee86ed6565f4a53568b7666da65598a7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0875e6eca973036c42de62cb9b2f530e4182ca12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b6dd7cf258ad674b4db3321f5ef8a8b2bb0bd78d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3a218746c8b8518b3ea3c112a575ef6c3915d362\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b94b9d3abf27875f29f4e249e0d70a7b739e64b4\output\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_4edfd85c7a8af0e9512bb1a53c277142db07f138\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\c058868d0b405b0f5e191d682989b556bd7ce5bd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6f233cb35a6ea92364130d2d48791c461ec65983">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bed205d3b605e72c32b0f6545b73820f5c0976b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\b94b9d3abf27875f29f4e249e0d70a7b739e64b4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_80c7b800cb77a28b919ccec8bf6aa0375cdefa4e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\5d828e57612305f636622768ce47305f90e000d1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9db251b888e6e5da3f7a2ce6cc02297d37c3981a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\90fc4e9acc57702be6fcf2729a66fc19871cfccc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bb115a110992b254f767f337da233071f6f940b8">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9466b4a102be61459b1f01e7c85ba93c0db46331\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\2bb3da01478ae8f243560334a2dfa595cb334367\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e4851331b3944beb6e7f77316a7661f53781da62">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cd0272eb041ddcf5f39407beda0d23713a4f5b32\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\6d91248fe74c03a48d254cde801850644ceb5abb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e981be8c808f5816c22ba7bf179d7a919ed94820\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\9a4679fa3294da2ea66bd0afb08e342213c05133\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_88659b4ec58ec85c4a8c1920250d4b6082c8057e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\cea9eed9392bc9c467a12ff17ff79c435b4dd62a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ae1eb13f7890f01372429e7c8df6d392fccfcaac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\172d193b6d1f45528c3004ff3c14e1a7fcd8a0bd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="125bce1fb2d481b964fabf75f0949957ebe9ecd1">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_db2f65be6f50858a1ee77401aae60f0264e953eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\67a89953baffb071d2e1d22251d4bba64340ffb5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9329ef351de79cb20e97fb0616d095ad916443b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\92a1a43ffc594148f9e29dee287721d876ff29c7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dbae35d7fc3427d30bef0037bdf61ad0d8d984f8">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_84588b32da2977ea91bb4f7ce9db120cd79a914b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\498362f866b3ad1c5855f0e3d938bc5d797b8776\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cfa47e1b140562d47bc670629d07e209cd8b02c4">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_945c67c9508f4f8ea18a23960593ec306ffd584f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\c91172ec1fa61fcc47a606858aac6a838d6e1327\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ad649b6e84453f6af1c014317af1440d95674fd4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.android\build-cache\0d4cc46a678a7ea50f6f0ffaf0cda728d944dd65\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bfd85a88cf976eb2c54507cc914d8e8914c2f71e">
+        <dex dex="E:\Ideofuzion\btm-atm-mobile-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3b9aee5cb2ea7d4f795318eef57d4a9a1947a7d6\classes.dex" />
     </item>
 
 </items>

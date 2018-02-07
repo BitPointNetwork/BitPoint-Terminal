@@ -40,7 +40,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by khali on 6/19/2017.
+ * Created by ideofuzion on 6/19/2017.
+ *
+ * this activity is used to set up pincode in the acctivity that pincode will be
+ * required in order to complete the transactions
  */
 
 public class PinCodeActivity extends Activity implements View.OnKeyListener, Constants.ResultCode, Response.Listener<JSONObject>,
@@ -60,7 +63,10 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
     public static final String OLD_PIN_CODE = "Enter Old PIN Code";
     DialogHelper dialogHelper;
     boolean isFromRegistration = false, shouldShowBitcoinAddress = false;
-
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +85,9 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         }
     }
 
+    /**
+     * adding fonts to ui resources
+     */
     private void initTypeface() {
         text_settings_header.setTypeface(fontSemiBold);
         text_pincode_title.setTypeface(fontSemiBold);
@@ -89,6 +98,10 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         button_pinCode_cancel.setTypeface(fontBold);
         button_pinCode_set.setTypeface(fontBold);
     }
+
+    /**
+     * adding listeners to ui resources
+     */
 
     private void addListener() {
 
@@ -198,6 +211,11 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
     }
 
+    /**
+     * validating pin edit fields and
+     * sending request to update pin to the server
+     */
+
     private void updatePinCode() {
         if (!edit_pinCode_1.getText().toString().isEmpty() &&
                 !edit_pinCode_2.getText().toString().isEmpty() &&
@@ -212,24 +230,15 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
                     edit_pinCode_4.getText().toString();
 
             if (text_pincode_title.getText().toString().equals(ENTER_YOUR_PIN)) {
-                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
-                    new AlertDialog.Builder(PinCodeActivity.this)
-                            .setTitle("Your Bitcoin Address Key")
-                            .setCancelable(false)
-                            .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
-                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            }).show();
+                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getbtcUserPasscode())) {
+                    startActivity(new Intent(PinCodeActivity.this, YourAddressAndBalanceActivity.class));
+                    finish();
 
                 } else {
                     AlertMessage.showError(edit_pinCode_1, "Wrong PIN Code");
                 }
             } else if (text_pincode_title.getText().toString().equals(OLD_PIN_CODE)) {
-                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+                if (PINCode.equals(BTMApplication.getInstance().getBTMUserObj().getbtcUserPasscode())) {
                     resetAllFields();
                     text_pincode_title.setText(NEW_PIN_CODE);
                     button_pinCode_set.setText("Set");
@@ -245,6 +254,13 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         }
     }
 
+
+    /**
+     * getting data from intent,
+     * initializing dialog helper object,
+     * initiating fonts object and other ui resources
+     * and applying click listener as well
+     */
     private void initResources() {
 
         dialogHelper = new DialogHelper(this);
@@ -278,7 +294,7 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
             button_pinCode_set.setText("Set");
 
         } else {
-            if (BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode() != null) {
+            if (BTMApplication.getInstance().getBTMUserObj().getbtcUserPasscode() != null) {
                 text_pincode_title.setText(OLD_PIN_CODE);
                 button_pinCode_set.setText("Proceed");
 
@@ -291,6 +307,9 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         }
     }
 
+    /**
+     * re-settings all edit text fields
+     */
     private void resetAllFields() {
         edit_pinCode_1.setText("");
         edit_pinCode_2.setText("");
@@ -299,6 +318,16 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         edit_pinCode_1.requestFocus();
     }
 
+    /**
+     * this function will be called when delete button is
+     * pressed when ever there is focus on any of the edit
+     * text fields
+     *
+     * @param view
+     * @param keyCode
+     * @param event
+     * @return
+     */
     @Override
     public boolean onKey(View view, int keyCode, KeyEvent event) {
         //for only action up
@@ -347,18 +376,11 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
         }
         return false;
     }
-/*
-    private void sendPINCodeUpdateRequestToServer() {
-        String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_PASSCODE;
 
-        Map<String, String> updateTaglineParams = new HashMap<>();
-        updateTaglineParams.put("userName", BTMApplication.getInstance().getBTMUserObj().getBTMUserName());
-        updateTaglineParams.put("oldPasscode", oldPINCode);
-        updateTaglineParams.put("newPasscode", newPINCode);
-        VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
 
-    }*/
-
+    /**
+     * sending add pin code request to server
+     */
     private void sendPINCodeAddRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_ADD_PASSCODE;
 
@@ -370,6 +392,12 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
     }
 
+
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -379,6 +407,12 @@ public class PinCodeActivity extends Activity implements View.OnKeyListener, Con
 
     }
 
+
+    /**
+     * this function will ve called when server
+     * successfully executes pincode add request.
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

@@ -33,7 +33,9 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to  create kraken setup in th application
  */
 
 public class KrakenSetupActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -48,6 +50,11 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
     private boolean isFromRegistration = false;
     private Button cancel;
     public static String EXTRA_SKIP_KRAKEN = "skip_kraken";
+
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +67,13 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         }
     }
 
+
+    /**
+     * getting data from intent,
+     * initializing dialog helper object,
+     * initiating fonts object and other ui resources, applying font to those ui resources
+     * and applying click listener as well
+     */
     public void initResources() {
 
 
@@ -76,11 +90,16 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         edit_krakenSetup_krakenApiSecret = (EditText) findViewById(R.id.edit_minMaxBalance_maxBalance);
         button_krakenSetup_submit = (Button) findViewById(R.id.button_minMaxBalance_submit);
 
+        //applying fonts to ui resources
         text_krakenSetup_header.setTypeface(fontBold);
         edit_krakenSetup_krakenApiSecret.setTypeface(fontSemiBold);
         edit_krakenSetup_krakenApiKey.setTypeface(fontSemiBold);
         button_krakenSetup_submit.setTypeface(fontBold);
         cancel = (Button) findViewById(R.id.cancel);
+
+        /**
+         * adding click listeners to ui resources
+         */
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,8 +128,16 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
             }
         });
 
+
+        //init data
+        edit_krakenSetup_krakenApiKey.setText(BTMApplication.getInstance().getBTMUserObj().getKrakenAPIKey());
+        edit_krakenSetup_krakenApiSecret.setText(BTMApplication.getInstance().getBTMUserObj().getKrakenAPISecret());
+
     }
 
+    /**
+     * sending kraken key update request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_KRAKEN_KEYS;
 
@@ -125,6 +152,10 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         dialogHelper.showProgressDialog();
 
     }
+
+    /**
+     * sending kraken skip request to server
+     */
     private void sendRequestToSkipKraken(){
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_USE_KRAKEN;
 
@@ -136,7 +167,10 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         dialogHelper.showProgressDialog();
     }
 
-
+    /**
+     * validating form edit fields
+     * @return
+     */
     boolean validateFields() {
         if (edit_krakenSetup_krakenApiKey.getText().toString().isEmpty()) {
             AlertMessage.showError(edit_krakenSetup_krakenApiSecret, "Please Enter kraken API key");
@@ -151,6 +185,11 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
         return true;
     }
 
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -160,6 +199,11 @@ public class KrakenSetupActivity extends Activity implements Response.Listener<J
 
     }
 
+    /**
+     * this function will be called when server
+     * successfully executes the request of setting up or skipping kraken
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

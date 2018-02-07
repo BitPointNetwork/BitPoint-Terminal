@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import com.ideofuzion.btm.BTMApplication;
 import com.ideofuzion.btm.R;
 import com.ideofuzion.btm.main.settings.profitwalletsetup.ExistingProfitWalletActivity;
-import com.ideofuzion.btm.main.settings.profitwalletsetup.ProfitWalletOptionActivity;
 import com.ideofuzion.btm.model.BTMUser;
 import com.ideofuzion.btm.model.ServerMessage;
 import com.ideofuzion.btm.network.VolleyRequestHelper;
@@ -34,12 +33,14 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to setup application thresshold value
  */
 
 public class SetupProfitThresholdActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
     TextView text_minMaxBalance_header;
-    EditText merchantProfitMargin;
+    EditText merchantProfitThreshold;
     Button submit;
     private Typeface fontBold;
     private Typeface fontRegular;
@@ -48,6 +49,11 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
     private boolean isFromRegistration = false;
     private Button cancel;
 
+
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +66,12 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
         {}
     }
 
+    /**
+     * getting data from intent, initiating other
+     * classes objects including fonts and applying
+     * fonts to ui resources and applying click
+     * listeners to ui resources
+     */
     public void initResources() {
 
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
@@ -71,11 +83,11 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
         text_minMaxBalance_header = (TextView) findViewById(R.id.text_minMaxBalance_header);
-        merchantProfitMargin = (EditText) findViewById(R.id.edit_minMaxBalance_minBalance);
+        merchantProfitThreshold = (EditText) findViewById(R.id.edit_minMaxBalance_minBalance);
         submit = (Button) findViewById(R.id.button_minMaxBalance_submit);
 
         text_minMaxBalance_header.setTypeface(fontBold);
-        merchantProfitMargin.setTypeface(fontSemiBold);
+        merchantProfitThreshold.setTypeface(fontSemiBold);
         submit.setTypeface(fontBold);
         cancel = (Button) findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -102,14 +114,20 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
             }
         });
 
+        //init data
+        merchantProfitThreshold.setText(BTMApplication.getInstance().getBTMUserObj().getMerchantProfitThreshold());
+
     }
 
+    /**
+     * sending profit threshold update request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_MERCHANT_PROFIT_THRESHOLD;
 
         Map<String, String> updateTaglineParams = new HashMap<>();
         updateTaglineParams.put("merchantId", BTMApplication.getInstance().getBTMUserObj().getUserId());
-        updateTaglineParams.put("merchantProfitThreshold", merchantProfitMargin.getText().toString());
+        updateTaglineParams.put("merchantProfitThreshold", merchantProfitThreshold.getText().toString());
 
         VolleyRequestHelper.sendPostRequestWithParam(url, updateTaglineParams, this);
         dialogHelper.showProgressDialog();
@@ -117,25 +135,39 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
     }
 
 
+    /**
+     * validating form edit text fields
+     * @return
+     */
     boolean validateFields() {
-        if (merchantProfitMargin.getText().toString().isEmpty()) {
-            AlertMessage.showError(merchantProfitMargin, "Please enter merchant margin profit margin threshold");
-            merchantProfitMargin.requestFocus();
+        if (merchantProfitThreshold.getText().toString().isEmpty()) {
+            AlertMessage.showError(merchantProfitThreshold, "Please enter merchant margin profit margin threshold");
+            merchantProfitThreshold.requestFocus();
             return false;
         }
 
         return true;
     }
 
+
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
             dialogHelper.hideProgressDialog();
         }
-        AlertMessage.showError(merchantProfitMargin, Constants.ERROR_CHECK_INTERNET);
+        AlertMessage.showError(merchantProfitThreshold, Constants.ERROR_CHECK_INTERNET);
 
     }
 
+    /**
+     * this functoin will be called on success execution of request on server
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -148,7 +180,7 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
                 serverMessageResponse.setCode(response.getInt("code"));
                 serverMessageResponse.setMessage(response.getString("message"));
                 if (serverMessageResponse.getCode() == CODE_SUCCESS) {
-                    AlertMessage.show(merchantProfitMargin, "Success");
+                    AlertMessage.show(merchantProfitThreshold, "Success");
 
                     if (!serverMessageResponse.getData().isEmpty()) {
                         Gson gsonForUser = new Gson();
@@ -167,7 +199,7 @@ public class SetupProfitThresholdActivity extends Activity implements Response.L
                         }
                     }
                 } else {
-                    AlertMessage.showError(merchantProfitMargin, serverMessageResponse.getMessage());
+                    AlertMessage.showError(merchantProfitThreshold, serverMessageResponse.getMessage());
                 }//end oe else
             } catch (Exception e) {
                 e.printStackTrace();

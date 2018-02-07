@@ -8,7 +8,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 /**
- * Created by Zohaib Khaliq on 4/11/2017.
+ * Created by ideofuzion on 4/11/2017.
+ *
+ * this class act as model all data
+ * of the current active users resides
+ * in it's object
  */
 
 public class BTMUser {
@@ -16,7 +20,7 @@ public class BTMUser {
 
     @SerializedName("_id")
     private String userId;
-    @SerializedName("userEthereumId")
+    @SerializedName("userbtcId")
     private String userBitcoinId;
     @SerializedName("maximumHotWalletBalance")
     private String maximumHotWalletBalance;
@@ -34,14 +38,25 @@ public class BTMUser {
     private String userEmail;
     @SerializedName("userName")
     private String userName;
-    @SerializedName("ethereumUserPasscode")
-    private String ethereumUserPasscode;
+    @SerializedName("btcUserPasscode")
+    private String btcUserPasscode;
     @SerializedName("krakenAPIKey")
     private String krakenAPIKey;
     @SerializedName("krakenAPISecret")
     private String krakenAPISecret;
     @SerializedName("profitWalletAddress")
     private String profitWalletAddress;
+
+    public String getHotWalletBalance() {
+        return hotWalletBalance;
+    }
+
+    public void setHotWalletBalance(String hotWalletBalance) {
+        this.hotWalletBalance = hotWalletBalance;
+    }
+
+    @SerializedName("hotWalletBalance")
+    private String hotWalletBalance;
 
     @SerializedName("useKraken")
     private boolean exchangeStatus;
@@ -201,12 +216,12 @@ public class BTMUser {
         this.userName = userName;
     }
 
-    public String getEthereumUserPasscode() {
-        return ethereumUserPasscode;
+    public String getbtcUserPasscode() {
+        return btcUserPasscode;
     }
 
-    public void setEthereumUserPasscode(String ethereumUserPasscode) {
-        this.ethereumUserPasscode = ethereumUserPasscode;
+    public void setbtcUserPasscode(String btcUserPasscode) {
+        this.btcUserPasscode = btcUserPasscode;
     }
 
     public String getKrakenAPIKey() {

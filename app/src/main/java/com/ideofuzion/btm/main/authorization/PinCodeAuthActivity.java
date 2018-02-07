@@ -36,7 +36,10 @@ import java.util.Map;
 import me.grantland.widget.AutofitTextView;
 
 /**
- * Created by khali on 6/20/2017.
+ * Created by ideofuzion on 6/20/2017.
+ *
+ * this is an activity and pin authentication
+ * is performed in this activity
  */
 
 public class PinCodeAuthActivity extends Activity implements View.OnKeyListener, Constants.ResultCode, Response.Listener<JSONObject>,
@@ -53,6 +56,15 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
     DialogHelper dialogHelper;
     String bitcoinAmount = "";
     double bitcoinsX,bitcoinY;
+
+    /**
+     * this function will be called each time
+     * the activity starts and in this function we
+     * set the ui of the activity and ui listener and perform
+     * other tasks that we want to perform on activity start
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +82,9 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         }
     }
 
+    /**
+     * init the fonts on ui elements
+     */
     private void initTypeface() {
         text_pinCodeAuth_youKey.setTypeface(fontSemiBold);
         text_pinCodeAuth_dollarRate.setTypeface(fontSemiBold);
@@ -82,6 +97,10 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         button_pinCodeAuth_authorize.setTypeface(fontBold);
     }
 
+
+    /**
+     * adding listener to ui elements
+     */
     private void addListener() {
 
 
@@ -190,6 +209,13 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
 
     }
 
+
+    /**
+     * this will verify if the any of the code field is empty and
+     * if not it will send code verification request to server
+     * and if field is empty it will toast a message
+     *
+     */
     private void authorize() {
         if (!edit_pinCodeAuth_1.getText().toString().isEmpty() &&
                 !edit_pinCodeAuth_2.getText().toString().isEmpty() &&
@@ -212,9 +238,18 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         }
     }
 
+
+    /**
+     * getting reference to xml elements
+     * and setting some class objects to use later
+     *
+     */
     private void initResources() {
 
+        //init dialog helper object
         dialogHelper = new DialogHelper(this);
+
+        //getting values from intent if any
         if (getIntent().hasExtra(EnterAmountActivity.BITCOIN_AMOUNT_X)) {
             bitcoinsX = getIntent().getDoubleExtra(EnterAmountActivity.BITCOIN_AMOUNT_X,0);
             bitcoinY = getIntent().getDoubleExtra(EnterAmountActivity.BITCOIN_AMOUNT_Y,0);
@@ -227,6 +262,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         fontBold = Fonts.getInstance(getApplicationContext()).getTypefaceBold();
 
 
+        //init ui elements
         text_pinCodeAuth_youKey = (AutofitTextView) findViewById(R.id.text_pinCodeAuth_yourKey);
         text_pinCodeAuth_dollarRate = (AutofitTextView) findViewById(R.id.text_pinCodeAuth_dollarRate);
         text_pinCodeAuth_title = (TextView) findViewById(R.id.text_pinCodeAuth_title);
@@ -237,12 +273,16 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         button_pinCodeAuth_cancel = (Button) findViewById(R.id.button_pinCodeAuth_cancel);
         button_pinCodeAuth_authorize = (Button) findViewById(R.id.button_pinCodeAuth_authorize);
 
+        //setting up init data
         text_pinCodeAuth_youKey.setText(Html.fromHtml("<i>Your ID</i> " + BTMApplication.getInstance().getQrModel().getBitcoin()));
         text_pinCodeAuth_dollarRate.setText("1 BTC = " + BTMApplication.getInstance().getSellingRate() + Constants.CURRENCY);
 
         text_pinCodeAuth_title.setText(Html.fromHtml("<i>Enter PIN Code</i>"));
     }
 
+    /**
+     * this function will reset call fields to empty
+     */
     private void resetAllFields() {
         edit_pinCodeAuth_1.setText("");
         edit_pinCodeAuth_2.setText("");
@@ -251,6 +291,18 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
         edit_pinCodeAuth_1.requestFocus();
     }
 
+
+    /**
+     * this function will be called
+     * when delete button is pressed if
+     * the focus is on any of the edit texts
+     *
+     *
+     * @param view
+     * @param keyCode
+     * @param event
+     * @return
+     */
     @Override
     public boolean onKey(View view, int keyCode, KeyEvent event) {
         //for only action up
@@ -301,6 +353,10 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
     }
 
 
+    /**
+     * sending pin code verification
+     * request to server
+     */
     private void sendPINCodeVerifyRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_VERIFY_PASSCODE;
 
@@ -311,6 +367,11 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
 
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -320,6 +381,14 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
 
     }
 
+    /**
+     * this function will be called
+     * if the server successfully executes
+     * over pin verification request
+     *
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
@@ -337,7 +406,7 @@ public class PinCodeAuthActivity extends Activity implements View.OnKeyListener,
                     serverMessageResponse.setMessage(response.getString("message"));
                     if (serverMessageResponse.getCode() == CODE_SUCCESS) {
                         SendBitcoins sendBitcoins = new SendBitcoins(PinCodeAuthActivity.this, text_pinCodeAuth_dollarRate, bitcoinsX, bitcoinY);
-                        sendBitcoins.sendBitcoinTransferRequestToServer(bitcoinAmount);
+                        sendBitcoins.sendBitcoinTransferRequestToServer();
                     } else {
                         AlertMessage.showError(edit_pinCodeAuth_1, serverMessageResponse.getMessage());
                     }//end oe else

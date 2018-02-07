@@ -1,10 +1,14 @@
 
-squid:S00116"dRename this field "text_minMaxBalance_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­–Û„úÿÿÿÿ
-Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 usquid:S1450"[Remove the "fontSemiBold" field and declare it as a local variable in the relevant methods.(³‹“ìÿÿÿÿÿ
-osquid:S1450"URemove the "cancel" field and declare it as a local variable in the relevant methods.(Ü‡Àÿÿÿÿÿ
-nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
+vsquid:S00116"YRename this field "DRAWABLE_RIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äú€Ù8©„—«…,
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
+squid:S00116"dRename this field "text_minMaxBalance_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­–Û„úÿÿÿÿ
+Psquid:S1066"/Merge this if statement with the enclosing one.(½óûùÿÿÿÿ8©„—«…,
 ?squid:S00108")Either remove or fill this block of code.(”ı¾
 |squid:S00116"fRename this field "button_minMaxBalance_submit" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿİæè
-lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+rsquid:UselessImportCheck"DRemove this unused import 'com.ideofuzion.btm.main.buy.BuyActivity'.(Àıí¨ûÿÿÿÿ8ü¨°«…,
+nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
+osquid:S1450"URemove the "cancel" field and declare it as a local variable in the relevant methods.(Ü‡Àÿÿÿÿÿ
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+=squid:S1170"!Make this final field static too.(Äú€Ù8©„—«…,

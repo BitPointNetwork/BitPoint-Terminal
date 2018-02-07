@@ -1,0 +1,74 @@
+[
+    {
+        "outputFile": "E:\\Ideofuzion\\BTM By Yasir Iqbal\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ldpi-v4\\values-ldpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 52,
+                    "endOffset": 103
+                },
+                "from": {
+                    "file": "E:\\Ideofuzion\\BTM By Yasir Iqbal\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\values-ldpi-v4\\values-ldpi-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 52,
+                        "endOffset": 103
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "E:\\Users\\mac\\Desktop\\Projects\\AndroidStudioProjects\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ldpi-v4\\values-ldpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 52,
+                    "endOffset": 103
+                },
+                "from": {
+                    "file": "E:\\Users\\mac\\Desktop\\Projects\\AndroidStudioProjects\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\values-ldpi-v4\\values-ldpi-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 52,
+                        "endOffset": 103
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "E:\\Ideofuzion\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ldpi-v4\\values-ldpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 52,
+                    "endOffset": 103
+                },
+                "from": {
+                    "file": "E:\\Ideofuzion\\btm-atm-mobile-app\\libs\\zxing-android\\build\\intermediates\\bundles\\debug\\res\\values-ldpi-v4\\values-ldpi-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 52,
+                        "endOffset": 103
+                    }
+                }
+            }
+        ]
+    }
+]

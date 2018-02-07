@@ -30,7 +30,11 @@ import me.grantland.widget.AutofitTextView;
 
 
 /**
- * Created by khali on 6/2/2017.
+ * Created by ideofuzion on 6/2/2017.
+ *
+ * this is an activity user is provided with the on screen calculator
+ * in this activity wher user can enter the amount of bitcoint he/she
+ * want to buy and user can enter amount both in bitcoin and pounds
  */
 
 public class EnterAmountActivity extends Activity {
@@ -67,6 +71,12 @@ public class EnterAmountActivity extends Activity {
     public static final String POUND = "pound";
     String activeCurrency = POUND;
 
+    /**
+     * this function will  be called each time activity starts and
+     * all init setup is done here that is required to start the activity
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +97,10 @@ public class EnterAmountActivity extends Activity {
 
     }
 
+
+    /**
+     * adding listener to ui elements
+     */
 
     private void addListener() {
 
@@ -196,7 +210,7 @@ public class EnterAmountActivity extends Activity {
                     if (!edit_enterAmountFragment_calculator.getText().toString().isEmpty()) {
                         if (Long.parseLong(edit_enterAmountFragment_calculator.getText().toString()) > 0) {
                             edit_enterAmountFragment_calculator.setText("");
-                            if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode()))
+                            if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getbtcUserPasscode()))
                                 requestServerToSendBalance();
                             else {
                                 startActivity(new Intent(EnterAmountActivity.this,
@@ -273,7 +287,9 @@ public class EnterAmountActivity extends Activity {
         });
     }
 
-
+    /**
+     * applying fonts to ui elements
+     */
     private void initTypeface() {
 
         text_enterAmountFragment_userKey.setTypeface(fontSemiBold);
@@ -299,15 +315,26 @@ public class EnterAmountActivity extends Activity {
         edit_enterAmountFragment_calculator.setTypeface(fontBold);
     }
 
+    /**
+     * getting reference to ui element of xml
+     * init different objects that are required later
+     * like dialogHelpers and other font objects
+     * init data at startup
+     */
     private void initResources() {
-
+        //init dialog helper obj
         dialogHelper = new DialogHelper(this);
+
+        //init dollar rate obj
         dollarRate = Double.valueOf(BTMApplication.getInstance().getSellingRate());
+
         //initializing TypeFaces objects
         fontRegular = Fonts.getInstance(this).getTypefaceRegular();
         fontSemiBold = Fonts.getInstance(this).getTypefaceSemiBold();
         fontBold = Fonts.getInstance(this).getTypefaceBold();
 
+
+        //init ui resources
         text_enterAmount_currencySymbol = (TextView) findViewById(R.id.text_enterAmount_currencySymbol);
         imageView_enterAmountFragment_switch = (ImageView) findViewById(R.id.imageView_enterAmountFragment_switch);
         imageView_enterAmountFragment_switch.setImageDrawable(getResources().getDrawable(R.drawable.conv_pound));
@@ -347,8 +374,11 @@ public class EnterAmountActivity extends Activity {
     }
 
 
+    /**
+     * requesting server to send balance
+     */
     private void requestServerToSendBalance() {
         SendBitcoins sendBitcoins = new SendBitcoins(this, edit_enterAmountFragment_calculator, bitcoinsX, bitcoinY);
-        sendBitcoins.sendBitcoinTransferRequestToServer(text_enterAmountFragment_bitcoinAmount.getText().toString());
+        sendBitcoins.sendBitcoinTransferRequestToServer();
     }
 }

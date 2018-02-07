@@ -7,10 +7,23 @@ import android.content.Intent;
 import com.ideofuzion.btm.main.buy.BuyActivity;
 
 /**
- * Created by khali on 9/14/2017.
+ * Created by ideofuzion on 9/14/2017.
+ *
+ * this class this broadcast receiver and
+ * will receive a broadcast each time the
+ * tablet will restart
  */
 
 public class BootListener extends BroadcastReceiver {
+    /**
+     * this function will receive a broadcast
+     * when the tablet restarts
+     * and the app will launch in result
+     *
+     *
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {

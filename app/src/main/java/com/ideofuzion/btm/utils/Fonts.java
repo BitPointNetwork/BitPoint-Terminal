@@ -8,6 +8,11 @@ import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.text.style.TypefaceSpan;
 
+/**
+ * this class is used to get reference to
+ * font and this class is used all around the application
+ * to get fonts access
+ */
 public class Fonts {
     static Fonts instance;
     static Context applicationContext;

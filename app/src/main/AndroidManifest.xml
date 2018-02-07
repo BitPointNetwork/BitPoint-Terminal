@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ideofuzion.btm">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -11,6 +12,11 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
 
     <application
         android:name=".BTMApplication"
@@ -20,7 +26,8 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
         <activity
             android:name=".main.register.RegisterActivity"
             android:screenOrientation="landscape">
@@ -40,8 +47,7 @@
         </activity>
         <activity
             android:name=".main.scanqr.ScanQRActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".main.enteramount.EnterAmountActivity"
             android:launchMode="singleTask"
@@ -51,8 +57,6 @@
             android:name=".main.transfercomplete.TransferCompleteActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
-
         <activity
             android:name=".main.settings.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -92,14 +96,12 @@
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </receiver>
 
         <activity
@@ -142,20 +144,21 @@
             android:name=".main.sell.SellBitcoinActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-        <service android:name=".locationservice.LocationUpdateService"/>
 
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".locationservice.LocationUpdateService" />
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".main.settings.YourAddressAndBalanceActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

@@ -66,7 +66,11 @@ import java.util.HashMap;
 import static android.content.ContentValues.TAG;
 
 /**
- * Created by khali on 6/1/2017.
+ * Created by ideofuzion on 6/1/2017.
+ *
+ * this is an activity and
+ * when the user want to buy bitcoin this activity
+ * will be displayed in order to complete the buy functionality
  */
 
 public class BuyActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -92,16 +96,14 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     private PermissionHandler permissionHandler;
 
 
-    /*
-        QRGEncoder qrgEncoder = new QRGEncoder(address, null, QRGContents.Type.TEXT, Constants.QR_CODE_SIZE);
-        try {
-            // Getting QR-Code as Bitmap
-            Bitmap bitmap = qrgEncoder.encodeAsBitmap();
-            imageView_qrCode_qr.setImageBitmap(bitmap);
-            // Setting Bitmap to ImageView
-        } catch (Exception e) {
-            Log.v(TAG, e.toString());
-        }*/
+    /**
+     * this function will be called each time
+     * the activity starts and all the init
+     * function will be called here that are required on activity start
+     *
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +122,10 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         }
     }
 
+
+    /**
+     * adding listeners to ui elements
+     */
     private void addListener() {
         button_buyActivity_buyBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +137,9 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         button_buyActivity_sellBitcoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
-                            .putExtra(EXTRA_IS_BUYING, false));
+                startActivity(new Intent(BuyActivity.this, SellBitcoinActivity.class));
+//                    startActivity(new Intent(BuyActivity.this, ScanQRActivity.class)
+//                            .putExtra(EXTRA_IS_BUYING, false));
 /*
                 AlertMessage.showError(button_buyActivity_sellBitcoins,"Not Available!");
 */
@@ -140,6 +147,10 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         });
     }
 
+
+    /** setting up fonts on elements
+     *
+     */
     private void iniTypefaces() {
         button_buyActivity_sellBitcoins.setTypeface(fontBold);
         button_buyActivity_buyBitcoins.setTypeface(fontBold);
@@ -149,6 +160,12 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         text_buy_sellingRate.setTypeface(fontRegular);
     }
 
+
+    /**
+     * getting reference to ui element from xml
+     * init fonts
+     * and settings up init values
+     */
     private void initResources() {
         permissionHandler = new PermissionHandler(this);
         dialogHelper = new DialogHelper(this);
@@ -170,23 +187,14 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
                 startActivity(new Intent(BuyActivity.this, SettingsActivity.class));
             }
         });
-
-
-      /*  if (BTMApplication.getInstance().getBTMUserObj() != null) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Your Bitcoin Address Key")
-                    .setMessage(BTMApplication.getInstance().getBTMUserObj().getUserBitcoinId())
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    }).show();
-        }*/
-
-
     }
 
+
+    /**
+     * this function will be called each time the
+     * activity starts
+     * and getting updated rates on activity start
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -195,6 +203,10 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
     }
 
 
+    /**
+     * sending request to server to get
+     * the updated bitcoin rates
+     */
     public void getUpdatedRates() {
 
         String url = "https://blockchain.info/ticker";
@@ -203,11 +215,25 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
 
     }
 
+
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         dialogHelper.hideProgressDialog();
     }
 
+
+    /**
+     * this function will be called when
+     * the server successfully executes
+     * over request
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         dialogHelper.hideProgressDialog();
@@ -240,12 +266,17 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         }
     }
 
-    @Override
-    public void onBackPressed() {
-    }
 
+    /**
+     * validating all fields and
+     * checking all the initial values
+     * if set will return true else return false and
+     * not letting user to go to next activity until all
+     * things are set up
+     * @return
+     */
     public boolean validateFields() {
-        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getEthereumUserPasscode())) {
+        if (MyUtils.isNullOrEmpty(BTMApplication.getInstance().getBTMUserObj().getbtcUserPasscode())) {
             AlertMessage.showError(button_buyActivity_sellBitcoins, "Please setup PIN code from settings");
             return false;
         }
@@ -280,6 +311,15 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         return true;
     }
 
+
+    /**
+     * checking location permission
+     * if exists will check if location services are
+     * enabled or not, if permissions are not granted yer
+     * will prompt user
+     *
+     * @return
+     */
     public boolean checkLocationAccessPermission() {
 
         if (!permissionHandler.isPermissionAvailable(PermissionHandler.LOCATION_COARSE)
@@ -292,6 +332,12 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         return true;
     }
 
+    /**
+     * checking location service is enabled are not
+     * if location services are enabled starting locaiton update
+     * service and if location service is not enabled opening dialog
+     * to let user enalble location services from settings
+     */
     private void checkLocationEnabled() {
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         boolean gps_enabled = false;
@@ -313,6 +359,12 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
             startService(new Intent(BuyActivity.this, LocationUpdateService.class));
         }
     }
+
+    /**
+     * displaying user a dialog to
+     * enable location services
+     * @param context passing in activity context
+     */
     private void displayLocationSettingsRequest(Context context) {
         GoogleApiClient googleApiClient = new GoogleApiClient.Builder(context)
                 .addApi(LocationServices.API).build();
@@ -354,6 +406,15 @@ public class BuyActivity extends Activity implements Response.Listener<JSONObjec
         });
     }
 
+
+    /**
+     * this function will be called when the user allow or deny
+     * a permission prompted to user
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

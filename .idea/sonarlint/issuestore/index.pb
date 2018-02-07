@@ -47,3 +47,19 @@ y
 Iapp/src/main/java/com/ideofuzion/btm/main/authorization/SendBitcoins.java,1/5/150e87bc1bdb330257b79140ead637ad003b3425
 Å
 Qapp/src/main/java/com/ideofuzion/btm/main/settings/SetupProfitMarginActivity.java,f/2/f2e8d4900b570a83e8e063454d11089c9959c700
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+h
+8app/src/main/java/com/ideofuzion/btm/BTMApplication.java,4/a/4a13e96431779118071a80f4881da99cdb0cfe8d
+g
+7app/src/main/java/com/ideofuzion/btm/model/QRModel.java,1/b/1ba414e9f0b71f91b3ce7f6d10bd84bbca7b121e
+n
+>app/src/main/java/com/ideofuzion/btm/utils/SessionManager.java,e/2/e297122f28e371880839e3a0846dc9cd6832b3c7
+L
+libs/zxing-core/build.gradle,2/3/23b96aa303f6d8dc382c1d081422fc2b9e0abecb
+O
+libs/zxing-android/build.gradle,b/f/bf18467cfe3946e7257bf1f8a9fb63dfb95bdcbc
+?
+settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
+ë
+aapp/src/main/java/com/ideofuzion/btm/main/settings/profitwalletsetup/NewProfitWalletActivity.java,f/c/fc35af9fcfe18ae97ec566c3f4cbd53bda19a38a

@@ -20,6 +20,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * this is class to handle all network calls
+ * made from the android device
+ *
+ */
 public class VolleyRequestHelper {
 
     /**

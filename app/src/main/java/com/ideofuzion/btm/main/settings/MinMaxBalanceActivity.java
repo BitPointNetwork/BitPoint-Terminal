@@ -33,7 +33,11 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to setip min max balance of application by providing form
+ * where user can input min and max balance and then the request is send to
+ * server
  */
 
 public class MinMaxBalanceActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -48,7 +52,10 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
     private boolean isFromRegistration = false;
     private Button cancel;
 
-
+    /**
+     * this function will be called each time the activity starts
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +68,12 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
         }catch (Exception e)
         {}
     }
-
+    /**
+     * getting data from intent,
+     * initializing dialog helper object,
+     * initiating fonts object and other ui resources, applying font to those ui resources
+     * and applying click listener as well
+     */
     public void initResources() {
 
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
@@ -106,8 +118,16 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
             }
         });
 
+
+        //init data
+        edit_minMaxBalance_minBalance.setText(BTMApplication.getInstance().getBTMUserObj().getMinimumHotWalletBalance());
+        edit_minMaxBalance_maxBalance.setText(BTMApplication.getInstance().getBTMUserObj().getMaximumHotWalletBalance());
+
     }
 
+    /**
+     * sending min max setup request to server
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_UPDATE_MIN_MAX_BALANCE;
 
@@ -122,6 +142,10 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
     }
 
 
+    /**
+     * validating edit text fields
+     * @return
+     */
     boolean validateFields() {
         if (edit_minMaxBalance_minBalance.getText().toString().isEmpty()) {
             AlertMessage.showError(edit_minMaxBalance_maxBalance, "Please enter min balance value");
@@ -136,6 +160,13 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
         return true;
     }
 
+
+
+    /**
+     * this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -145,6 +176,11 @@ public class MinMaxBalanceActivity extends Activity implements Response.Listener
 
     }
 
+    /**
+     * this function will be called when
+     * server successfully executes min mac balance setup request
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {

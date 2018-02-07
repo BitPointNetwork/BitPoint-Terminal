@@ -75,7 +75,7 @@
                 android:background="@drawable/background_transparent"
                 android:drawablePadding="10dp"
                 android:gravity="bottom"
-                android:hint="Enter Hot Wallet Beneficiary"
+                android:hint="Enter Hot Wallet Beneficiary(optional)"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:singleLine="true"

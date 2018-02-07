@@ -1,12 +1,12 @@
 
-=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
-~squid:S00116"hRename this field "textView_hotWalletAddressText" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¦Ùê
-„squid:S00116"iRename this field "textView_hotWalletAddressValue" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬­şÿÿÿÿ
 squid:S00116"dRename this field "text_minMaxBalance_header" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­–Û„úÿÿÿÿ
-osquid:S00116"TRename this field "text_copy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾šğÜÿÿÿÿÿ
+„squid:S00116"iRename this field "textView_hotWalletAddressValue" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬­şÿÿÿÿ
 usquid:S1450"[Remove the "fontSemiBold" field and declare it as a local variable in the relevant methods.(³‹“ìÿÿÿÿÿ
-Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
-nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
-ksquid:UselessImportCheck"DRemove this unused import 'com.google.android.gms.vision.text.Text'.(Ê¥üıÿÿÿÿ
 ?squid:S00108")Either remove or fill this block of code.(”ı¾
+~squid:S00116"hRename this field "textView_hotWalletAddressText" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¦Ùê
+lsquid:S1450"WRemove the "fontBold" field and declare it as a local variable in the relevant methods.(”ãµ
+nsquid:S1450"ZRemove the "fontRegular" field and declare it as a local variable in the relevant methods.(ƒ¨şK
+osquid:S00116"TRename this field "text_copy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾šğÜÿÿÿÿÿ
+Csquid:S1068"/Remove this unused "fontRegular" private field.(ƒ¨şK
+ksquid:UselessImportCheck"DRemove this unused import 'com.google.android.gms.vision.text.Text'.(Ê¥üıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

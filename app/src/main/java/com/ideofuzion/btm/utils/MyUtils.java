@@ -41,15 +41,24 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by Ideofuzion on 9/23/2017.
+ *
+ * this class has all the utils functions that are used
+ * all around the applications
  */
 
 public class MyUtils {
+    /**
+     * checking if the string is null or empty
+     * @param string string to check
+     * @return
+     */
     public static boolean isNullOrEmpty(String string) {
         if (string == null || string.length() == 0)
             return true;
@@ -80,14 +89,18 @@ public class MyUtils {
     }
 
     public static String getDecimalFormattedAmount(String amount) {
-        return String.format("%.5f", Double.parseDouble(amount));
+        double d = Double.valueOf(amount);
+        if (d == (long) d)
+            return String.format("%d", (long) d);
+        else
+            return amount;
     }
 
     public static void setUnreadNotificationStatus(Context context, boolean status) {
         SharedPreferences settings;
         SharedPreferences.Editor editor;
 
-        settings = context.getSharedPreferences("ethereum", Context.MODE_PRIVATE);
+        settings = context.getSharedPreferences("btc", Context.MODE_PRIVATE);
         editor = settings.edit();
 
         editor.putBoolean("status", status);
@@ -97,7 +110,7 @@ public class MyUtils {
 
     public static boolean getUnreadNotificationStatus(Context context) {
         SharedPreferences settings;
-        settings = context.getSharedPreferences("ethereum", Context.MODE_PRIVATE);
+        settings = context.getSharedPreferences("btc", Context.MODE_PRIVATE);
         return settings.getBoolean("status", false);
     }
 
@@ -233,31 +246,6 @@ public class MyUtils {
         return loginParams;
     }
 
-    public static String getPasswordStregth(String password) {
-        final String PASSWORD_PATTERN_VERY_STRONG =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})";
-        final String PASSWORD_PATTERN_STRONG =
-                "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})";
-        final String PASSWORD_PATTERN_WEAK =
-                "((?=.*[a-z])(?=.*[A-Z]).{6,20})";
-
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN_VERY_STRONG);
-        Matcher matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.VeryStrong.toString();
-        }
-        pattern = Pattern.compile(PASSWORD_PATTERN_STRONG);
-        matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.Strong.toString();
-        }
-        pattern = Pattern.compile(PASSWORD_PATTERN_WEAK);
-        matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return PaswordStrength.Weak.toString();
-        }
-        return PaswordStrength.Weak.toString();
-    }//end of function
 
     enum PaswordStrength {
         Weak("Weak"), Strong("Strong"), VeryStrong("Very Strong");
@@ -292,7 +280,7 @@ public class MyUtils {
                 if (String.valueOf(cellPhone.charAt(0)).equalsIgnoreCase("0")) {
                     cellPhone = cellPhone.substring(1, cellPhone.length());
                 }
-                return "+" + EthereumApplication.getInstance().countryCode + cellPhone;
+                return "+" + btcApplication.getInstance().countryCode + cellPhone;
             }
         }
         return cellPhone;
@@ -304,8 +292,8 @@ public class MyUtils {
             File data = Environment.getDataDirectory();
 
             if (sd.canWrite()) {
-                String currentDBPath = "/data/data/" + context.getPackageName() + "/databases/ethereum.db";
-                String backupDBPath = "ethereum.db";
+                String currentDBPath = "/data/data/" + context.getPackageName() + "/databases/btc.db";
+                String backupDBPath = "btc.db";
                 File currentDB = new File(currentDBPath);
                 File backupDB = new File(sd, backupDBPath);
 
@@ -320,6 +308,7 @@ public class MyUtils {
         } catch (Exception e) {
 
         }
+
     }
 
     public static void hideSoftKeyboard(Activity activity) {
@@ -352,5 +341,11 @@ public class MyUtils {
                 hideKeyboardOnTocuhAnyWhereElse(activity, innerView);
             }
         }
+    }
+    public static boolean isValidBTCAddress(String btcAddress){
+        boolean isValid = false;
+        String regex = "^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$\n";
+        isValid=btcAddress.matches(regex);
+        return isValid;
     }
 }

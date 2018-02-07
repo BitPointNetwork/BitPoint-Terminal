@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_sell_header"
@@ -11,14 +13,14 @@
         android:background="@drawable/background_scanqractivity_title"
         android:gravity="center_horizontal"
         android:padding="16dp"
-        android:text="Scan QR"
+        android:text="Sell Bitcoins"
         android:textColor="@color/text_hint_color" />
 
 
-    <LinearLayout
+    <FrameLayout
 
-        android:layout_width="600dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
         android:orientation="vertical">
@@ -27,49 +29,63 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="25dp"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
+
             <ImageView
                 android:id="@+id/imageView_sell_qrCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="45dp" />
-        </LinearLayout>
+                android:padding="7dp" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout_sell_buttonContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/cancel"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/background_cancel_button_all_rounded"
-                android:minHeight="80dp"
-                android:text="Dismiss"
-                android:textAllCaps="false"
+            <TextView
+                android:id="@+id/txt_sell_merchantwalletaddr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="26sp" />
+                android:textSize="@dimen/txt_sell_hotwallet_addr"
+                android:paddingBottom="15dp"
+                tools:text="HELLO" />
 
-            <Button
-                android:id="@+id/button_sell_startListening"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_background"
-                android:minHeight="80dp"
-                android:text="Track"
-                android:textAllCaps="false"
-                android:textSize="26sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_sell_buttonContainer"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_cancel_button_all_rounded"
+                    android:minHeight="80dp"
+                    android:text="Dismiss"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="26sp" />
+
+                <Button
+                    android:id="@+id/button_sell_startListening"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:minHeight="80dp"
+                    android:text="Track"
+                    android:textAllCaps="false"
+                    android:textSize="26sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -93,9 +109,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
                 android:text="Tracking transaction confirmation..."
                 android:textColor="@color/text_hint_color" />
         </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

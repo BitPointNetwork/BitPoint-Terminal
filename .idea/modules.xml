@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/btm-atm-mobile-app.iml" filepath="$PROJECT_DIR$/btm-atm-mobile-app.iml" />
+      <module fileurl="file://E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\btm-atm-mobile-app.iml" filepath="E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\btm-atm-mobile-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
+      <module fileurl="file://E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\libs.iml" filepath="E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/zxing-android/zxing-android.iml" filepath="$PROJECT_DIR$/libs/zxing-android/zxing-android.iml" />
+      <module fileurl="file://E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\zxing-android\zxing-android.iml" filepath="E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\zxing-android\zxing-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/zxing-core/zxing-core.iml" filepath="$PROJECT_DIR$/libs/zxing-core/zxing-core.iml" />
+      <module fileurl="file://E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\zxing-core\zxing-core.iml" filepath="E:\Ideofuzion\BTM By Yasir Iqbal\btm-atm-mobile-app\libs\zxing-core\zxing-core.iml" />
     </modules>
   </component>
 </project>

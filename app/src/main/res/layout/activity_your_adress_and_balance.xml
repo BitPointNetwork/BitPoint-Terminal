@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ideofuzion.btm.main.settings.YourAddressAndBalanceActivity">
+
+    <TextView
+        android:id="@+id/text_yourBalance_header"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_scanqractivity_title"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Your address and Your balance"
+        android:textColor="@color/text_hint_color" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_yourBalance_yourBalanceText"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="Available Balance:"
+                android:textColor="@color/text_hint_color" />
+
+            <TextView
+                android:id="@+id/text_yourBalance_yourBalanceValue"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_yourBalance_yourAddressText"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="Your Address:"
+                android:textColor="@color/text_hint_color" />
+
+            <TextView
+
+                android:id="@+id/text_yourBalance_yourAddressValue"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/text_yourBalance_copy"
+                style="@android:style/TextAppearance.DeviceDefault.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="Copy"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_cancel_button_all_rounded"
+            android:minHeight="80dp"
+            android:text="Dismiss"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="26sp" />
+    </LinearLayout>
+</RelativeLayout>

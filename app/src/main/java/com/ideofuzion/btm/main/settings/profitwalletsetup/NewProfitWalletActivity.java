@@ -33,7 +33,9 @@ import java.util.Map;
 import static com.ideofuzion.btm.main.settings.PinCodeActivity.EXTRA_FROM_REGISTRATION;
 
 /**
- * Created by khali on 9/23/2017.
+ * Created by ideofuzion on 9/23/2017.
+ *
+ * this activity is used to create new profit wallet in the application
  */
 
 public class NewProfitWalletActivity extends Activity implements Response.Listener<JSONObject>, Response.ErrorListener, Constants.ResultCode {
@@ -48,6 +50,13 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
     private boolean isFromRegistration = false;
     private Button cancel;
 
+    /**
+     * this fucntion will be called when activity start
+     * and all the initial setting to run the activity is
+     * setup here
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +69,13 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
         }
     }
 
+    /**
+     * getting data from intents
+     * getting reference to ui resources from xml
+     * init font objects
+     * init data for initial startup
+     *
+     */
     public void initResources() {
         isFromRegistration = getIntent().getBooleanExtra(EXTRA_FROM_REGISTRATION, false);
 
@@ -103,6 +119,10 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
         });
     }
 
+    /**
+     * sending profit wallet creation request to server
+     *
+     */
     private void sendRequestToServer() {
         String url = Constants.BASE_SERVER_URL + Constants.ROUTE_CREATE_PROFIT_WALLET;
 
@@ -118,6 +138,13 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
     }
 
 
+    /**
+     * validating edit text fields
+     * returing true in success
+     * and returning false in failure
+     * and showing message to user in case of failure
+     * @return
+     */
     boolean validateFields() {
         if (profitWalletUserUsername.getText().toString().isEmpty()) {
             AlertMessage.showError(profitWalletUserPassword, "Please enter username");
@@ -132,6 +159,11 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
         return true;
     }
 
+    /**
+     this function will be called when the server throws an
+     * error when failed to connect to server
+     * @param error
+     */
     @Override
     public void onErrorResponse(VolleyError error) {
         if (dialogHelper != null) {
@@ -141,6 +173,12 @@ public class NewProfitWalletActivity extends Activity implements Response.Listen
 
     }
 
+    /**
+     * this fucntion will be called when server
+     * successfully executes the profit wallet creation request
+     *
+     * @param response
+     */
     @Override
     public void onResponse(JSONObject response) {
         if (dialogHelper != null) {
